@@ -93,7 +93,7 @@ Use a [FileSavePicker](/windows/windows-app-sdk/api/winrt/microsoft.windows.stor
     
     // (Optional) Sets the folder that the file save dialog displays when it opens.
     //     If not specified or the specified path doesn't exist, defaults to the last folder the user visited.
-    savePicker.SuggestedFolder = L"C:\\MyFiles",
+    savePicker.SuggestedFolder = L"C:\\MyFiles";
     
     // (Optional) specify the text displayed on the commit button. 
     //     If not specified, the system uses a default label of "Save" (suitably translated).
@@ -122,7 +122,7 @@ Use the [FileTypeChoices](/windows/windows-app-sdk/api/winrt/microsoft.windows.s
 > [!NOTE]
 > [FileSavePicker](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.filesavepicker) objects display the file picker using the [PickerViewMode.List](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.pickerviewmode) view mode.
 
-2. Next, show the **FileSavePicker** and save to the picked file location. Display the file picker by calling [PickSaveFileAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.filesavepicker.picksavefileasync). After the user specifies the name, file type, and location, and confirms to save the file, **PickSaveFileAsync** returns a lightweight [FilePickResult](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.pickfileresult) object that contains the path to the saved file and the filename. You can capture and process this file if you have read and write access to it.
+2. Next, show the **FileSavePicker** and save to the picked file location. Display the file picker by calling [PickSaveFileAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.filesavepicker.picksavefileasync). After the user specifies the name, file type, and location, and confirms to save the file, **PickSaveFileAsync** returns a lightweight [PickFileResult](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.pickfileresult) object that contains the path to the saved file and the filename. You can capture and process this file if you have read and write access to it.
 
 ```csharp
     using Microsoft.Windows.Storage.Pickers;
@@ -186,7 +186,7 @@ The example checks if the file exists and either creates a new file or appends t
 
 ## Related content
 
-[Windows.Storage.Pickers](/uwp/api/windows.storage.pickers)
+[Microsoft.Windows.Storage.Pickers namespace](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers)
 
 [Files, folders, and libraries with Windows App SDK](index.md)
 

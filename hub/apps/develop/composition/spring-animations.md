@@ -37,7 +37,7 @@ In each of these cases, the spring motion can be triggered either by "springing 
 
 ## Defining your spring motion
 
-You create a spring experience by using the NaturalMotionAnimation APIs. Specifically, you create a SpringNaturalMotionAnimation by using the Create* methods off the Compositor. You are then able to define the following properties of the motion:
+You create a spring experience by using the NaturalMotionAnimation APIs. Specifically, you create a [SpringScalarNaturalMotionAnimation](/uwp/api/windows.ui.composition.springscalarnaturalmotionanimation), [SpringVector2NaturalMotionAnimation](/uwp/api/windows.ui.composition.springvector2naturalmotionanimation), or [SpringVector3NaturalMotionAnimation](/uwp/api/windows.ui.composition.springvector3naturalmotionanimation) by using the corresponding `CreateSpring*Animation` methods off the Compositor. You are then able to define the following properties of the motion:
 
 - DampingRatio – expresses the level of damping of the spring motion used in the animation.
 
@@ -106,7 +106,7 @@ To do this, you can take our same Spring Animation and pass it into an InertiaMo
 
 ```csharp
 // InteractionTracker and the VisualInteractionSource were previously set up.
-// The open and close ScalarSpringAnimations were defined earlier.
+// The open and close spring animations were defined earlier.
 private void SetupInput()
 {
     // Define the InertiaModifier to manage the open motion.
@@ -138,7 +138,7 @@ private void SetupInput()
     exp.SetReferenceParameter("tracker", _tracker);
 
     ElementCompositionPreview.GetElementVisual(pageNavigation)
-        .StartAnimation("Translation.X", exp);
+        .StartAnimation("Offset.X", exp);
 }
 ```
 
