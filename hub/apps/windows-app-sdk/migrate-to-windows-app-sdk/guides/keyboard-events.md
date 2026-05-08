@@ -152,10 +152,10 @@ public sealed partial class MainWindow : Window
 ### UWP APIs
 
 * [CoreWindow class (Windows.UI.Core)](/uwp/api/windows.ui.core.corewindow)
-* [KeyboardAccelerator class (Microsoft.UI.Xaml.Input)](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyboardaccelerator)
-* [UIElement.CharacterReceived event (Microsoft.UI.Xaml)](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.characterreceived)
-* [UIElement.KeyDown event (Microsoft.UI.Xaml)](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keydown)
-* [UIElement.KeyUp event (Microsoft.UI.Xaml)](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keyup)
+* [KeyboardAccelerator class (Windows.UI.Xaml.Input)](/uwp/api/windows.ui.xaml.input.keyboardaccelerator)
+* [UIElement.CharacterReceived event (Windows.UI.Xaml)](/uwp/api/windows.ui.xaml.uielement.characterreceived)
+* [UIElement.KeyDown event (Windows.UI.Xaml)](/uwp/api/windows.ui.xaml.uielement.keydown)
+* [UIElement.KeyUp event (Windows.UI.Xaml)](/uwp/api/windows.ui.xaml.uielement.keyup)
 
 ### WinUI APIs (Windows App SDK)
 
