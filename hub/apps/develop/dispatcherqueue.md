@@ -166,7 +166,7 @@ void Main()
     // Create a Windows App SDK DispatcherQueue.
     auto dispatcherQueueController{winrt::DispatcherQueueController::CreateOnCurrentThread()};
 
-    auto appWindow = AppWindow::Create(nullptr, WindowId{}, dispatcherQueueController.DispatcherQueue());
+    auto appWindow = AppWindow::Create(nullptr, Microsoft::UI::WindowId{}, dispatcherQueueController.DispatcherQueue());
 
     // Since we associated the DispatcherQueue above with the AppWindow, we're able to retrieve it 
     // as a property. If we were to not associate a dispatcher, this property would be null.
