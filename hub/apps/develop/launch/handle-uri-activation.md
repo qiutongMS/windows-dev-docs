@@ -21,7 +21,7 @@ These steps show how to register for a custom URI scheme name, `alsdk://`, and h
 The following APIs are used in this topic:
 
 - [Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs](/uwp/api/Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs)
-- [Windows.UI.Xaml.Application.OnActivated](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.onactivated)
+- [Windows.UI.Xaml.Application.OnActivated](/uwp/api/windows.ui.xaml.application.onactivated)
 - [AppInstance.GetActivatedEventArgs](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance.getactivatedeventargs)
 
 > [!NOTE]
@@ -80,7 +80,7 @@ Apps that become the default for a URI scheme name have their icons displayed in
 > [!NOTE]
 > In a WinUI app, in App.OnLaunched (or in fact at any time) you can call ([AppInstance.GetActivatedEventArgs](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance.getactivatedeventargs)) to retrieve the activated event args, and check them to determine how the app was activated. See [Application lifecycle functionality migration](/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/applifecycle) for more information about lifecycle differences between UWP and WinUI apps.
 
-In UWP apps, the [OnActivated](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.onactivated) event handler receives all activation events. The **Kind** property indicates the type of activation event. This example is set up to handle [Protocol](/uwp/api/Windows.ApplicationModel.Activation.ActivationKind) activation events.
+In UWP apps, the [OnActivated](/uwp/api/windows.ui.xaml.application.onactivated) event handler receives all activation events. The **Kind** property indicates the type of activation event. This example is set up to handle [Protocol](/uwp/api/Windows.ApplicationModel.Activation.ActivationKind) activation events.
 
 ```csharp
 public partial class App
