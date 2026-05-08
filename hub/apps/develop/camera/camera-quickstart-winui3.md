@@ -29,7 +29,7 @@ In Visual Studio, create a new project. In the **Create a new project** dialog, 
 
 The simple UI for this example includes a **MediaPlayerElement** control for displaying the camera preview, a [ComboBox](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.combobox) that allows you to select from the device's cameras, and buttons for initializing the **MediaCapture** class, starting and stopping the camera preview, and resetting the sample. We also include a [TextBlock](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textblock) for displaying status messages.
 
-In your project's MainWindow.xml file, replace the default **StackPanel** control with the following XAML.
+In your project's MainWindow.xaml file, replace the default **StackPanel** control with the following XAML.
 
 :::code language="xaml" source="~/../snippets-windows/winappsdk/audio-video-camera/camera-winui/CS/CameraWinUI/MainWindow.xaml" id="SnippetCameraWinUIXaml":::
 

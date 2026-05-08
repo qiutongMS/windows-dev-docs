@@ -209,10 +209,15 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 …
 ```
 
-Finally, you can use the DWM API to set the title bar to use a dark color. Here, you create a `BOOL` called `value` and set it to `TRUE`. This `BOOL` is used to trigger this Windows attribute setting. Then, you use `DwmSetWindowAttribute` to change the window attribute to use Dark mode colors.
+Finally, you can use the DWM API to set the title bar to use a dark color. Here, you create a `BOOL` called `value` and set it to `TRUE`. This `BOOL` is used to trigger this Windows attribute setting. Then, you use `DwmSetWindowAttribute` to change the window attribute to use Dark mode colors. To switch back to a light title bar, keep `DWMWA_USE_IMMERSIVE_DARK_MODE` as the `dwAttribute` value and set the `BOOL` passed through `pvAttribute` to `FALSE`.
 
 ```cpp
 BOOL value = TRUE;
+::DwmSetWindowAttribute(hWnd, DWMWA_USE_IMMERSIVE_DARK_MODE, &value, sizeof(value));
+```
+
+```cpp
+BOOL value = FALSE;
 ::DwmSetWindowAttribute(hWnd, DWMWA_USE_IMMERSIVE_DARK_MODE, &value, sizeof(value));
 ```
 
@@ -229,9 +234,9 @@ HRESULT DwmSetWindowAttribute(
 );
 ```
 
-After passing `hWnd` (the handle to the window you want to change) as your first parameter, you need to pass in `DWMWA_USE_IMMERSIVE_DARK_MODE` as the `dwAttribute` parameter. This is a constant in the DWM API that lets the Windows frame be drawn in Dark mode colors when the Dark mode system setting is enabled. If you switch to Light mode, you will have to change `DWMWA_USE_IMMERSIVE_DARK_MODE` from 20 to 0 for the title bar to be drawn in light mode colors.
+After passing `hWnd` (the handle to the window you want to change) as your first parameter, you need to pass in `DWMWA_USE_IMMERSIVE_DARK_MODE` as the `dwAttribute` parameter. This is the DWM window attribute identifier for immersive Dark mode.
 
-The `pvAttribute` parameter points to a value of type `BOOL` (which is why you made the `BOOL` value earlier). You need `pvAttribute` to be `TRUE` to honor Dark mode for the window. If `pvAttribute` is `FALSE`, the window will use Light Mode.
+The `pvAttribute` parameter points to a value of type `BOOL` (which is why you made the `BOOL` value earlier). Set `pvAttribute` to `TRUE` to honor Dark mode for the window. Set `pvAttribute` to `FALSE` to use Light mode while keeping `DWMWA_USE_IMMERSIVE_DARK_MODE` as the attribute identifier.
 
 Lastly, `cbAttribute` needs to have the size of the attribute being set in `pvAttribute`. To do easily do this, we pass in `sizeof(value)`.
 

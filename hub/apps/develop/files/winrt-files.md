@@ -25,6 +25,9 @@ This article focuses on the [WinRT storage APIs](/uwp/api/windows.storage) and d
 
 The following example shows how to use the [StorageFolder](/uwp/api/windows.storage.storagefolder) and [StorageFile](/uwp/api/windows.storage.storagefile) APIs to query the **Documents** library for files and folders. The example uses the `GetFilesInFolderAsync` method to recursively iterate through the folder structure and append the file names to a `StringBuilder` object.
 
+> [!NOTE]
+> To access `KnownFolders.DocumentsLibrary` in a packaged app, declare the `documentsLibrary` capability in your package manifest.
+
 ```csharp
 using System.Text;
 using Windows.Storage;
@@ -92,6 +95,9 @@ private async Task GetFilesInFolderAsync(StorageFolder folder, StringBuilder out
 ## Working with the Pictures library
 
 In this example, the app is configured to receive notifications when the **Pictures** library is updated. The example uses the [StorageLibrary](/uwp/api/windows.storage.storagelibrary) API to retrieve the **Pictures** library and the [DefinitionChanged](/uwp/api/windows.storage.storagelibrary.definitionchanged) event to receive notifications when the library is updated. The `DefinitionChanged` event is invoked when the list of folders in the current library changes. The example uses the library's `Folders` property to iterate through the folders in the **Pictures** library and writes the folder name to the console.
+
+> [!NOTE]
+> To access the Pictures library in a packaged app, declare the `picturesLibrary` capability in your package manifest before calling `StorageLibrary.GetLibraryAsync(KnownLibraryId.Pictures)`.
 
 ```csharp
 using Windows.Storage;

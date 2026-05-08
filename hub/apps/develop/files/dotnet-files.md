@@ -71,12 +71,16 @@ private void ReadWriteFiles(string fileName)
 
 The following example shows how to use the [DirectoryInfo](/dotnet/api/system.io.directoryinfo) and [Directory](/dotnet/api/system.io.directory) classes to create, delete, and manage folders. The example uses the `DirectoryInfo` class to create a new directory, create a subdirectory, and delete the directory. The `DirectoryInfo` class provides methods for creating, moving, and enumerating through directories and subdirectories. The `Directory` class provides *static* methods for creating, moving, and enumerating through directories and subdirectories.
 
+In a packaged WinUI app, use a location your app can access, such as an app-data folder or a path the user selected. This example uses the user's local app-data folder so it can run without additional file-system permissions.
+
 ```csharp
+using System;
 using System.IO;
 ...
 private void FolderTest()
 {
-    FolderManagement(@"c:\MyDir", "Projects");
+    string appDataPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "MyDir");
+    FolderManagement(appDataPath, "Projects");
 }
 private void FolderManagement(string path, string subfolderName)
 {
