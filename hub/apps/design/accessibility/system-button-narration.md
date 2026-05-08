@@ -36,7 +36,7 @@ In the following examples, we show how to create a [SystemButtonEventController]
 
 It is common for more than one of the supported events to fire when the Fn button is pressed. For example, pressing the Fn button on a Surface keyboard fires SystemFunctionButtonPressed, SystemFunctionLockChanged, and SystemFunctionLockIndicatorChanged at the same time.
 
-1. In this first snippet, we simply include the required namespaces and specify some global objects, including the [DispatcherQueue](/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueue) and the [DispatcherQueueController](/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueuecontroller) objects for managing the [SystemButtonEventController](/uwp/api/windows.ui.input.systembuttoneventcontroller) thread.
+1. In this first snippet, we simply include the required namespaces and specify some global objects, including the [Windows.System.DispatcherQueue](/uwp/api/windows.system.dispatcherqueue) and the [Windows.System.DispatcherQueueController](/uwp/api/windows.system.dispatcherqueuecontroller) objects for managing the [SystemButtonEventController](/uwp/api/windows.ui.input.systembuttoneventcontroller) thread.
 
    We then specify the [event tokens](/uwp/cpp-ref-for-winrt/event-token) returned when registering the [SystemButtonEventController](/uwp/api/windows.ui.input.systembuttoneventcontroller) event-handling delegates.
 

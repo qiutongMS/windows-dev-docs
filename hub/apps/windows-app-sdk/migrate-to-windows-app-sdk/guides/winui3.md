@@ -76,12 +76,12 @@ winrt::Microsoft::UI::Xaml::Window App::window{ nullptr };
 Then, within the **App** class itself, you can change `Window.Current` to simply `window`. Outside of the **App** class, change `Window.Current` to `App.Window`, like this:
 
 ```csharp
-// MainPage.xaml.cs in a UWP app
+// MainPage.xaml.cs in a Windows App SDK app
 var width = App.Window.Bounds.Width;
 ```
 
 ```cppwinrt
-// MainPage.xaml.cpp in a UWP app
+// MainPage.xaml.cpp in a Windows App SDK app
 #include <App.xaml.h>
 auto width{ App::Window().Bounds().Width };
 ```
