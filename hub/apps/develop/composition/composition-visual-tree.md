@@ -132,7 +132,7 @@ using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Hosting;
 using Microsoft.UI.Xaml.Input;
 using Windows.Foundation;
-using Windows.UI;
+using Microsoft.UI;
 
 namespace CompositionVisualSample
 {

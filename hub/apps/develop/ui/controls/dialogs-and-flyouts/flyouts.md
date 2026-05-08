@@ -176,11 +176,13 @@ In the following example, all three buttons inside FavoritesBar will be activate
             <Button x:Name="Folder2" Content="Entertainment" Click="Folder2_Click"/>
         </StackPanel>
         <ScrollViewer Grid.Row="1">
-            <WebView x:Name="WebContent"/>
+            <WebView2 x:Name="WebContent"/>
         </ScrollViewer>
     </Grid>
 </Page>
 ```
+
+In a WinUI 3 app, make sure your project references the Microsoft.Web.WebView2 package before using the `WebView2` control.
 
 ```csharp
 private void Folder2_Click(object sender, RoutedEventArgs e)

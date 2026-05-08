@@ -209,7 +209,7 @@ After you have generated some PodcastObjects, you can create a list of podcasts 
     </ListView.ItemTemplate>
     <ListView.ItemContainerStyle>
         <!-- The PodcastUserControl will entirely fill the ListView item and handle tabbing within itself. -->
-        <Style TargetType="ListViewItem" BasedOn="{StaticResource ListViewItemRevealStyle}">
+        <Style TargetType="ListViewItem">
             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
             <Setter Property="Padding" Value="0"/>
             <Setter Property="IsTabStop" Value="False"/>
@@ -284,8 +284,8 @@ This example walks through how to add the KeyDown handler to the PodcastUserCont
 // Respond to the F and Ctrl+S keys to favorite the focused item.
 protected override void OnKeyDown(KeyRoutedEventArgs e)
 {
-    var ctrlState = CoreWindow.GetForCurrentThread().GetKeyState(VirtualKey.Control);
-    var isCtrlPressed = (ctrlState & CoreVirtualKeyStates.Down) == CoreVirtualKeyStates.Down || (ctrlState & CoreVirtualKeyStates.Locked) == CoreVirtualKeyStates.Locked;
+    var ctrlState = Microsoft.UI.Input.InputKeyboardSource.GetKeyStateForCurrentThread(Windows.System.VirtualKey.Control);
+    var isCtrlPressed = (ctrlState & Windows.UI.Core.CoreVirtualKeyStates.Down) == Windows.UI.Core.CoreVirtualKeyStates.Down || (ctrlState & Windows.UI.Core.CoreVirtualKeyStates.Locked) == Windows.UI.Core.CoreVirtualKeyStates.Locked;
 
     if (e.Key == Windows.System.VirtualKey.F || (e.Key == Windows.System.VirtualKey.S && isCtrlPressed))
     {

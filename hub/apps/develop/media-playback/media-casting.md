@@ -56,7 +56,7 @@ In the **Click** event handler for the button, call [**TransformToVisual**](/win
 In the **CastingDeviceSelected** event handler, call the [**CreateCastingConnection**](/uwp/api/windows.media.casting.castingdevice.createcastingconnection) method of the [**SelectedCastingDevice**](/uwp/api/windows.media.casting.castingdeviceselectedeventargs.selectedcastingdevice) property of the event args, which represents the casting device selected by the user. Register handlers for the [**ErrorOccurred**](/uwp/api/windows.media.casting.castingconnection.erroroccurred) and [**StateChanged**](/uwp/api/windows.media.casting.castingconnection.statechanged) events. Finally, call [**RequestStartCastingAsync**](/uwp/api/windows.media.casting.castingconnection.requeststartcastingasync) to begin casting, passing in the result to the **MediaPlayerElement** control's **MediaPlayer** object's [**GetAsCastingSource**](/uwp/api/windows.media.playback.mediaplayer.getascastingsource) method to specify that the media to be cast is the content of the **MediaPlayer** associated with the **MediaPlayerElement**.
 
 > [!NOTE] 
-> The casting connection must be initiated on the UI thread. Since the **CastingDeviceSelected** is not called on the UI thread, you must place these calls inside a call to [**DispatcherQueue.TryEnqueue**](/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueue.tryenqueue) which causes them to be called on the UI thread.
+> Again, because the UI is being updated, this call must be made by dispatching to the UI thread with [**DispatcherQueue.TryEnqueue**](/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueue.tryenqueue).
 
 :::code language="csharp" source="~/../snippets-windows/winappsdk/audio-video-camera/media-casting-winui/cs/MediaCasting_WinUI/MainWindow.xaml.cs" id="SnippetCastingDeviceSelected":::
 
@@ -95,7 +95,7 @@ Add the **CastingDevice** to the casting device **ListBox** so that the user can
 
 :::code language="csharp" source="~/../snippets-windows/winappsdk/audio-video-camera/media-casting-winui/cs/MediaCasting_WinUI/MainWindow.xaml.cs" id="SnippetWatcherAdded":::
 
-The **Removed** event is raised when the watcher detects that a casting device is no longer present. Compare the ID property of the **Added** object passed into the handler to the ID of each **Added** in the list box's [**Items**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemscontrol.items) collection. If the ID matches, remove that object from the collection. Again, because the UI is being updated, this call must be made from within a **RunAsync** call.
+The **Removed** event is raised when the watcher detects that a casting device is no longer present. Compare the ID property of the **Added** object passed into the handler to the ID of each **Added** in the list box's [**Items**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemscontrol.items) collection. If the ID matches, remove that object from the collection. Again, because the UI is being updated, this call must be made from within a [**DispatcherQueue.TryEnqueue**](/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueue.tryenqueue) call.
 
 :::code language="csharp" source="~/../snippets-windows/winappsdk/audio-video-camera/media-casting-winui/cs/MediaCasting_WinUI/MainWindow.xaml.cs" id="SnippetWatcherRemoved":::
 

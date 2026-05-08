@@ -82,16 +82,26 @@ Include a 44x44 icon with your project so that your logo can appear in those loc
 
 ## Step 3: Handle the activated event
 
-The [OnFileActivated](/uwp/api/windows.ui.xaml.application.onfileactivated) event handler receives all file activation events.
+In a WinUI app, call [AppInstance.GetActivatedEventArgs](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance.getactivatedeventargs) from **OnLaunched** to retrieve file activation info.
 
 ```csharp
-protected override void OnFileActivated(FileActivatedEventArgs args)
+using Microsoft.Windows.AppLifecycle;
+using Windows.ApplicationModel.Activation;
+
+protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
 {
-       // TODO: Handle file activation
-       // The number of files received is args.Files.Count
-       // The name of the first file is args.Files[0].Name
+    var activatedArgs = AppInstance.GetCurrent().GetActivatedEventArgs();
+    if (activatedArgs.Kind == ExtendedActivationKind.File &&
+        activatedArgs.Data is IFileActivatedEventArgs fileArgs)
+    {
+        // TODO: Handle file activation
+        // The number of files received is fileArgs.Files.Count
+        // The name of the first file is fileArgs.Files[0].Name
+    }
 }
 ```
+
+For UWP apps, the following samples use the [OnFileActivated](/uwp/api/windows.ui.xaml.application.onfileactivated) override.
 
 ```cppwinrt
 void App::OnFileActivated(Windows::ApplicationModel::Activation::FileActivatedEventArgs const& args)
@@ -113,9 +123,6 @@ void App::OnFileActivated(Windows::ApplicationModel::Activation::FileActivatedEv
 
 > [!NOTE]
 > When launched via File Contract, make sure that Back button takes the user back to the screen that launched the app and not to the app's previous content.
-
-> [!NOTE]
-> In a WinUI app, in App.OnLaunched (or in fact at any time) you can call ([AppInstance.GetActivatedEventArgs](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance.getactivatedeventargs)) to retrieve the activated event args, and check them to determine how the app was activated. See [Application lifecycle functionality migration](/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/applifecycle) for more information about lifecycle differences between UWP and WinUI apps.
 
 We recommend that you create a new XAML **Frame** for each activation event that opens a new page. That way, the navigation backstack for the new XAML Frame doesn't contain any previous content that the app might have on the current window when suspended. If you decide to use a single XAML **Frame** for Launch and for File Contracts, then you should clear the pages in the **Frame**'s navigation journal before navigating to a new page.
 

@@ -165,10 +165,15 @@ Changing the foreground color for the ProgressRing will change the fill color of
 
 ### Showing a wait cursor
 
-Sometimes it's best to just show a brief wait cursor, when the app or operation needs time to think, and you need to indicate to the user that the app or area where the wait cursor is visible should not be interacted with until the wait cursor has disappeared.
+Sometimes it's best to just show a brief wait cursor when the app or operation needs time to think, and you need to indicate to the user that the app or area where the wait cursor is visible should not be interacted with until the wait cursor has disappeared. In WinUI 3, set the cursor on a XAML element by using `ProtectedCursor`.
 
 ```csharp
-Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Wait, 10);
+using Microsoft.UI.Input;
+
+myPanel.ProtectedCursor = InputSystemCursor.Create(InputSystemCursorShape.Wait);
+
+// Clear the cursor when the operation finishes.
+myPanel.ProtectedCursor = null;
 ```
 
 ## Related articles

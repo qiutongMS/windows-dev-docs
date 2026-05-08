@@ -97,7 +97,7 @@ In this example, we show how to enhance a basic [ListView](../../../design/contr
 
 **Xaml:**
 
-The sample UI includes a [ListView](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listview) of five items. The Delete [StandardUICommand](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.standarduicommand) is bound to a [MenuBarItem](/uwp/api/microsoft.ui.xaml.controls.menubaritem), a [SwipeItem](/uwp/api/microsoft.ui.xaml.controls.swipeitem), an [AppBarButton](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbarbutton), and [ContextFlyout menu](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.contextflyout).
+The sample UI includes a [ListView](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listview) of five items. The Delete [StandardUICommand](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.standarduicommand) is bound to a [MenuBarItem](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.menubaritem), a [SwipeItem](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.swipeitem), an [AppBarButton](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbarbutton), and [ContextFlyout menu](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.contextflyout).
 
 ``` xaml
 <Page
@@ -379,7 +379,7 @@ Many platform controls use the XamlUICommand properties under the covers, just l
 
 **Xaml:**
 
-The sample UI includes a [ListView](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listview) of five items. The custom [XamlUICommand](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.xamluicommand) CustomXamlUICommand is bound to a [MenuBarItem](/uwp/api/microsoft.ui.xaml.controls.menubaritem), a [SwipeItem](/uwp/api/microsoft.ui.xaml.controls.swipeitem), an [AppBarButton](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbarbutton), and [ContextFlyout menu](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.contextflyout).
+The sample UI includes a [ListView](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listview) of five items. The custom [XamlUICommand](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.xamluicommand) CustomXamlUICommand is bound to a [MenuBarItem](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.menubaritem), a [SwipeItem](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.swipeitem), an [AppBarButton](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbarbutton), and [ContextFlyout menu](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.contextflyout).
 
 ``` xaml
 <Page
@@ -739,12 +739,12 @@ In this basic example, we demonstrate how a single command can be invoked with a
 In code-behind, we connect to our view model that contains our command code. In addition, we define a handler for input from the mouse wheel, which also connects our command code.
 
 ```csharp
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Input;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Input;
 using UICommand1.ViewModel;
 using Windows.System;
-using Windows.UI.Core;
 
 namespace UICommand1.View
 {
@@ -775,8 +775,8 @@ namespace UICommand1.View
 
             // Require CTRL key and accept only vertical mouse wheel movement 
             // to eliminate accidental wheel input.
-            if ((Window.Current.CoreWindow.GetKeyState(VirtualKey.Control) != 
-                CoreVirtualKeyStates.None) && !props.IsHorizontalMouseWheel)
+            if ((InputKeyboardSource.GetKeyStateForCurrentThread(VirtualKey.Control) != 
+                Windows.UI.Core.CoreVirtualKeyStates.None) && !props.IsHorizontalMouseWheel)
             {
                 bool delta = props.MouseWheelDelta < 0 ? true : false;
 
@@ -805,8 +805,8 @@ Our view model is where we define the execution details for the two commands in 
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Data;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
 
 namespace UICommand1.ViewModel
 {

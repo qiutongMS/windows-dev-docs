@@ -34,7 +34,7 @@ This UI is commonly used in apps such as photo viewers and app lists, where disp
 
 > [!div class="checklist"]
 >
-> - **Important APIs**: [PipsPager class](/uwp/api/microsoft.ui.xaml.controls.pipspager)
+> - **Important APIs**: [PipsPager class](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pipspager)
 
 > [!div class="nextstepaction"]
 > [Open the WinUI 3 Gallery app and see the PipsPager in action](winui3gallery://item/PipsPager)

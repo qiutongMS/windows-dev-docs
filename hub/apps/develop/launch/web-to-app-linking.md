@@ -114,22 +114,24 @@ Exclude paths are checked first and if there is a match the corresponding page w
 
 ## Handle links on Activation to link to content
 
-Navigate to **App.xaml.cs** in your app’s Visual Studio solution and in **OnActivated()** add handling for linked content. In the following example, the page that is opened in the app depends on the URI path:
+Navigate to **App.xaml.cs** in your app’s Visual Studio solution and in **OnLaunched()** add handling for linked content. In the following example, the page that is opened in the app depends on the URI path, and the app uses `AppInstance.GetActivatedEventArgs()` together with a stored `App.Window` reference:
 
-``` CS
-protected override void OnActivated(IActivatedEventArgs e)
+```CS
+protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
 {
-    Frame rootFrame = Window.Current.Content as Frame;
+    Frame rootFrame = App.Window.Content as Frame;
     if (rootFrame == null)
     {
-        ...
+        rootFrame = new Frame();
+        App.Window.Content = rootFrame;
     }
 
-    // Check ActivationKind, Parse URI, and Navigate user to content
+    // Check activation kind, parse the URI, and navigate the user to content.
     Type deepLinkPageType = typeof(MainPage);
-    if (e.Kind == ActivationKind.Protocol)
+    var activatedArgs = Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent().GetActivatedEventArgs();
+    if (activatedArgs.Kind == Microsoft.Windows.AppLifecycle.ExtendedActivationKind.Protocol &&
+        activatedArgs.Data is Windows.ApplicationModel.Activation.IProtocolActivatedEventArgs protocolArgs)
     {
-        var protocolArgs = (ProtocolActivatedEventArgs)e;        
         switch (protocolArgs.Uri.AbsolutePath)
         {
             case "/":
@@ -151,19 +153,15 @@ protected override void OnActivated(IActivatedEventArgs e)
         }
     }
 
-    if (rootFrame.Content == null)
-    {
-        // Default navigation
-        rootFrame.Navigate(deepLinkPageType, e);
-    }
+    rootFrame.Navigate(deepLinkPageType);
 
-    // Ensure the current window is active
-    Window.Current.Activate();
+    // Ensure the current window is active.
+    App.Window.Activate();
 }
 ```
 
 > [!IMPORTANT]
-> Make sure to replace the final `if (rootFrame.Content == null)` logic with `rootFrame.Navigate(deepLinkPageType, e);` as shown in the example above.
+> Make sure to navigate to `deepLinkPageType` after you've processed the activation arguments, even when the app already has a `Frame`.
 
 ## Test in a local validation tool
 
@@ -197,7 +195,7 @@ Verify that your app is closed. Press **Windows Key + R** to open the **Run** di
 
 Additionally, you can test your app by launching it from another app using the [LaunchUriAsync](/uwp/api/windows.system.launcher.launchuriasync) API. You can use this API to test on phones as well.
 
-If you would like to follow the protocol activation logic, set a breakpoint in the **OnActivated** event handler.
+If you would like to follow the protocol activation logic, set a breakpoint in the **OnLaunched** event handler.
 
 ## AppUriHandlers tips
 

@@ -69,7 +69,7 @@ Here, the [ItemsSource](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.con
 
 ### Bind ItemsSource in XAML
 
-You can also bind the [ItemsSource](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.itemssource) property to a collection in XAML. For more info, see [Data binding with XAML](/windows/uwp/data-binding/data-binding-quickstart).
+You can also bind the [ItemsSource](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsview.itemssource) property to a collection in XAML. For more info, see [Data binding in depth](/windows/apps/develop/platform/xaml/data-binding-in-depth).
 
 > [!IMPORTANT]
 > When you use the [x:Bind markup extension](/windows/apps/develop/platform/xaml/x-bind-markup-extension) in a DataTemplate, you have to specify the data type (`x:DataType`) on the data template.

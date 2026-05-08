@@ -16,19 +16,19 @@ In this topic, we cover what's involved in creating an attached layout (virtuali
 
 | **Get WinUI** |
 | - |
-| This control is included as part of WinUI, a NuGet package that contains new controls and UI features for Windows apps. For more info, including installation instructions, see the [WinUI overview](/uwp/toolkits/winui/). |
+| This control is included as part of the Windows App SDK. For more info, including installation instructions, see the [Windows App SDK overview](/windows/apps/windows-app-sdk/). |
 
 > **Important APIs**:
 
-> * [ScrollViewer](/uwp/api/windows.ui.xaml.controls.scrollviewer)
+> * [ScrollViewer](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollviewer)
 > * [ItemsRepeater](../controls/items-repeater.md)
-> * [Layout](/uwp/api/microsoft.ui.xaml.controls.layout)
->     * [NonVirtualizingLayout](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayout)
->     * [VirtualizingLayout](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout)
-> * [LayoutContext](/uwp/api/microsoft.ui.xaml.controls.layoutcontext)
->     * [NonVirtualizingLayoutContext](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayoutcontext)
->     * [VirtualizingLayoutContext](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext)
-> * [LayoutPanel](/uwp/api/microsoft.ui.xaml.controls.layoutpanel) (Preview)
+> * [Layout](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.layout)
+>     * [NonVirtualizingLayout](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.nonvirtualizinglayout)
+>     * [VirtualizingLayout](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.virtualizinglayout)
+> * [LayoutContext](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.layoutcontext)
+>     * [NonVirtualizingLayoutContext](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.nonvirtualizinglayoutcontext)
+>     * [VirtualizingLayoutContext](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.virtualizinglayoutcontext)
+> * [LayoutPanel](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.layoutpanel) (Preview)
 
 ## Key Concepts
 

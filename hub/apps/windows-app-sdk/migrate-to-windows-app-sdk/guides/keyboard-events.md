@@ -72,7 +72,7 @@ public sealed partial class MainPage : Page
 
 ### WinUI APIs (Windows App SDK)
 
-WinUI (Windows App SDK) has a different concept from **CoreWindow**. Instead, WinUI provides an input event handling mechanism using **Microsoft.Ui.Xaml.UIElement** (UIElement). Each class that inherits from **UIElement** can implement various keyboard or pointer events (which are also present in UWP's **CoreWindow**) such as **KeyUp**, **KeyDown**, **CharacterReceived**, and others. This approach allows event handling at the level of a specific UI control.
+WinUI (Windows App SDK) has a different concept from **CoreWindow**. Instead, WinUI provides an input event handling mechanism using **Microsoft.UI.Xaml.UIElement** (UIElement). Each class that inherits from **UIElement** can implement various keyboard or pointer events (which are also present in UWP's **CoreWindow**) such as **KeyUp**, **KeyDown**, **CharacterReceived**, and others. This approach allows event handling at the level of a specific UI control.
 
 For detailed info about event handling, see [Keyboard events](/windows/apps/design/input/keyboard-events). You can associate keyboard events either XAML or in imperative source code. These examples demonstrate key event handling through code and accelerator key events in XAML.
 

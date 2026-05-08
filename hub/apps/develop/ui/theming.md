@@ -182,7 +182,7 @@ Color LightBlue = Color.FromArgb(255,54,192,255);
 ```
 
 ```cppwinrt
-Windows::UI::Color LightBlue = Windows::UI::ColorHelper::FromArgb(255,54,192,255);
+Windows::UI::Color LightBlue = Microsoft::UI::ColorHelper::FromArgb(255,54,192,255);
 ```
 
 The letters "Argb" stands for Alpha (opacity), Red, Green, and Blue, which are the four components of a color. Each argument can range from 0 to 255. You can choose to omit the first value, which will give you a default opacity of 255, or 100% opaque.

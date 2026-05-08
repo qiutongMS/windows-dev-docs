@@ -56,8 +56,7 @@ The WinUI 3 plugin's custom instructions guide Copilot to make correct substitut
 |---|---|
 | `Windows.UI.Xaml.*` | `Microsoft.UI.Xaml.*` |
 | `CoreDispatcher` / `RunAsync` | `DispatcherQueue` / `TryEnqueue` |
-| `MessageDialog` | `ContentDialog` (with `XamlRoot`) |
-| `Windows.UI.Popups` | `Microsoft.UI.Xaml.Controls` |
+| `Windows.UI.Popups.MessageDialog` | `Microsoft.UI.Xaml.Controls.ContentDialog` (with `XamlRoot`) |
 | `BackgroundTaskBuilder` | Windows App SDK background task APIs |
 
 ### What Copilot can and can't do automatically

@@ -209,10 +209,10 @@ private void OnListViewItemKeyDown(object sender, KeyRoutedEventArgs e)
         {
             case Windows.System.VirtualKey.GamepadDPadRight:
             case Windows.System.VirtualKey.GamepadLeftThumbstickRight:
-                var rawPixelsPerViewPixel = DisplayInformation.GetForCurrentView().RawPixelsPerViewPixel;
+                var rasterizationScale = focusedElementAsListViewItem.XamlRoot.RasterizationScale;
                 GeneralTransform generalTransform = focusedElementAsListViewItem.TransformToVisual(null);
                 Point startPoint = generalTransform.TransformPoint(new Point(0, 0));
-                Rect hintRect = new Rect(startPoint.X * rawPixelsPerViewPixel, startPoint.Y * rawPixelsPerViewPixel, 1, focusedElementAsListViewItem.ActualHeight * rawPixelsPerViewPixel);
+                Rect hintRect = new Rect(startPoint.X * rasterizationScale, startPoint.Y * rasterizationScale, 1, focusedElementAsListViewItem.ActualHeight * rasterizationScale);
                 candidate = FocusManager.FindNextFocusableElement(FocusNavigationDirection.Right, hintRect) as Control;
                 break;
         }

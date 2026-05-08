@@ -320,9 +320,9 @@ The [Closing](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.teac
 ```
 
 ```csharp
-private void OnTipClosing(muxc.TeachingTip sender, muxc.TeachingTipClosingEventArgs args)
+private void OnTipClosing(TeachingTip sender, TeachingTipClosingEventArgs args)
 {
-    if (args.Reason == muxc.TeachingTipCloseReason.CloseButton)
+    if (args.Reason == TeachingTipCloseReason.CloseButton)
     {
         using(args.GetDeferral())
         {

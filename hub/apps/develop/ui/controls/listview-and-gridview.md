@@ -47,7 +47,7 @@ The feature-rich ListView and GridView controls work *out of box*. They require 
 
 The [ItemsRepeater](../../../design/controls/items-repeater.md) control also is used to display collections, but it's designed as a building block for creating a custom control to suit your particular UI requirements. It doesn't have the same built-in features and functionality as ListView and GridView, so you'll need to implement any necessary features or interactions. Use ItemsRepeater if you have a highly customized UI that you can't create by using either ListView or GridView, or if your data source requires different behavior for each item.
 
-Learn more about ItemsRepeater by reading its [Guidelines](../../../design/controls/items-repeater.md) and [API documentation](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater).
+Learn more about ItemsRepeater by reading its [Guidelines](../../../design/controls/items-repeater.md) and [API documentation](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsrepeater).
 
 ## Create a list view or a grid view
 
@@ -185,7 +185,7 @@ Both of these options will produce the same list view, as shown in the following
 
 The next section goes into greater detail about how to visually represent simple and custom class items properly in a ListView or GridView template.
 
-For more info about data binding, see [Data binding overview](/windows/uwp/data-binding/data-binding-quickstart).
+For more info about data binding, see [Data binding in depth](/windows/apps/develop/platform/xaml/data-binding-in-depth).
 
 > [!NOTE]
 > If you need to show grouped data in your list view, you must bind to a [CollectionViewSource](/windows/windows-app-sdk/api/winrt/microsoft.UI.Xaml.Data.CollectionViewSource) class. CollectionViewSource acts as a proxy for the collection class in XAML and enables grouping support. For more info, see [CollectionViewSource](/windows/windows-app-sdk/api/winrt/microsoft.UI.Xaml.Data.CollectionViewSource).
