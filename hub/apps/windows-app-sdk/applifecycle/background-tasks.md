@@ -57,7 +57,7 @@ catch (...)
 }
 ```
 
-The following example shows how to register a background task using C#. In the Windows App SDK github sample, you can see this registration code in [MainWindow.Xaml.cpp](https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/BackgroundTask/InProc%20BackgroundTask/cs-winui/BackgroundTaskBuilder/MainWindow.xaml.cs#L79).
+The following example shows how to register a background task using C#. In the Windows App SDK github sample, you can see this registration code in [MainWindow.xaml.cs](https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/BackgroundTask/InProc%20BackgroundTask/cs-winui/BackgroundTaskBuilder/MainWindow.xaml.cs#L79).
 
 ```csharp
 await BackgroundExecutionManager.RequestAccessAsync();
@@ -81,7 +81,7 @@ builder.SetTaskEntryPointClsid(typeof(BackgroundTask).GUID);
 builder.Register();
 ```
 
-Note that the call to [SetEntryPointClsid](/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.background.backgroundtaskbuilder) method takes as an argument the GUID for an app-defined class that implements [IBackgroundTask](/uwp/api/windows.applicationmodel.background.ibackgroundtask). This interfaced is discussed in the section [Implement IBackgroundTask](#implement-ibackgroundtask) later in this article.
+Note that the call to the [SetTaskEntryPointClsid](/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.background.backgroundtaskbuilder.settaskentrypointclsid) method takes as an argument the GUID for an app-defined class that implements [IBackgroundTask](/uwp/api/windows.applicationmodel.background.ibackgroundtask). This interface is discussed in the section [Implement IBackgroundTask](#implement-ibackgroundtask) later in this article.
 
 ### Best practices for background task registration
 
@@ -138,7 +138,7 @@ void BackgroundTask::OnCanceled(_In_ IBackgroundTaskInstance /* taskInstance */,
 }
 ```
 
-The following example shows how to implement **IBackgroundTask** using C#. In the Windows App SDK github sample, you can see this registration code in [BackgroundTask.cpp](https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/BackgroundTask/InProc%20BackgroundTask/cs-winui/BackgroundTaskBuilder/BackgroundTask.cs#L21).
+The following example shows how to implement **IBackgroundTask** using C#. In the Windows App SDK github sample, you can see this registration code in [BackgroundTask.cs](https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/BackgroundTask/InProc%20BackgroundTask/cs-winui/BackgroundTaskBuilder/BackgroundTask.cs#L21).
 
 ```csharp
 [ComVisible(true)]

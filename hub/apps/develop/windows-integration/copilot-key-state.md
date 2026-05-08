@@ -181,7 +181,7 @@ To add support for fast path invocation, update the "com.microsoft.windows.copil
 
 Fast path activation is enabled by setting a property on the [IPropertyStore](/windows/win32/api/propsys/nn-propsys-ipropertystore) associated with one of the app's windows. To do this requires access to some native Win32 APIs. This walkthrough will use the CsWin32 library, which automates the generation of C# bindings and is available as a NuGet package.
 
-In Visual Studio, in **Solution Explorer**, right-click on your project file and select **Manage NuGet packages...**. On the **Browse** tab of the NuGet package manager, search for "cswin32" and select the "Microsoft.Windows.CsWin32" package and click **Install*.
+In Visual Studio, in **Solution Explorer**, right-click on your project file and select **Manage NuGet packages...**. On the **Browse** tab of the NuGet package manager, search for "cswin32" and select the "Microsoft.Windows.CsWin32" package and click **Install**.
 
 After the package is installed, add a new text file in your project directory and name it "NativeMethods.txt". The CsWin32 tool will look in this file for a list of the Win32 APIs that it will generate bindings for. Put the following API names in "NativeMethods.txt".
 
@@ -213,11 +213,9 @@ public MainWindow(string state)
     this.InitializeComponent();
 
     hWndMain = (HWND)WinRT.Interop.WindowNative.GetWindowHandle(this);
-    Microsoft.UI.Windowing.AppWindow appWindow = AppWindow;
-
 
     var propertyStoreGUID = new Guid("886D8EEB-8CF2-4446-8D02-CDBA1DBDCF99");
-    var hr = PInvoke.SHGetPropertyStoreForWindow((HWND)this.AppWindow.Id.Value, in propertyStoreGUID, out var propertyStore);
+    var hr = PInvoke.SHGetPropertyStoreForWindow(hWndMain, in propertyStoreGUID, out var propertyStore);
     var key = new PROPERTYKEY();
     var copilotFastpathGUID = new Guid("38652BCA-4329-4E74-86F9-39CF29345EEA");
     key.fmtid = copilotFastpathGUID;
@@ -229,7 +227,7 @@ public MainWindow(string state)
     ((IPropertyStore)propertyStore).Commit();
 
     SubClassDelegate = new Windows.Win32.UI.Shell.SUBCLASSPROC(WindowSubClass);
-    bool bRet = PInvoke.SetWindowSubclass((HWND)appWindow.Id.Value, SubClassDelegate, 0, 0);
+    bool bRet = PInvoke.SetWindowSubclass(hWndMain, SubClassDelegate, 0, 0);
 
     _state = state;
 }

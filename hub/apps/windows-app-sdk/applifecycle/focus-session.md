@@ -70,8 +70,10 @@ You can subscribe to be notified when the Focus session state on the device chan
 
 #### [C#](#tab/csharp)
 ```csharp
-protected override void OnNavigatedTo(NavigationEventArgs e)
+public MainWindow()
 {
+    this.InitializeComponent();
+
     if (Windows.UI.Shell.FocusSessionManager.IsSupported)
     {
         var manager = Windows.UI.Shell.FocusSessionManager.GetDefault();
@@ -98,11 +100,10 @@ private void Manager_IsFocusActiveChanged(Windows.UI.Shell.FocusSessionManager s
 // pch.h
 ...
 #include <winrt/Windows.UI.Shell.h>
-#include <winrt/Windows.UI.Xaml.Navigation.h>
 
 // MainWindow.xaml.h
 ...
-void OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs const&);
+MainWindow();
 
 Windows::UI::Shell::FocusSessionManager m_focusSessionManager = Windows::UI::Shell::FocusSessionManager::GetDefault();
 winrt::event_token m_focusStateChangedToken;
@@ -111,11 +112,12 @@ void OnFocusStateChanged(Windows::UI::Shell::FocusSessionManager const& sender, 
 
 // MainWindow.xaml.cpp
 ...
-void MainWindow::OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs const&)
+MainWindow::MainWindow()
 {
+    InitializeComponent();
+
     if (Windows::UI::Shell::FocusSessionManager::IsSupported())
     {
-
         m_focusStateChangedToken = m_focusSessionManager.IsFocusActiveChanged(
             { get_weak(), &MainWindow::OnFocusStateChanged });
 
