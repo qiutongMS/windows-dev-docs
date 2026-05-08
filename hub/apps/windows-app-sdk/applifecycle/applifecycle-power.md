@@ -103,28 +103,21 @@ void OnPowerSupplyStatusChanged()
 
 ```csharp
 private bool bWorkInProgress;
-private EventRegistrationToken batteryToken;
-private EventRegistrationToken powerToken;
-private EventRegistrationToken powerSourceToken;
-private EventRegistrationToken chargeToken;
-private EventRegistrationToken dischargeToken;
+private readonly System.EventHandler<object> batteryStatusChangedHandler = (s, e) => OnBatteryStatusChanged();
+private readonly System.EventHandler<object> powerSupplyStatusChangedHandler = (s, e) => OnPowerSupplyStatusChanged();
+private readonly System.EventHandler<object> powerSourceKindChangedHandler = (s, e) => OnPowerSourceKindChanged();
+private readonly System.EventHandler<object> remainingChargePercentChangedHandler = (s, e) => OnRemainingChargePercentChanged();
+private readonly System.EventHandler<object> remainingDischargeTimeChangedHandler = (s, e) => OnRemainingDischargeTimeChanged();
 
 private void RegisterPowerManagerCallbacks()
 {
-    batteryToken = PowerManager.BatteryStatusChanged += (s, e) => OnBatteryStatusChanged();
-    powerToken = PowerManager.PowerSupplyStatusChanged += (s, e) => OnPowerSupplyStatusChanged();
-    powerSourceToken = PowerManager.PowerSourceKindChanged += (s, e) => OnPowerSourceKindChanged();
-    chargeToken = PowerManager.RemainingChargePercentChanged += (s, e) => OnRemainingChargePercentChanged();
-    dischargeToken = PowerManager.RemainingDischargeTimeChanged += (s, e) => OnRemainingDischargeTimeChanged();
+    PowerManager.BatteryStatusChanged += batteryStatusChangedHandler;
+    PowerManager.PowerSupplyStatusChanged += powerSupplyStatusChangedHandler;
+    PowerManager.PowerSourceKindChanged += powerSourceKindChangedHandler;
+    PowerManager.RemainingChargePercentChanged += remainingChargePercentChangedHandler;
+    PowerManager.RemainingDischargeTimeChanged += remainingDischargeTimeChangedHandler;
 
-    if (batteryToken != null && powerToken != null && powerSourceToken != null && chargeToken != null && dischargeToken != null)
-    {
-        OutputMessage("Successfully registered for state notifications");
-    }
-    else
-    {
-        OutputMessage("Failed to register for state notifications");
-    }
+    OutputMessage("Successfully registered for state notifications");
 }
 
 private void OnBatteryStatusChanged()
@@ -308,11 +301,11 @@ void UnregisterPowerManagerCallbacks()
 private void UnregisterPowerManagerCallbacks()
 {
     OutputMessage("Unregistering state notifications");
-    PowerManager.BatteryStatusChanged -= batteryToken;
-    PowerManager.PowerSupplyStatusChanged -= powerToken;
-    PowerManager.PowerSourceKindChanged -= powerSourceToken;
-    PowerManager.RemainingChargePercentChanged -= chargeToken;
-    PowerManager.RemainingDischargeTimeChanged -= dischargeToken;
+    PowerManager.BatteryStatusChanged -= batteryStatusChangedHandler;
+    PowerManager.PowerSupplyStatusChanged -= powerSupplyStatusChangedHandler;
+    PowerManager.PowerSourceKindChanged -= powerSourceKindChangedHandler;
+    PowerManager.RemainingChargePercentChanged -= remainingChargePercentChangedHandler;
+    PowerManager.RemainingDischargeTimeChanged -= remainingDischargeTimeChangedHandler;
 }
 ```
 
