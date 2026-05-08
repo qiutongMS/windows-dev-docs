@@ -51,7 +51,7 @@ For filtering to work, the ListView must have a data source that can be manipula
 
 To start, you'll need to initialize your original data source in a separate collection, such as a [List\<T>](/dotnet/api/system.collections.generic.list-1). In this example, you have a `List<Contact>` called `allContacts` that holds all of the `Contact` objects that can potentially be shown in the ListView.
 
-You'll also need a collection to hold the filtered data, which will constantly change every time a filter is applied. For this, you'll use an [ObservableCollection\<T>](/dotnet/api/system.collections.objectmodel.observablecollection-1) so that the ListView is notified to update whenever the collection changes. In this example, it's an `ObservableCollection<Person>` called `contactsFiltered`, and is the [ItemsSource](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemscontrol.itemssource) for the ListView. At initialization, it will have the same contents as `allContacts`.
+You'll also need a collection to hold the filtered data, which will constantly change every time a filter is applied. For this, you'll use an [ObservableCollection\<T>](/dotnet/api/system.collections.objectmodel.observablecollection-1) so that the ListView is notified to update whenever the collection changes. In this example, it's an `ObservableCollection<Contact>` called `contactsFiltered`, and is the [ItemsSource](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemscontrol.itemssource) for the ListView. At initialization, it will have the same contents as `allContacts`.
 
 The filtering operation is performed through these steps, shown in the following code:
 

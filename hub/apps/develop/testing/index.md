@@ -142,7 +142,7 @@ namespace WinUITest1
     }
     ```
 
-12. Set the WinUI 3 Class Library project as a dependency of the unit test project to enable the use of types from the WinUI 3 class library project. In **Solution Explorer**, under the class library project, right click on **Dependencies** and select **Add Project Reference**.
+12. Set the WinUI 3 Class Library project as a dependency of the unit test project to enable the use of types from the WinUI 3 class library project. In **Solution Explorer**, under the unit test project, right click on **Dependencies** and select **Add Project Reference**.
 
     :::image type="content" source="images/visual-studio-unittest-add-project-reference.png" alt-text="Screenshot of the Dependencies context menu with Add Project Reference highlighted in Visual Studio.":::
 
