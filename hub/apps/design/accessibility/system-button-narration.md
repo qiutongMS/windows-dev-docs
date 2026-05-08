@@ -80,7 +80,7 @@ It is common for more than one of the supported events to fire when the Fn butto
         _controller = winrt::SystemButtonEventController::CreateForDispatcherQueue(_queue);
 
         // Add Event Handler for each different event
-        _fnKeyDownToken = _controller->SystemFunctionButtonPressed(
+        _fnKeyDownToken = _controller.SystemFunctionButtonPressed(
             [](const winrt::SystemButtonEventController& /*sender*/, const winrt::SystemFunctionButtonEventArgs& args)
             {
                 // Mock function to read the sentence "Fn button is pressed"
@@ -90,7 +90,7 @@ It is common for more than one of the supported events to fire when the Fn butto
                 args.Handled(true);
             });
 
-        _fnKeyUpToken = _controller->SystemFunctionButtonReleased(
+        _fnKeyUpToken = _controller.SystemFunctionButtonReleased(
             [](const winrt::SystemButtonEventController& /*sender*/, const winrt::SystemFunctionButtonEventArgs& args)
             {
                 // Mock function to read the sentence "Fn button is up"
@@ -100,7 +100,7 @@ It is common for more than one of the supported events to fire when the Fn butto
                 args.Handled(true);
             });
 
-        _fnLockToken = _controller->SystemFunctionLockChanged(
+        _fnLockToken = _controller.SystemFunctionLockChanged(
             [](const winrt::SystemButtonEventController& /*sender*/, const winrt::SystemFunctionLockChangedEventArgs& args)
             {
                 // Mock function to read the sentence "Fn shift is locked/unlocked"
@@ -110,7 +110,7 @@ It is common for more than one of the supported events to fire when the Fn butto
                 args.Handled(true);
             });
 
-        _fnLockIndicatorToken = _controller->SystemFunctionLockIndicatorChanged(
+        _fnLockIndicatorToken = _controller.SystemFunctionLockIndicatorChanged(
             [](const winrt::SystemButtonEventController& /*sender*/, const winrt::SystemFunctionLockIndicatorChangedEventArgs& args)
             {
                 // Mock function to read the sentence "Fn lock indicator is on/off"
