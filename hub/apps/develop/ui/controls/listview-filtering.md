@@ -87,7 +87,7 @@ public sealed partial class MainPage : Page
         // contactsFiltered). Set this newly populated collection as the
         // ItemsSource for the ListView.
         contactsFiltered = new ObservableCollection<Contact>(allContacts);
-        Filtereditemscontrol.itemssource = contactsFiltered;
+        FilteredListView.ItemsSource = contactsFiltered;
     }
 
     // Whenever text changes in the filtering text box, this function is called:

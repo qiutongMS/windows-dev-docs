@@ -149,7 +149,7 @@ void mymobileservice1234Push::HandleExceptionsComingFromTheServer()
         if (args.detail.kind == activation.ActivationKind.launch) {
             Windows.Networking.PushNotifications.PushNotificationChannelManager.createPushNotificationChannelForApplicationAsync()
                 .then(function (channel) {
-                    mymobileserviceclient1234Client.push.registerNative(channel.Uri, new Array("tag1", "tag2"))
+                    mymobileservice1234Client.push.registerNative(channel.uri, new Array("tag1", "tag2"))
                     return mymobileservice1234Client.push.registerNative(channel.uri);
                 })
                 .done(function (registration) {
