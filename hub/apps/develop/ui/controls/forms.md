@@ -171,7 +171,10 @@ This example uses the [Pivot](../../../design/controls/pivot.md) control, [Acryl
 ![Screenshot of form example](images/form-example.png)
 ```xaml
 <Grid>
-    <Pivot Background="{ThemeResource SystemControlAccentAcrylicWindowAccentMediumHighBrush}" >
+    <Pivot>
+        <Pivot.Background>
+            <AcrylicBrush BackgroundSource="HostBackdrop" TintColor="{ThemeResource SystemAccentColor}" TintOpacity="0.15" FallbackColor="Transparent"/>
+        </Pivot.Background>
         <Pivot.TitleTemplate>
             <DataTemplate>
                 <Grid>

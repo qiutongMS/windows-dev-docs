@@ -97,7 +97,7 @@ In this example, we show how to enhance a basic [ListView](../../../design/contr
 
 **Xaml:**
 
-The sample UI includes a [ListView](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listview) of five items. The Delete [StandardUICommand](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.standarduicommand) is bound to a [MenuBarItem](/uwp/api/microsoft.ui.xaml.controls.menubaritem), a [SwipeItem](/uwp/api/microsoft.ui.xaml.controls.swipeitem), an [AppBarButton](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbarbutton), and [ContextFlyout menu](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.contextflyout).
+The sample UI includes a [ListView](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listview) of five items. The Delete [StandardUICommand](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.standarduicommand) is bound to a [MenuBarItem](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.menubaritem), a [SwipeItem](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.swipeitem), an [AppBarButton](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbarbutton), and [ContextFlyout menu](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.contextflyout).
 
 ``` xaml
 <Page
@@ -113,8 +113,7 @@ The sample UI includes a [ListView](/windows/windows-app-sdk/api/winrt/microsoft
 
     <Page.Resources>
         <Style x:Key="HorizontalSwipe" 
-               TargetType="ListViewItem" 
-               BasedOn="{StaticResource ListViewItemRevealStyle}">
+               TargetType="ListViewItem">
             <Setter Property="Height" Value="60"/>
             <Setter Property="Padding" Value="0"/>
             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -379,7 +378,7 @@ Many platform controls use the XamlUICommand properties under the covers, just l
 
 **Xaml:**
 
-The sample UI includes a [ListView](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listview) of five items. The custom [XamlUICommand](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.xamluicommand) CustomXamlUICommand is bound to a [MenuBarItem](/uwp/api/microsoft.ui.xaml.controls.menubaritem), a [SwipeItem](/uwp/api/microsoft.ui.xaml.controls.swipeitem), an [AppBarButton](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbarbutton), and [ContextFlyout menu](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.contextflyout).
+The sample UI includes a [ListView](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listview) of five items. The custom [XamlUICommand](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.xamluicommand) CustomXamlUICommand is bound to a [MenuBarItem](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.menubaritem), a [SwipeItem](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.swipeitem), an [AppBarButton](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbarbutton), and [ContextFlyout menu](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.contextflyout).
 
 ``` xaml
 <Page
@@ -407,8 +406,7 @@ The sample UI includes a [ListView](/windows/windows-app-sdk/api/winrt/microsoft
         </XamlUICommand>
 
         <Style x:Key="HorizontalSwipe" 
-               TargetType="ListViewItem" 
-               BasedOn="{StaticResource ListViewItemRevealStyle}">
+               TargetType="ListViewItem">
             <Setter Property="Height" Value="70"/>
             <Setter Property="Padding" Value="0"/>
             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>

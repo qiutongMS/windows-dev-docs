@@ -176,7 +176,7 @@ In the following example, all three buttons inside FavoritesBar will be activate
             <Button x:Name="Folder2" Content="Entertainment" Click="Folder2_Click"/>
         </StackPanel>
         <ScrollViewer Grid.Row="1">
-            <WebView x:Name="WebContent"/>
+            <WebView2 x:Name="WebContent"/>
         </ScrollViewer>
     </Grid>
 </Page>
