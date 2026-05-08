@@ -176,7 +176,7 @@ private void CalendarView_CalendarViewDayItemChanging(CalendarView sender,
             // Set a density bar color for each of the days bookings.
             // It's assumed that there can't be more than 10 bookings in a day. Otherwise,
             // further processing is needed to fit within the max of 10 density bars.
-            foreach (booking in currentBookings)
+            foreach (var booking in currentBookings)
             {
                 if (booking.IsConfirmed == true)
                 {

@@ -86,7 +86,7 @@ if (!folderToEnumerate.AreQueryOptionsSupported(picturesQuery)) 
 } 
 StorageFileQueryResult queryResult = folderToEnumerate.CreateFileQueryWithOptions(picturesQuery); 
 IReadOnlyList<StorageFile> images = await queryResult.GetFilesAsync(index, stepSize); 
-while (images.Count != 0 || index < 10000) 
+while (images.Count != 0) 
 { 
     foreach (StorageFile file in images) 
     { 
