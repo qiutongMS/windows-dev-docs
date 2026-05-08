@@ -135,7 +135,8 @@ stoppingCondition.SetReferenceParameter("tracker", _tracker);
 ExpressionAnimation stoppingAlternateValue = _compositor.CreateExpressionAnimation("0");
 stoppingModifier.Condition = stoppingCondition;
 stoppingModifier.Value = stoppingAlternateValue;
-Now add the 2 source modifiers to the InteractionTracker.
+
+// Now add the 2 source modifiers to the InteractionTracker.
 List<CompositionConditionalValue> modifierList = new List<CompositionConditionalValue>()
 { resistanceModifier, stoppingModifier };
 _interactionSource.ConfigureDeltaPositionYModifiers(modifierList);

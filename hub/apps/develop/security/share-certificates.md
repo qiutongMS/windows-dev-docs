@@ -34,7 +34,7 @@ Apps can authenticate to a web service using a certificate, and multiple apps ca
    :::image type="content" source="images/share-certificates-create-web-project-details.png" alt-text="A screenshot of the Visual Studio create new project details for the ASP.NET Core web API project":::
 
 1. Right-click the **WeatherForecastController.cs** file in the **Controllers** folder and select **Rename**. Change the name to **BankController.cs** and let Visual Studio rename the class and all references to the class.
-1. In the **launchSettings.json** file, change the value of "launchUrl" from "weatherforecast" to "bank" for all three configuration what use the value.
+1. In the **launchSettings.json** file, change the value of "launchUrl" from "weatherforecast" to "bank" for all three configurations that use the value.
 1. In the **BankController.cs** file, add following "Login" method.
 
    ```cs
@@ -65,6 +65,8 @@ Apps can authenticate to a web service using a certificate, and multiple apps ca
            {
                return true;
            }
+
+           return false;
        }
    }
    ```

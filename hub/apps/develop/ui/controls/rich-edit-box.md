@@ -145,9 +145,14 @@ private async void SaveButton_Click(object sender, RoutedEventArgs e)
         Windows.Storage.Provider.FileUpdateStatus status = await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
         if (status != Windows.Storage.Provider.FileUpdateStatus.Complete)
         {
-            Windows.UI.Popups.MessageDialog errorBox =
-                new Windows.UI.Popups.MessageDialog("File " + file.Name + " couldn't be saved.");
-            await errorBox.ShowAsync();
+            ContentDialog errorDialog = new ContentDialog()
+            {
+                Title = "File save error",
+                Content = "File " + file.Name + " couldn't be saved.",
+                PrimaryButtonText = "Ok"
+            };
+
+            await errorDialog.ShowAsync();
         }
     }
 }

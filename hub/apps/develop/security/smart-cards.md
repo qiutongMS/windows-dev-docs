@@ -56,6 +56,8 @@ You can then pass each returned [SmartCard](/uwp/api/Windows.Devices.SmartCards.
 
 To create a virtual smart card using [SmartCardProvisioning](/uwp/api/Windows.Devices.SmartCards.SmartCardProvisioning), your app will first need to provide a friendly name, an admin key, and a [SmartCardPinPolicy](/uwp/api/Windows.Devices.SmartCards.SmartCardPinPolicy). The friendly name is generally something provided to the app, but your app will still need to provide an admin key and generate an instance of the current **SmartCardPinPolicy** before passing all three values to [RequestVirtualSmartCardCreationAsync](/uwp/api/windows.devices.smartcards.smartcardprovisioning.requestvirtualsmartcardcreationasync).
 
+Prerequisite: If you're creating a virtual smart card from a packaged Windows app, the user running the app must be a member of the administrators group.
+
 1. Create a new instance of a [SmartCardPinPolicy](/uwp/api/Windows.Devices.SmartCards.SmartCardPinPolicy)
 1. Generate the admin key value by calling [CryptographicBuffer.GenerateRandom](/uwp/api/windows.security.cryptography.cryptographicbuffer.generaterandom) on the admin key value provided by the service or management tool.
 1. Pass these values along with the *FriendlyNameText* string to [RequestVirtualSmartCardCreationAsync](/uwp/api/windows.devices.smartcards.smartcardprovisioning.requestvirtualsmartcardcreationasync).
@@ -76,9 +78,6 @@ SmartCardProvisioning provisioning = await
 ```
 
 Once [RequestVirtualSmartCardCreationAsync](/uwp/api/windows.devices.smartcards.smartcardprovisioning.requestvirtualsmartcardcreationasync) has returned the associated [SmartCardProvisioning](/uwp/api/Windows.Devices.SmartCards.SmartCardProvisioning) object, the virtual smart card is provisioned and ready for use.
-
->[!NOTE]
->In order to create a virtual smart card using a packaged Windows app, the user running the app must be a member of the administrators group. If the user is not a member of the administrators group, virtual smart card creation will fail.
 
 ## Handle authentication challenges
 
@@ -240,7 +239,6 @@ bool result = await provisioning.RequestPinResetAsync(
             deferral.Complete();
         }
     });
-}
 ```
 
 ## Remove a smart card or virtual smart card

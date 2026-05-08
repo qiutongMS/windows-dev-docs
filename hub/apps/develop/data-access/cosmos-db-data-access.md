@@ -45,7 +45,8 @@ public async Task CosmosSample(string endpoint, string authKey)
         id: "customers",
         partitionKeyPath: "/location"
     );
-    Container container = await database.CreateContainerIfNotExistsAsync(properties);
+    ContainerResponse containerResponse = await database.CreateContainerIfNotExistsAsync(properties);
+    Container container = containerResponse.Container;
 
     // WRITE DATA
     string customerId = "1234";
