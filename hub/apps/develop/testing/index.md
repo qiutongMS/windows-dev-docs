@@ -127,7 +127,7 @@ namespace WinUITest1
     ```csharp
     namespace WinUICLassLibrary1
     {
-      public sealed partial class UserControll : UserControl
+      public sealed partial class UserControl1 : UserControl
       {
          public UserControl1()
          {

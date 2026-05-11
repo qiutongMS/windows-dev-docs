@@ -203,7 +203,7 @@ This XAML creates a [ListView](/windows/windows-app-sdk/api/winrt/microsoft.ui.x
 
 ### Show products in the ListView
 
-Open the **MainWindow.xaml.cs** file, and add code to the constructor of the `MainWindow` class that sets the **ItemSource** property of the [ListView](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listview) to the [ObservableCollection](/dotnet/api/system.collections.objectmodel.observablecollection-1) of `Product` instances.
+Open the **MainWindow.xaml.cs** file, and add code to the constructor of the `MainWindow` class that sets the **ItemsSource** property of the [ListView](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listview) to the [ObservableCollection](/dotnet/api/system.collections.objectmodel.observablecollection-1) of `Product` instances.
 
 ```csharp
 public MainWindow()

@@ -57,7 +57,7 @@ catch (...)
 }
 ```
 
-The following example shows how to register a background task using C#. In the Windows App SDK github sample, you can see this registration code in [MainWindow.Xaml.cpp](https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/BackgroundTask/InProc%20BackgroundTask/cs-winui/BackgroundTaskBuilder/MainWindow.xaml.cs#L79).
+The following example shows how to register a background task using C#. In the Windows App SDK github sample, you can see this registration code in [MainWindow.xaml.cs](https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/BackgroundTask/InProc%20BackgroundTask/cs-winui/BackgroundTaskBuilder/MainWindow.xaml.cs#L79).
 
 ```csharp
 await BackgroundExecutionManager.RequestAccessAsync();
