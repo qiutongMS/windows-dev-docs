@@ -332,7 +332,7 @@ static partial class ComServer
         out uint registrationToken);
 
     [LibraryImport("ole32.dll")]
-    public static partial int CoRevokeObject(out uint registrationToken);
+    public static partial int CoRevokeClassObject(uint registrationToken);
 
     public const uint CLSCTX_LOCAL_SERVER = 4;
     public const uint REGCLS_MULTIPLEUSE = 1;
@@ -398,7 +398,7 @@ public App()
 
 ~App()
 {
-    ComServer.CoRevokeObject(out _RegistrationToken);
+    ComServer.CoRevokeClassObject(_RegistrationToken);
 }
 ```
 

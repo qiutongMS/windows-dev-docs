@@ -45,7 +45,7 @@ Instancing behavior in the Windows App SDK is based on UWP's model, class, but w
 ### AppInstance class
 
 - **UWP**: The [Windows.ApplicationModel.AppInstance](/uwp/api/windows.applicationmodel.appinstance) class is focused purely on instance redirection scenarios.
-- **Windows App SDK**: The [Microsoft.Windows.AppLifeycle.AppInstance](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance) class supports instance redirection scenarios, and contains additional functionality to support new features in later releases.
+- **Windows App SDK**: The [Microsoft.Windows.AppLifecycle.AppInstance](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance) class supports instance redirection scenarios, and contains additional functionality to support new features in later releases.
 
 ### List of instances
 
@@ -405,7 +405,7 @@ void CALLBACK OnFileClosed(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam
 
 ### Instance information
 
-The [Microsoft.Windows.AppLifeycle.AppInstance](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance) class represents a single instance of an app. In the current preview, `AppInstance` only includes the methods and properties necessary to support activation redirection. In later releases, `AppInstance` will expand to include other methods and properties relevant to an app instance.
+The [Microsoft.Windows.AppLifecycle.AppInstance](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance) class represents a single instance of an app. In the current preview, `AppInstance` only includes the methods and properties necessary to support activation redirection. In later releases, `AppInstance` will expand to include other methods and properties relevant to an app instance.
 
 ```cpp
 void DumpExistingInstances()
@@ -424,4 +424,4 @@ void DumpExistingInstances()
 
 [Create a single-instanced WinUI app](applifecycle-single-instance.md)
 
-[Microsoft.Windows.AppLifeycle.AppInstance](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance)
+[Microsoft.Windows.AppLifecycle.AppInstance](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance)

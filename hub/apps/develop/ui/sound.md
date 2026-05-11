@@ -70,7 +70,7 @@ The **ElementSoundMode** has two states: **Off** and **Default**. When not set, 
 ```
 
 ```C#
-ButtonName.ElementSoundState = ElementSoundMode.Off;
+ButtonName.ElementSoundMode = ElementSoundMode.Off;
 ```
 
 ## Is this the right sound?
