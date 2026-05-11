@@ -125,7 +125,7 @@ In the next few sections, we'll implement the methods of the **IFeedProvider** i
 
 
 ```cpp
-// WidgetProvider.cpp
+// FeedProvider.cpp
 namespace winrt
 {
     using namespace Microsoft::Windows::Widgets::Feeds::Providers;
