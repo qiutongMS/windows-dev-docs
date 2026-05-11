@@ -95,9 +95,9 @@ Here's the code to define the class and populate the `NamedColors` list.
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Windows.UI;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 
 namespace ColorsListApp
 {

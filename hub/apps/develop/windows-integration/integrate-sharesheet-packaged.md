@@ -49,13 +49,13 @@ Add the supported data format that is supported by your application to the `Data
 
 ### Fetch Share Event arguments
 
-Starting in Windows 10, version 1809, packaged apps can call the [AppInstance.GetActivatedEventArgs](/uwp/api/windows.applicationmodel.appinstance.getactivatedeventargs) method to retrieve certain kinds of app activation info during startup. For example, you can call this method to get information about app activation; whether it was triggered by opening a file, clicking an interactive toast, or using a registered protocol.
+Starting in Windows 10, version 1809, packaged apps can call [AppInstance.GetActivatedEventArgs](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance.getactivatedeventargs) through `Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent()` to retrieve certain kinds of app activation info during startup. For example, you can call this method to get information about app activation; whether it was triggered by opening a file, clicking an interactive toast, or using a registered protocol.
 
 However, [ShareTargetActivatedEventArgs](/uwp/api/windows.applicationmodel.activation.sharetargetactivatedeventargs) activation info is supported only on Windows 10, version 2004, and later. So, the application should target to devices with this specific minimum version.
 
 To see a Windows App SDK implementation, see the `OnLaunched` method in the [Share Target sample app](https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/AppLifecycle/ShareTarget/WinUI-CS-ShareTargetSampleApp/WinUI-CS-ShareTargetSampleApp/App.xaml.cs).
 
-For other packaged apps, in the `Main` method of the application, check for `AppInstance.GetActivatedEventArgs`.
+For other packaged apps, in the `Main` method of the application, check `AppInstance.GetCurrent().GetActivatedEventArgs()`.
 
 ```csharp
 public static void Main(string[] cmdArgs)
@@ -63,7 +63,7 @@ public static void Main(string[] cmdArgs)
     ...
     if (isRunningWithIdentity())
     {
-        var activationArgs = AppInstance.GetActivatedEventArgs();
+        var activationArgs = AppInstance.GetCurrent().GetActivatedEventArgs();
         if (activationArgs != null)
         {
             switch (activationArgs.Kind)

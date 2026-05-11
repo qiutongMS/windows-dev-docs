@@ -112,24 +112,25 @@ To provide the best experience for your users, use exclude paths to make sure th
 
 Exclude paths are checked first and if there is a match the corresponding page will be opened with the browser instead of the designated app. In the example above, ‘/news/\*’ includes any pages under that path while ‘/news\*’ (no forward slash trails 'news') includes any paths under ‘news\*’ such as ‘newslocal/’, ‘newsinternational/’, and so on.
 
-## Handle links on Activation to link to content
+## Handle links on activation to link to content
 
-Navigate to **App.xaml.cs** in your app’s Visual Studio solution and in **OnActivated()** add handling for linked content. In the following example, the page that is opened in the app depends on the URI path:
+Navigate to **App.xaml.cs** in your app’s Visual Studio solution and in **OnLaunched** use `AppInstance.GetCurrent().GetActivatedEventArgs()` to handle linked content. In the following example, the page that is opened in the app depends on the URI path:
 
-``` CS
-protected override void OnActivated(IActivatedEventArgs e)
+```csharp
+protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
 {
-    Frame rootFrame = Window.Current.Content as Frame;
+    var rootFrame = App.Window.Content as Microsoft.UI.Xaml.Controls.Frame;
     if (rootFrame == null)
     {
-        ...
+        rootFrame = new Microsoft.UI.Xaml.Controls.Frame();
+        App.Window.Content = rootFrame;
     }
 
-    // Check ActivationKind, Parse URI, and Navigate user to content
     Type deepLinkPageType = typeof(MainPage);
-    if (e.Kind == ActivationKind.Protocol)
+    var activationArgs = Microsoft.Windows.AppLifecycle.AppInstance.GetCurrent().GetActivatedEventArgs();
+    if (activationArgs.Kind == Microsoft.Windows.AppLifecycle.ExtendedActivationKind.Protocol &&
+        activationArgs.Data is Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs protocolArgs)
     {
-        var protocolArgs = (ProtocolActivatedEventArgs)e;        
         switch (protocolArgs.Uri.AbsolutePath)
         {
             case "/":
@@ -151,19 +152,13 @@ protected override void OnActivated(IActivatedEventArgs e)
         }
     }
 
-    if (rootFrame.Content == null)
-    {
-        // Default navigation
-        rootFrame.Navigate(deepLinkPageType, e);
-    }
-
-    // Ensure the current window is active
-    Window.Current.Activate();
+    rootFrame.Navigate(deepLinkPageType, activationArgs.Data);
+    App.Window.Activate();
 }
 ```
 
 > [!IMPORTANT]
-> Make sure to replace the final `if (rootFrame.Content == null)` logic with `rootFrame.Navigate(deepLinkPageType, e);` as shown in the example above.
+> This example assumes that your app exposes a public static `App.Window` property for the main window, as described in [Change Window.Current to App.Window](/windows/apps/windows-app-sdk/migrate-to-windows-app-sdk/guides/winui3#change-windowsuixamlwindowcurrent-to-appwindow).
 
 ## Test in a local validation tool
 
