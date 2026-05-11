@@ -40,7 +40,7 @@ Use the [FileSavePicker](/windows/windows-app-sdk/api/winrt/microsoft.windows.st
 
 ## Save a document with FileSavePicker
 
-Use a [FileSavePicker](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.filesavepicker) so that your users can specify the name, type, and location of a file to save. Create, customize, and show a file picker object, and then save data via the returned [StorageFile](/uwp/api/Windows.Storage.StorageFile) object that represents the file picked.
+Use a [FileSavePicker](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.filesavepicker) so that your users can specify the name, type, and location of a file to save. Create, customize, and show a file picker object, and then save data by using the returned [PickFileResult](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.pickfileresult), which contains the picked path and file name.
 
 1. Create and customize the FileSavePicker. Start by creating a new [FileSavePicker](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.filesavepicker) object, and then set properties on the object to customize the file picker for your app and your users:
 

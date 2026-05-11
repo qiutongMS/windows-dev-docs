@@ -98,7 +98,7 @@ There isn't a 1:1 mapping of functionality and behavior from UWP app window pres
 
 ### Compact overlay
 
-If you used UWP's **ApplicationViewMode** or **AppWindowPresentationKind** to present a compact overlay window, then you should use the compact overlay **AppWindowPresenterKind**. The [**Microsoft.UI.Windowing.CompactOverlayPresenter**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.compactoverlaypresenter) supports only three fixed window sizes at a 16:9 aspect ratio, and can't be resized by the user. Instead of **ApplicationViewMode.TryEnterViewModeAsync** or **AppWindowPresenterKind.RequestPresentation**, you should use [**AppWindow.SetPresenter**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.setpresenter#Microsoft_UI_Windowing_AppWindow_SetPresenter_Microsoft_UI_Windowing_AppWindowPresenter_) to change the presentation of the **AppWindow**.
+If you used UWP's **ApplicationViewMode** or **AppWindowPresentationKind** to present a compact overlay window, then you should use the compact overlay **AppWindowPresenterKind**. The [**Microsoft.UI.Windowing.CompactOverlayPresenter**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.compactoverlaypresenter) supports only three fixed window sizes at a 16:9 aspect ratio, and can't be resized by the user. Instead of **ApplicationViewMode.TryEnterViewModeAsync** or **AppWindowPresenter.RequestPresentation**, you should use [**AppWindow.SetPresenter**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.setpresenter#Microsoft_UI_Windowing_AppWindow_SetPresenter_Microsoft_UI_Windowing_AppWindowPresenter_) to change the presentation of the **AppWindow**.
 
 |UWP ApplicationView/CoreWindow|UWP AppWindow|Windows App SDK|
 |-|-|-|
