@@ -242,10 +242,10 @@ navigator.credentials.get({
     rpId: ...,
      allowCredentials: [{
       type: "public-key",      
-      id: new UInt8Array([21, 31, 56, ...]).buffer,
+      id: new Uint8Array([21, 31, 56, ...]).buffer,
     }, {
       type: "public-key",
-      id: new UInt8Array([21, 31, 56, ...]).buffer,
+      id: new Uint8Array([21, 31, 56, ...]).buffer,
     }, {
       ...
     }],
