@@ -34,7 +34,7 @@ Before you start, make sure you have:
 The following APIs are used in this topic:
 
 - [FileSavePicker](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.filesavepicker)
-- [StorageFile](/uwp/api/Windows.Storage.StorageFile)
+- [PickFileResult](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.pickfileresult)
 
 Use the [FileSavePicker](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.filesavepicker) to allow users to specify the name and location where they want your app to save a file.
 
