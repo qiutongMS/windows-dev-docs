@@ -606,7 +606,7 @@ The most basic way to support a structured commanding experience is to define an
 
 > [!NOTE]
 > In some cases, it might be just as efficient to bind a method to the Click event and a property to the IsEnabled property.
-Standard WinUI controls (button, list, selection, calendar, predictive text) provide the basis for many common command experiences. For a complete list of control types, see [Controls and patterns for Windows apps](../../../design/controls/index.md).
+
 #### Example
 
 ![Command interface example](images/commanding/icommand.gif)
