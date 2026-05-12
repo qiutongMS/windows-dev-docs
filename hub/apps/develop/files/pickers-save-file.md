@@ -40,7 +40,7 @@ Use the [FileSavePicker](/windows/windows-app-sdk/api/winrt/microsoft.windows.st
 
 ## Save a document with FileSavePicker
 
-Use a [FileSavePicker](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.filesavepicker) so that your users can specify the name, type, and location of a file to save. Create, customize, and show a file picker object, and then save data by using the returned [PickFileResult](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.pickfileresult), which contains the picked path and file name.
+Use a [FileSavePicker](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.filesavepicker) so that your users can specify the name, type, and location of a file to save. Create, customize, and show a file picker object, and then save data by using the returned [PickFileResult](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.pickfileresult), which contains the picked file path. If you need the file name, derive it from that path.
 
 1. Create and customize the FileSavePicker. Start by creating a new [FileSavePicker](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.filesavepicker) object, and then set properties on the object to customize the file picker for your app and your users:
 
@@ -122,7 +122,7 @@ Use the [FileTypeChoices](/windows/windows-app-sdk/api/winrt/microsoft.windows.s
 > [!NOTE]
 > [FileSavePicker](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.filesavepicker) objects display the file picker using the [PickerViewMode.List](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.pickerviewmode) view mode.
 
-2. Next, show the **FileSavePicker** and save to the picked file location. Display the file picker by calling [PickSaveFileAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.filesavepicker.picksavefileasync). After the user specifies the name, file type, and location, and confirms to save the file, **PickSaveFileAsync** returns a lightweight [PickFileResult](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.pickfileresult) object that contains the path to the saved file and the filename. You can capture and process this file if you have read and write access to it.
+2. Next, show the **FileSavePicker** and save to the picked file location. Display the file picker by calling [PickSaveFileAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.filesavepicker.picksavefileasync). After the user specifies the name, file type, and location, and confirms to save the file, **PickSaveFileAsync** returns a lightweight [PickFileResult](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.pickfileresult) object that contains the path to the saved file. If you need the file name, derive it from that path. You can capture and process this file if you have read and write access to it.
 
 ```csharp
     using Microsoft.Windows.Storage.Pickers;
