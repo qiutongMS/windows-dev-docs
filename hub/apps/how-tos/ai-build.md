@@ -108,7 +108,7 @@ When you're ready to distribute or publish to the Microsoft Store, build a prope
 
 ```bash
 dotnet build -p:Platform=x64
-winapp package .\bin\x64\Debug\<target-framework>\win-x64 --manifest .\Package.appxmanifest --output .\publish\NotesApp.msix --generate-cert --executable NotesApp.exe
+winapp pack .\bin\x64\Debug\<target-framework>\win-x64 --manifest .\Package.appxmanifest --output .\publish\NotesApp.msix --generate-cert --executable NotesApp.exe
 ```
 
 Replace `<target-framework>` with your app's build output folder name (for example, `net10.0-windows10.0.26100.0`). This generates a signed MSIX package ready for sideloading or Store submission. Ask Copilot for help updating the package manifest:

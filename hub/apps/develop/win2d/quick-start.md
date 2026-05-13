@@ -104,7 +104,7 @@ For more information, see [Avoiding memory leaks](./avoiding-memory-leaks.md).
 3. Add a handler for the `Unloaded` event. Your XAML should look like this:
 
 ```XAML
-<Page
+<Window
     ...
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
@@ -248,7 +248,7 @@ args.DrawingSession.DrawImage(blur);
 </Grid>
 ```
 
-Just like with **CanvasControl**, let AutoComplete create the `Draw` event handler for you. By default, Visual Studio will name this handler `canvas_Draw_1` because `canvas_Draw` already exists; here, we've renamed the method `canvas_AnimatedDraw` to make it clear that this is a different event.
+Just like with **CanvasControl**, let AutoComplete create the `Draw` event handler for you. By default, Visual Studio will name this handler `canvas_Draw_1` because `canvas_Draw` already exists; here, we've renamed the method `canvas_DrawAnimated` to make it clear that this is a different event.
 
 In addition, you are also handling a new event, [CreateResources](https://microsoft.github.io/Win2D/WinUI2/html/E_Microsoft_Graphics_Canvas_UI_Xaml_CanvasAnimatedControl_CreateResources.htm). Once again, let AutoComplete create the handler.
 
