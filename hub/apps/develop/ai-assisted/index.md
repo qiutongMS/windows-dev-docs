@@ -84,9 +84,17 @@ Windows has a complete set of free, AI-ready tools that take you from idea to pu
 
 ## Frequently asked questions
 
-### Do I need Visual Studio?
+### Can I build a WinUI 3 app without Visual Studio?
 
-No. You can build, run, debug, package, and publish Windows apps entirely from VS Code or the command line using the [WinApp VS Code extension](vs-code-extension.md), [`dotnet new` WinUI templates](dotnet-templates.md), and the [Windows App Development CLI](../dev-tools/winapp-cli/index.md). Visual Studio is still the best experience for complex XAML debugging and designer tooling, but it's no longer required to get started.
+Yes. Three commands are all you need to go from nothing to a running WinUI 3 app:
+
+```bash
+dotnet new winui-navview -n MyApp   # scaffold
+cd MyApp
+winapp run                           # build and run
+```
+
+You can build, run, debug, package, and publish entirely from VS Code or the terminal using the [WinApp VS Code extension](vs-code-extension.md), [`dotnet new` WinUI templates](dotnet-templates.md), and the [Windows App Development CLI](../dev-tools/winapp-cli/index.md). Visual Studio is still the best experience for complex XAML debugging and designer tooling, but it's no longer required to get started. See the [Quickstart](quickstart.md) for a complete walkthrough.
 
 ### Are these tools free?
 
@@ -103,6 +111,61 @@ Yes. The [`winui@awesome-copilot` plugin](winui-agent-plugin.md) works with both
 ### How long does it take to go from idea to a published app?
 
 With the tools in this section, you can scaffold, run, and test a basic WinUI app in under 30 minutes. Publishing to the Microsoft Store requires a [Partner Center account](https://partner.microsoft.com/dashboard) (free to create, $19 one-time registration fee) and app certification, which typically takes 1–3 business days. See the [Quickstart](quickstart.md) for a complete walkthrough.
+
+---
+
+## Starter prompts
+
+Copy and adapt these prompts to steer your AI assistant toward current WinUI 3 tools and away from outdated UWP or WPF patterns.
+
+### Building a new app
+
+Use this prompt when starting from scratch. It anchors Copilot to the correct toolchain and prevents it from suggesting Visual Studio or UWP-era scaffolding:
+
+```
+Create a new WinUI 3 Windows app using the `dotnet new winui-navview` template (from the
+Microsoft.WindowsAppSDK.WinUI.CSharp.Templates package). Use the winapp CLI to build and run
+it — not Visual Studio. Use VS Code as the editor.
+
+Use Microsoft.UI.Xaml for all controls and layouts — never Windows.UI.Xaml.
+Use DispatcherQueue, not CoreDispatcher.
+Use AppWindow and OverlappedPresenter for window management, not ApplicationView.
+Use ContentDialog, not MessageDialog.
+```
+
+### Migrating an existing UWP or WPF app
+
+Use this prompt when modernising an existing app. It explicitly lists the namespace substitutions that AI assistants most commonly get wrong:
+
+```
+I'm migrating a [UWP / WPF] app to WinUI 3 using the Windows App SDK.
+
+Apply these substitutions throughout:
+- Windows.UI.Xaml.* → Microsoft.UI.Xaml.*
+- CoreDispatcher / Dispatcher.RunAsync → DispatcherQueue.TryEnqueue
+- ApplicationView → AppWindow + OverlappedPresenter
+- MessageDialog → ContentDialog
+- Windows.UI.Notifications → Microsoft.Windows.AppNotifications (AppNotificationManager)
+- Frame.Navigate with UWP page types → WinUI 3 Frame + Page
+
+Do not introduce any Windows.UI.* APIs. Flag any APIs that don't have a direct WinUI 3
+equivalent so I can decide how to handle them.
+```
+
+### Adding a feature to an existing WinUI 3 app
+
+Use this when asking Copilot to extend an app that's already on WinUI 3. It reinforces correct patterns even when the existing codebase has mixed signals:
+
+```
+This is a WinUI 3 app using the Windows App SDK. When adding new code:
+- Use Microsoft.UI.Xaml.* namespaces only
+- Use DispatcherQueue for any thread marshalling
+- Use the Community Toolkit (CommunityToolkit.Mvvm) for MVVM patterns
+- Use winapp run to test changes — do not open or require Visual Studio
+```
+
+> [!TIP]
+> For the best results with the least prompt engineering, install the [WinUI agent plugin](winui-agent-plugin.md) — it applies these constraints automatically for every response.
 
 ---
 
