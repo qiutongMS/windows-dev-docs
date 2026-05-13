@@ -28,6 +28,7 @@ The snippets that appear in this guide are based on this [sample app](https://gi
 To connect your app directly to a SQL Server database, your app can target any minimum version of Windows supported by Windows App SDK.  You can find that information in the properties page of your project.
 
 1. Open the **Package.appxmanifest** file of your Windows App SDK project in the manifest designer.
+1. Install the SQL client package for current .NET project templates. In the **Package Manager Console**, run `Install-Package System.Data.SqlClient`.
 1. In the **Capabilities** tab, select the **Enterprise Authentication** checkbox if you are using Windows Authentication for authenticating your SQL Server.
 
 ![Enterprise Authentication Capability](images/enterprise-authentication.png)
@@ -79,6 +80,8 @@ sealed partial class App : Application
 We'll create a class that implements the [INotifyPropertyChanged](/dotnet/api/system.componentmodel.inotifypropertychanged) event so that we can bind attributes in our XAML UI to the properties in this class.
 
 ```csharp
+using System.ComponentModel;
+
 public class Product : INotifyPropertyChanged
 {
     public int ProductID { get; set; }
@@ -104,6 +107,11 @@ public class Product : INotifyPropertyChanged
 In the **MainWindow.xaml.cs** file of the Windows App SDK project, create a method that gets products from the Northwind sample database, and then returns them as an [ObservableCollection](/dotnet/api/system.collections.objectmodel.observablecollection-1) collection of `Product` instances.
 
 ```csharp
+using System;
+using System.Collections.ObjectModel;
+using System.Data.SqlClient;
+using System.Diagnostics;
+
 public ObservableCollection<Product> GetProducts(string connectionString)
 {
     const string GetProductsQuery = "select ProductID, ProductName, QuantityPerUnit," +

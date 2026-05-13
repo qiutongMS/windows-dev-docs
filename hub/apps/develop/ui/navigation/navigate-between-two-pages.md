@@ -35,6 +35,9 @@ To create a blank app in Visual Studio:
 1. Select the **WinUI Blank App (Packaged)** project template, and click **Next**. That template creates a desktop app with a WinUI-based user interface.
 1. In the **Project name** box, enter `BasicNavigation`, and click **Create**.
 1. To run the program, choose **Debug** > **Start Debugging** from the menu, or press F5. Build and run your solution on your development computer to confirm that the app runs without errors. A blank page is displayed.
+
+   > [!TIP]
+   > If you're validating this packaged WinUI project from the command line, build it with an explicit platform such as `dotnet build -p:Platform=x64`.
 1. To stop debugging and return to Visual Studio, exit the app, or click **Stop Debugging** from the menu.
 1. Remove any example code that's included in the template from the `MainWindow.xaml` and `MainWindow` code-behind files.
 

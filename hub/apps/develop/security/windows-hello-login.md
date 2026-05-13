@@ -24,6 +24,9 @@ In order to build this project, you'll need some experience with C#, and XAML. Y
 - Choose **WinUI Blank App (Packaged)** and name your application "WindowsHelloLogin".
 - Build and Run the new application (F5), you should see a blank window shown on the screen. Close the application.
 
+  > [!TIP]
+  > If you're validating this packaged WinUI project from the command line, build it with an explicit platform such as `dotnet build -p:Platform=x64`.
+
 ![A screenshot of the new Windows Hello Login app running for the first time](images/windows-hello-login-1.png)
 
 ## Exercise 1: Login with Windows Hello

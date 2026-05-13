@@ -23,6 +23,9 @@ This topic assumes that you know how to create a basic WinUI app with Windows Ap
 
 Create a new **WinUI Blank App (Packaged)** C# project. Name it "Quickstart".
 
+> [!TIP]
+> If you're validating the packaged WinUI project from the command line, build it with an explicit platform such as `dotnet build -p:Platform=x64`.
+
 ## Bind to a single item
 
 Every binding consists of a binding target and a binding source. Typically, the target is a property of a control or other UI element, and the source is a property of a class instance (a data model, or a view model). This example shows how to bind a control to a single item. The target is the `Text` property of a `TextBlock`. The source is an instance of a simple class named `Recording` that represents an audio recording. Let's look at the class first.
@@ -30,6 +33,9 @@ Every binding consists of a binding target and a binding source. Typically, the 
 Add a new class to your project, and name the class `Recording`.
 
 ``` csharp
+using System;
+using System.Collections.Generic;
+
 namespace Quickstart
 {
     public class Recording

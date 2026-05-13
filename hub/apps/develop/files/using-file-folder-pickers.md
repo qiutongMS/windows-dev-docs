@@ -18,6 +18,9 @@ The Windows App SDK [FileOpenPicker](/windows/windows-app-sdk/api/winrt/microsof
 
 To learn about using a picker to save files, see [Save a file with a Windows App SDK picker](pickers-save-file.md).
 
+> [!TIP]
+> If you're validating a packaged WinUI picker sample from the command line, build it with an explicit platform such as `dotnet build -p:Platform=x64`.
+
 ## Important APIs
 
 This article uses the following APIs:
@@ -53,6 +56,7 @@ For example, you might call the file picker in your app so that your user can op
 The following code shows how to use the [FileOpenPicker](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.fileopenpicker) class to let the user pick a single file, such as a photo. The code sets properties on the picker to customize its appearance and behavior, and then shows the picker to the user by using the [PickSingleFileAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.fileopenpicker.picksinglefileasync) method. If the user picks a file, the app reads the file's content and stores it in a variable.
 
 ```csharp
+using System.Threading.Tasks;
 using Microsoft.Windows.Storage.Pickers;
 
 var openPicker = new FileOpenPicker(this.AppWindow.Id)
@@ -126,6 +130,7 @@ else
 You can also let the user pick multiple files. The following code shows how to use the [FileOpenPicker](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.fileopenpicker) class to let the user pick multiple files, such as photos. The process is the same but the [PickMultipleFilesAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.fileopenpicker.pickmultiplefilesasync) method returns a collection of file paths instead of a single path.
 
 ```csharp
+using System.Threading.Tasks;
 using Microsoft.Windows.Storage.Pickers;
 
 var openPicker = new FileOpenPicker(this.AppWindow.Id);
@@ -174,6 +179,7 @@ else
 To pick a folder by using the [FolderPicker](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.folderpicker) class, use the following code. This code creates a folder picker, shows it to the user by using the [PickSingleFolderAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.folderpicker.picksinglefolderasync) method, and retrieves the selected folder's path in a [PickFolderResult](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.pickfolderresult) object. If the user picks a folder, the app retrieves the folder's path and stores it in a variable for later use.
 
 ```csharp
+using System.Threading.Tasks;
 using Microsoft.Windows.Storage.Pickers;
 
 var folderPicker = new FolderPicker(this.AppWindow.Id)

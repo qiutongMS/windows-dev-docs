@@ -29,6 +29,9 @@ Before you start, make sure you have:
 - Basic familiarity with C# and XAML
 - Understanding of async/await patterns in C#
 
+> [!TIP]
+> If you're validating a packaged WinUI project from the command line, build it with an explicit platform such as `dotnet build -p:Platform=x64`.
+
 ## Important APIs
 
 The following APIs are used in this topic:
@@ -46,6 +49,8 @@ Use a [FileSavePicker](/windows/windows-app-sdk/api/winrt/microsoft.windows.stor
 
 ```csharp
     using Microsoft.Windows.Storage.Pickers;
+    using System;
+    using System.Collections.Generic;
     ...
     var savePicker = new FileSavePicker(this.AppWindow.Id)
     {
@@ -124,8 +129,11 @@ Use the [FileTypeChoices](/windows/windows-app-sdk/api/winrt/microsoft.windows.s
 
 2. Next, show the **FileSavePicker** and save to the picked file location. Display the file picker by calling [PickSaveFileAsync](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.filesavepicker.picksavefileasync). After the user specifies the name, file type, and location, and confirms to save the file, **PickSaveFileAsync** returns a lightweight [FilePickResult](/windows/windows-app-sdk/api/winrt/microsoft.windows.storage.pickers.pickfileresult) object that contains the path to the saved file and the filename. You can capture and process this file if you have read and write access to it.
 
+   If you want to show the cancellation message exactly as in the sample, add a placeholder `TextBlock` named `textBlock` to your XAML before wiring up the code-behind.
+
 ```csharp
     using Microsoft.Windows.Storage.Pickers;
+    using System;
     ...
     var savePicker = new FileSavePicker(this.AppWindow.Id);
     var result = await savePicker.PickSaveFileAsync();

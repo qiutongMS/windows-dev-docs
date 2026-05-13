@@ -60,10 +60,13 @@ Before you continue, first ensure that the project's Architecture option is set 
 2. At the top of the C# file are various namespace definitions. Add the following namespaces:
 
 ```csharp
-using Windows.UI;
+using System;
 using System.Numerics;
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Effects;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Windows.UI;
 ```
 
 3. Next, you should see the following blank event handler which was inserted by AutoComplete:
@@ -251,7 +254,10 @@ In addition, you are also handling a new event, [CreateResources](https://micros
 
 Now that your app will be redrawing at 60 frames per second, it is more efficient to create your Win2D visual resources once and reuse them with every frame. It is inefficient to create a `CanvasCommandList` and draw 300 elements into it 60 times per second when the content remains static. `CreateResources` is an event that is fired only when Win2D determines you need to recreate your visual resources, such as when the page is loaded.
 
-3. Switch back to `MainPage.xaml.cs`. Find your `canvas_Draw` method which should look like this:
+3. Switch back to `MainWindow.xaml.cs`. Find your `canvas_Draw` method which should look like this:
+
+   > [!NOTE]
+   > The final WinUI 3 sample in this walkthrough stays in the `MainWindow.xaml` and `MainWindow.xaml.cs` files. If you created a page while experimenting, move the final animated sample code back into those two files so the XAML and code-behind stay aligned.
 
 ```csharp
 private void canvas_Draw(

@@ -21,6 +21,9 @@ WinUI apps can use [.NET APIs](/dotnet/) alongside WinRT and Win32 APIs to provi
 - A packaged WinUI project
 - Basic familiarity with C# and .NET development
 
+> [!TIP]
+> If you're validating a packaged WinUI project from the command line, build it with an explicit platform such as `dotnet build -p:Platform=x64`.
+
 ## What you'll learn
 
 In this article, you'll learn how to:
@@ -149,6 +152,7 @@ This example shows how to use the [MemoryStream](/dotnet/api/system.io.memorystr
 ```csharp
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 ...
 private async Task EncodeDecodeStringAsync(string inputData)
 {

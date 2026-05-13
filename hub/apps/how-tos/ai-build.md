@@ -34,6 +34,9 @@ In this tutorial, you use GitHub Copilot in agent mode to build a complete WinUI
 
 Create a new WinUI 3 project: in Visual Studio, select **File** > **New** > **Project**, filter by **WinUI**, and choose the **WinUI Blank App (Packaged)** C# template. Name the project `NotesApp` and open it.
 
+> [!TIP]
+> If you're validating the packaged WinUI project from the command line, build it with an explicit platform such as `dotnet build -p:Platform=x64`.
+
 ### Open Copilot agent mode and scaffold the structure
 
 Open the Copilot Chat panel in Visual Studio and switch to **agent mode**. Then enter:
@@ -104,10 +107,11 @@ AppNotificationManager.Default.Show(notification);
 When you're ready to distribute or publish to the Microsoft Store, build a proper MSIX package:
 
 ```bash
-winapp pack --output ./publish
+dotnet build -p:Platform=x64
+winapp package .\bin\x64\Debug\<target-framework>\win-x64 --manifest .\Package.appxmanifest --output .\publish\NotesApp.msix --generate-cert --executable NotesApp.exe
 ```
 
-This generates a signed MSIX package ready for sideloading or Store submission. Ask Copilot for help updating the package manifest:
+Replace `<target-framework>` with your app's build output folder name (for example, `net10.0-windows10.0.26100.0`). This generates a signed MSIX package ready for sideloading or Store submission. Ask Copilot for help updating the package manifest:
 
 > *"Show me how to update the Package.appxmanifest to set the display name, description, and publisher for Store submission."*
 
