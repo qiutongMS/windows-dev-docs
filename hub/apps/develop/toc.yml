@@ -3,6 +3,38 @@ items:
     href: ../desktop/index.yml
   - name: Develop overview
     href: index.md
+  - name: AI-assisted development
+    items:
+      - name: Overview
+        href: ai-assisted/index.md
+      - name: Quickstart
+        href: ai-assisted/quickstart.md
+      - name: WinUI agent plugin
+        href: ai-assisted/winui-agent-plugin.md
+      - name: WinApp VS Code extension
+        href: ai-assisted/vs-code-extension.md
+      - name: dotnet new WinUI templates
+        href: ai-assisted/dotnet-templates.md
+      - name: Microsoft Learn MCP Server
+        href: ai-assisted/mcp-server.md
+      - name: AI-assisted testing
+        href: ai-assisted/testing.md
+      - name: Publish to the Store
+        href: ai-assisted/store-publishing.md
+      - name: Migrate and port apps
+        items:
+          - name: Overview
+            href: ai-assisted/migrate/index.md
+          - name: Migrate from WPF
+            href: ai-assisted/migrate/wpf-to-winui.md
+          - name: Migrate from UWP
+            href: ai-assisted/migrate/uwp-to-winui.md
+          - name: Cross-framework apps
+            href: ai-assisted/migrate/cross-framework.md
+      - name: Security considerations
+        href: ai-assisted/security.md
+      - name: Responsible AI
+        href: ai-assisted/responsible-ai.md
   - name: Tools and samples
     items:
       - name: Overview
