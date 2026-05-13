@@ -57,7 +57,7 @@ Run this command in your project root (or any directory where you want Copilot t
 copilot plugin install winui@awesome-copilot
 ```
 
-This copies agents, skills, and custom instructions into your project's `.github/` directory. Copilot automatically picks them up the next time you open the project. After installation, run `copilot plugin list` and confirm that `winui@awesome-copilot` appears in the installed plugins list.
+This copies agents, skills, and custom instructions into your project's `.github/` directory. Copilot automatically picks them up the next time you open the project. The current Awesome Copilot marketplace identifier for this WinUI 3 development plugin is `winui@awesome-copilot`. After installation, run `copilot plugin list` and confirm that `winui@awesome-copilot` appears in the installed plugins list.
 
 > [!TIP]
 > You can also browse and install Copilot plugins directly from VS Code using the [Awesome Copilot extension](https://marketplace.visualstudio.com/items?itemName=TimHeuer.awesome-copilot).

@@ -240,7 +240,7 @@ args.DrawingSession.DrawImage(blur);
 
 **CanvasControl** is best suited for mostly static graphics content - it only raises the `Draw` event when your content needs to be updated or redrawn. If you have continually changing content then you should consider using `CanvasAnimatedControl` instead. The two controls operate very similarly, except `CanvasAnimatedControl` raises the `Draw` event on a periodic basis; by default it is called 60 times per second.
 
-2. To switch to `CanvasAnimatedControl`, go to `MainPage.xaml`, delete the **CanvasControl** line, and replace it with the following XAML:
+2. To switch to `CanvasAnimatedControl`, go to `MainWindow.xaml`, delete the **CanvasControl** line, and replace it with the following XAML:
 
 ```XAML
 <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -295,7 +295,7 @@ private void canvas_CreateResources(
 {}
 ```
 
-Paste (CTRL+V) your previously cut code into this method. Next, move the declaration of `GaussianBlurEffect` outside the method body so the variable becomes a member of the MainPage class. Your code should now look like the following:
+Paste (CTRL+V) your previously cut code into this method. Next, move the declaration of `GaussianBlurEffect` outside the method body so the variable becomes a member of the MainWindow class. Your code should now look like the following:
 
 ```csharp
 GaussianBlurEffect blur;
