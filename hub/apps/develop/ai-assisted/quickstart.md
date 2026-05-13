@@ -28,34 +28,34 @@ In this quickstart, you use free tools to go from an empty folder to a working W
 
 Before you start, install the following free tools:
 
-**1. .NET SDK 9 or later**
+**1. .NET SDK 10 or later**
 
-```bash
-winget install Microsoft.DotNet.SDK.9
+```powershell
+winget install Microsoft.DotNet.SDK.10
 ```
 
 **2. Windows App Development CLI (winapp CLI)**
 
-```bash
+```powershell
 winget install Microsoft.WinAppCLI
 ```
 
 **3. WinUI dotnet new templates**
 
-```bash
+```powershell
 dotnet new install Microsoft.WindowsAppSDK.WinUI.CSharp.Templates
 ```
 
 **4. GitHub Copilot CLI** (requires a [GitHub Copilot subscription](https://github.com/features/copilot) — free tier available)
 
-```bash
+```powershell
 winget install GitHub.cli
 gh extension install github/gh-copilot
 ```
 
 **5. WinUI agent plugin for GitHub Copilot**
 
-```bash
+```powershell
 gh copilot plugin install winui@awesome-copilot
 ```
 
@@ -71,8 +71,9 @@ Install the [WinApp Tools extension](https://marketplace.visualstudio.com/items?
 
 Create a new folder and scaffold a WinUI app with a NavigationView layout — a good starting point for most apps:
 
-```bash
-mkdir MyFirstApp && cd MyFirstApp
+```powershell
+mkdir MyFirstApp
+cd MyFirstApp
 dotnet new winui-navview
 ```
 
@@ -124,9 +125,9 @@ winapp run
 
 Use `winapp ui` to inspect your running app and verify the settings page was added correctly:
 
-```bash
-# Start the app in the background
-winapp run &
+```powershell
+# Start the app in the background (PowerShell 7+)
+Start-Process -FilePath winapp -ArgumentList "run" -NoNewWindow
 
 # Inspect the UI tree
 winapp ui inspect -a MyFirstApp

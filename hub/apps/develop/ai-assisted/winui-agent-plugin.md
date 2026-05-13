@@ -26,7 +26,7 @@ The plugin fixes this by injecting explicit WinUI 3 rules as custom instructions
 
 ## Install the plugin
 
-**Requires:** GitHub Copilot CLI or Claude Code, and the [Windows App Development CLI](../dev-tools/winapp-cli/index.md) (`winget install Microsoft.WinAppCLI`).
+**Requires:** GitHub Copilot CLI or Claude Code, and the [Windows App Development CLI](../../dev-tools/winapp-cli/index.md) (`winget install Microsoft.WinAppCLI`).
 
 ```bash
 gh copilot plugin install winui@awesome-copilot

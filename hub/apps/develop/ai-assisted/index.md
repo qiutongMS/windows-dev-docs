@@ -9,10 +9,6 @@ author: GrantMeStrength
 
 # AI-assisted Windows development
 
-:::image type="content" source="images/header-ai-assisted.png" alt-text="AI and Windows development tools shown as interconnected icons on a gradient background." border="false":::
-
----
-
 Windows has a complete set of free, AI-ready tools that take you from idea to published app — entirely from the command line or VS Code, without needing Visual Studio. Whether you're building a new app from scratch or modernizing one you wrote years ago, AI agents can do the heavy lifting.
 
 > [!TIP]
