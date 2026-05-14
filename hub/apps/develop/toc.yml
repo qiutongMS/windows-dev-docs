@@ -21,6 +21,8 @@ items:
         items:
           - name: Overview
             href: ai-assisted/migrate/index.md
+          - name: Migrate from iOS
+            href: ai-assisted/migrate/ios-to-winui.md
           - name: Migrate from WPF
             href: ai-assisted/migrate/wpf-to-winui.md
           - name: Migrate from UWP
