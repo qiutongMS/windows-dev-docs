@@ -77,11 +77,9 @@ cd MyFirstApp
 dotnet new winui-navview
 ```
 
-This creates a complete WinUI 3 project with a NavigationView shell, built around Windows app silhouettes and modern Fluent Design defaults.
-
 Open the folder in VS Code:
 
-```bash
+```powershell
 code .
 ```
 
@@ -95,11 +93,9 @@ Use the WinApp VS Code extension or the CLI to run your app:
 
 **From the terminal:**
 
-```bash
+```powershell
 winapp run
 ```
-
-Your app launches. It's already a real Windows app — you can resize it, pin it to the taskbar, and interact with its navigation.
 
 ---
 
@@ -107,15 +103,13 @@ Your app launches. It's already a real Windows app — you can resize it, pin it
 
 Now use the `winui-dev` agent to add a feature using natural language. Open GitHub Copilot chat in VS Code and switch to agent mode, or use the Copilot CLI:
 
-```bash
+```powershell
 gh copilot suggest "Add a settings page to my WinUI NavView app with a toggle for dark mode"
 ```
 
-The `winui-dev` agent knows WinUI 3 patterns — it will generate correct code using `DispatcherQueue`, `Microsoft.UI.Xaml` namespaces, and `ApplicationData` settings storage, not outdated UWP equivalents.
+Apply the suggested changes, then run again:
 
-Apply the suggested changes, then run the app again to verify:
-
-```bash
+```powershell
 winapp run
 ```
 
@@ -145,11 +139,9 @@ winapp ui screenshot -a MyFirstApp --output screenshot.png
 
 Package your app for distribution:
 
-```bash
+```powershell
 winapp package
 ```
-
-This creates a signed MSIX package ready for submission to the Microsoft Store or sideloading.
 
 ---
 
@@ -157,7 +149,7 @@ This creates a signed MSIX package ready for submission to the Microsoft Store o
 
 Use `winapp store` to submit your app directly from the command line. The `winapp store` command wraps the [Microsoft Store Developer CLI](https://aka.ms/msstoredevcli) and downloads it automatically if needed.
 
-```bash
+```powershell
 winapp store publish --package ./bin/MyFirstApp.msix
 ```
 
