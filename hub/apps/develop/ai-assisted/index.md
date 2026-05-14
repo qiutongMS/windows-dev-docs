@@ -47,7 +47,7 @@ Windows has a complete set of free, AI-ready tools that take you from idea to pu
 | **[Microsoft Learn MCP Server](mcp-server.md)** | Give your AI agent live access to current Windows documentation |
 | **[WinApp VS Code extension](vs-code-extension.md)** | Run, debug, package, and sign Windows apps from VS Code |
 | **[AI-assisted testing](testing.md)** | Generate and run UI tests using Windows UI Automation |
-| **[Publish to the Store](store-publishing.md)** | Submit to the Microsoft Store from the command line using `winapp store` |
+| **[Publish to the Store](quickstart.md#step-6-publish-to-the-microsoft-store)** | Submit to the Microsoft Store from the command line using `winapp store` |
 
 ---
 
