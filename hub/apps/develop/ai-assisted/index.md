@@ -79,7 +79,7 @@ Yes. The `winui@awesome-copilot` plugin and the Microsoft Learn MCP Server both 
 
 ### How long does it take to go from idea to published app?
 
-Under 30 minutes to a running app (see the [Quickstart](quickstart.md)). Store submission requires a [Partner Center account](https://partner.microsoft.com/dashboard) ($19 one-time fee) and certification, which typically takes 1–3 business days.
+Under 30 minutes to a running app (see the [Quickstart](quickstart.md)). Store submission requires a [Partner Center account](https://partner.microsoft.com/dashboard) and certification, which typically takes 1–3 business days.
 
 ---
 

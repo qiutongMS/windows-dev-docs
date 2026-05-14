@@ -154,7 +154,7 @@ winapp store publish --package ./bin/MyFirstApp.msix
 ```
 
 > [!NOTE]
-> Publishing requires a [Partner Center account](https://partner.microsoft.com/dashboard). Registration is free to create; a one-time $19 developer fee applies. App certification typically takes 1–3 business days.
+> Publishing requires a [Partner Center account](https://partner.microsoft.com/dashboard). App certification typically takes 1–3 business days.
 
 ---
 
