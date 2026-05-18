@@ -21,7 +21,7 @@ The server is hosted by Microsoft and requires no installation or sign-in.
 
 ### VS Code (GitHub Copilot)
 
-Add the following to `.vscode/mcp.json` in your project, or to your user settings:
+Add the following to `.vscode/mcp.json` in your project:
 
 ```json
 {

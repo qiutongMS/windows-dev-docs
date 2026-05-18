@@ -29,7 +29,7 @@ The plugin fixes this by injecting explicit WinUI 3 rules as custom instructions
 
 ## Install the plugin
 
-**Requires:** The [Windows App Development CLI](../../dev-tools/winapp-cli/index.md) (`winget install Microsoft.WinAppCLI`).
+**Requires:** The [Windows App Development CLI](../../dev-tools/winapp-cli/index.md) (`winget install Microsoft.winappcli --source winget`).
 
 ### GitHub Copilot CLI
 
