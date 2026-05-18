@@ -29,9 +29,6 @@ Before you start, make sure you have:
 - Basic familiarity with C# and XAML
 - Understanding of async/await patterns in C#
 
-> [!TIP]
-> If you're validating a packaged WinUI project from the command line, build it with an explicit platform such as `dotnet build -p:Platform=x64`.
-
 ## Important APIs
 
 The following APIs are used in this topic:
@@ -49,8 +46,6 @@ Use a [FileSavePicker](/windows/windows-app-sdk/api/winrt/microsoft.windows.stor
 
 ```csharp
     using Microsoft.Windows.Storage.Pickers;
-    using System;
-    using System.Collections.Generic;
     ...
     var savePicker = new FileSavePicker(this.AppWindow.Id)
     {
@@ -133,7 +128,6 @@ Use the [FileTypeChoices](/windows/windows-app-sdk/api/winrt/microsoft.windows.s
 
 ```csharp
     using Microsoft.Windows.Storage.Pickers;
-    using System;
     ...
     var savePicker = new FileSavePicker(this.AppWindow.Id);
     var result = await savePicker.PickSaveFileAsync();

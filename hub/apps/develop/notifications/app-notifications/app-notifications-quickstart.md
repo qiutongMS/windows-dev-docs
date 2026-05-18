@@ -38,9 +38,6 @@ For more information about managing workloads in Visual Studio, see [Modify Visu
 2. In the **Create a new project** dialog, set the language filter to "C#" or "C++" and the platform filter to "WinUI", then select the "Blank App, Packaged (WinUI 3 in Desktop)" project template.
 3. Name the new project "AppNotificationsExample".
 
-> [!TIP]
-> If you're validating this packaged WinUI project from the command line, build it with an explicit platform such as `dotnet build -p:Platform=x64`.
-
 ## Send a local app notification
 
 In this section, you'll add a button to your app that sends a local app notification when clicked. The notification will include text content and an app logo image. You'll also add two read-only text boxes that will display the activation arguments when the user clicks on the notification.

@@ -34,9 +34,6 @@ To create standalone WinUI components in C# for consumption from both C# and C++
 
 Begin by creating a new project in Microsoft Visual Studio. In the **Create a new project** dialog, select the **WinUI Blank App (Packaged)** project template and select the appropriate language version. Set the project name to "BgLabelControlApp" so that the file names align with the code in the examples below.
 
-> [!TIP]
-> If you're validating this packaged WinUI project from the command line, build it with an explicit platform such as `dotnet build -p:Platform=x64`.
-
 ::: zone pivot="lang-csharp"
 
 ![WinUI Blank App (Packaged) Project Template](images/new-project-packaged-winui3-desktop.png)

@@ -16,9 +16,6 @@ In this topic, we step through how to build a basic **C# .NET** application with
 
 1. [Start developing Windows apps](../../get-started/start-here.md)
 
-> [!TIP]
-> If you're validating either packaged WinUI sample in this walkthrough from the command line, build it with an explicit platform such as `dotnet build -p:Platform=x64`.
-
 ## Basic managed C#/.NET app
 
 For this example, we'll specify the location and size of the app window, convert and scale it for the appropriate DPI, disable the window minimize and maximize buttons, and finally query the current process to show a list of the modules that are loaded into the current process.

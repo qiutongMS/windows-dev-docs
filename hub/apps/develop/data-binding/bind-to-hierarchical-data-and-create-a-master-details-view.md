@@ -30,9 +30,6 @@ This article assumes that you know how to create a basic WinUI app. For instruct
 
 Create a new **WinUI Blank App (Packaged)** project. Name it "MasterDetailsBinding".
 
-> [!TIP]
-> If you're validating the packaged WinUI project from the command line, build it with an explicit platform such as `dotnet build -p:Platform=x64`.
-
 ## Create the data model
 
 Add a new class to your project, name it **ViewModel.cs**, and add this code to it. This class is your binding source class.

@@ -28,9 +28,6 @@ To set up your development computer, see [Get started with WinUI](../get-started
 
 In Visual Studio, create your choice of a new C# or C++ project from the **WinUI Blank App (Packaged)** project template. Name the project *SimplePhotos*, and (so that your folder structure will match the one described in this tutorial) uncheck **Place solution and project in the same directory**. You can target the most recent release (not preview) of the client operating system.
 
-> [!TIP]
-> If you're validating the packaged WinUI project from the command line, build it with an explicit platform such as `dotnet build -p:Platform=x64`.
-
 ## Step 3: Copy asset files
 
 The app that we'll be building carries image files around with it in the form of asset files; and those are the photos that it displays. In this section you'll add those assets to your project. But first you'll need to obtain a copy of the files.
@@ -450,7 +447,6 @@ In this section we'll add a new property to the **MainWindow** class. The proper
 
     ```csharp
     ...
-    using System;
     using System.Threading.Tasks;
     using Windows.ApplicationModel;
     using Windows.Storage;

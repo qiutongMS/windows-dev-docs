@@ -57,7 +57,7 @@ Add a call to this helper method to the **MainWindow** class constructor so that
 :::code language="csharp" source="~/../snippets-windows/winappsdk/audio-video-camera/camera-winui/CS/CameraWinUI/MainWindow.xaml.cs" id="SnippetCameraWinUIConstructor":::
 
 > [!TIP]
-> If you're copying the sample into `MainWindow.xaml.cs`, also include the camera-related `using` directives used by the snippet source and add an empty `cbDeviceList_SelectionChanged` handler because the XAML wires that event. If you're validating the packaged sample from the command line, build it with `dotnet build -p:Platform=x64`.
+> If you're copying the sample into `MainWindow.xaml.cs`, also include the camera-related `using` directives used by the snippet source and add an empty `cbDeviceList_SelectionChanged` handler because the XAML wires that event.
 
 
 ## Initialize the MediaCapture object 
