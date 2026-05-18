@@ -24,27 +24,33 @@ In this quickstart you go from an empty folder to a published Windows app using 
 
 ## Prerequisites
 
-Install the following tools before you start:
+Install the following tools before you start. All are free.
 
-**1. .NET SDK 10 or later**
+**1. Visual Studio Code**
+
+```powershell
+winget install Microsoft.VisualStudioCode
+```
+
+**2. .NET SDK 10 or later**
 
 ```powershell
 winget install Microsoft.DotNet.SDK.10
 ```
 
-**2. Windows App Development CLI (winapp CLI)**
+**3. Windows App Development CLI (winapp CLI)**
 
 ```powershell
 winget install Microsoft.winappcli --source winget
 ```
 
-**3. WinUI dotnet new templates**
+**4. WinUI dotnet new templates**
 
 ```powershell
 dotnet new install Microsoft.WindowsAppSDK.WinUI.CSharp.Templates
 ```
 
-**4. GitHub Copilot CLI** (requires a [GitHub Copilot subscription](https://github.com/features/copilot) — free tier available)
+**5. GitHub Copilot CLI** (requires a [GitHub Copilot subscription](https://github.com/features/copilot) — free tier available)
 
 ```powershell
 winget install GitHub.cli
@@ -58,15 +64,28 @@ gh auth login
 gh extension install github/gh-copilot
 ```
 
-**5. WinUI agent plugin for GitHub Copilot**
+**6. WinUI agent plugin for GitHub Copilot**
 
 ```powershell
 gh copilot plugin install winui@awesome-copilot
 ```
 
-**6. WinApp extension for VS Code**
+**7. WinApp extension for VS Code**
 
-Install the [WinApp extension](vs-code-extension.md) for VS Code.
+```powershell
+code --install-extension microsoft-winappcli.winapp
+```
+
+Or search **WinApp** in the Extensions panel (**Ctrl+Shift+X**). See [VS Code tools](vs-code-tools.md) for a full command reference.
+
+**Verify your setup**
+
+```powershell
+winapp --version
+```
+
+> [!TIP]
+> For best results, also connect your AI agent to the [Microsoft Learn MCP server](vs-code-tools.md#microsoft-learn-mcp-server) — it fetches current WinUI 3 API docs at query time rather than relying on training data.
 
 ---
 
@@ -160,7 +179,7 @@ winapp store publish ./*.msix --appId <your-app-id>
 You've built and published a Windows app using only free tools and AI assistance. Here's where to go next:
 
 - **Go deeper on AI**: [WinUI agent plugin](winui-agent-plugin.md) — learn all 8 skills and when to use each
-- **Use VS Code fully**: [WinApp VS Code extension](vs-code-extension.md) — run, debug, and package without the terminal
+- **Use VS Code fully**: [VS Code tools](vs-code-tools.md) — run, debug, package, and sign without the terminal
 - **Have an existing app?**: [Migrate from WPF](migrate/wpf-to-winui.md) or [migrate from UWP](migrate/uwp-to-winui.md) with AI assistance
 - **Write better tests**: [AI-assisted testing](testing.md) — generate and automate UI tests
-- **Understand the risks**: [Security considerations](security.md) — what to review before shipping AI-generated code
+- **Understand the risks**: [Security and responsible AI](security-and-responsible-ai.md) — what to review before shipping AI-generated code

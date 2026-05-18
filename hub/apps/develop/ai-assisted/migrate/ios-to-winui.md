@@ -79,4 +79,4 @@ Some iOS concepts don't have a direct WinUI equivalent:
 
 - [Migrate from UWP](uwp-to-winui.md)
 - [WinUI agent plugin](../winui-agent-plugin.md)
-- [Microsoft Learn MCP Server](../mcp-server.md)
+- [Microsoft Learn MCP Server](../vs-code-tools.md#microsoft-learn-mcp-server)

@@ -107,4 +107,4 @@ The plugin includes 8 specialized skills. The `winui-dev` agent selects the appr
 - [AI-assisted testing](testing.md) — using the `winui-ui-testing` skill
 - [Migrate from WPF with AI](migrate/wpf-to-winui.md) — using the `winui-wpf-migration` skill
 - [Migrate from UWP with AI](migrate/uwp-to-winui.md)
-- [Microsoft Learn MCP Server](mcp-server.md) — give your agent live docs access
+- [Microsoft Learn MCP Server](vs-code-tools.md#microsoft-learn-mcp-server) — give your agent live docs access

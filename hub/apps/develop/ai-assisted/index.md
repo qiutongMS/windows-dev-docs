@@ -26,7 +26,6 @@ Windows has a complete set of free, AI-ready tools that take you from idea to pu
         Use the `winui-dev` agent and `dotnet new` templates to scaffold, build, run, and publish a new Windows app — no Windows experience required.
 
         → [Quickstart](quickstart.md)
-        → [Set up your environment](setup.md)
         → [WinUI agent plugin](winui-agent-plugin.md)
     :::column-end:::
     :::column:::
@@ -46,8 +45,7 @@ Windows has a complete set of free, AI-ready tools that take you from idea to pu
 | Tool | What it does |
 |------|-------------|
 | **[WinUI agent plugin](winui-agent-plugin.md)** | 8 skills for end-to-end WinUI development in GitHub Copilot or Claude Code |
-| **[Microsoft Learn MCP Server](mcp-server.md)** | Give your AI agent live access to current Windows documentation |
-| **[WinApp VS Code extension](vs-code-extension.md)** | Run, debug, package, and sign Windows apps from VS Code |
+| **[VS Code tools](vs-code-tools.md)** | WinApp extension + Microsoft Learn MCP Server for VS Code and Claude Code |
 | **[AI-assisted testing](testing.md)** | Generate and run UI tests using Windows UI Automation |
 | **[Publish to the Store](quickstart.md#step-5-publish-to-the-microsoft-store)** | Submit to the Microsoft Store from the command line using `winapp store` |
 
@@ -69,11 +67,11 @@ Build, debug, package, and publish from VS Code or the terminal. Visual Studio i
 
 ### Are these tools free?
 
-Yes — the WinApp CLI, VS Code extension, and `dotnet new` templates are free and open source. GitHub Copilot requires a [subscription](https://github.com/features/copilot) (free tier available). The [Microsoft Learn MCP Server](mcp-server.md) is free with no sign-in required.
+Yes — the WinApp CLI, VS Code extension, and `dotnet new` templates are free and open source. GitHub Copilot requires a [subscription](https://github.com/features/copilot) (free tier available). The [Microsoft Learn MCP Server](vs-code-tools.md#microsoft-learn-mcp-server) is free with no sign-in required.
 
 ### Will Copilot give me outdated UWP code instead of WinUI 3?
 
-By default, yes. AI models have more UWP training data than WinUI 3, so they drift toward deprecated patterns (`Windows.UI.Xaml`, `CoreDispatcher`, `MessageDialog`). Two tools fix this: the [WinUI agent plugin](winui-agent-plugin.md) injects correct WinUI 3 rules as custom instructions, and the [Microsoft Learn MCP Server](mcp-server.md) gives your agent live access to current docs.
+By default, yes. AI models have more UWP training data than WinUI 3, so they drift toward deprecated patterns (`Windows.UI.Xaml`, `CoreDispatcher`, `MessageDialog`). Two tools fix this: the [WinUI agent plugin](winui-agent-plugin.md) injects correct WinUI 3 rules as custom instructions, and the [Microsoft Learn MCP Server](vs-code-tools.md#microsoft-learn-mcp-server) gives your agent live access to current docs.
 
 ### Does this work with Claude Code as well as GitHub Copilot?
 
@@ -136,5 +134,4 @@ This is a WinUI 3 app using the Windows App SDK.
 ## Related content
 
 - [Windows App Development CLI](../../dev-tools/winapp-cli/index.md)
-- [Security considerations for AI-generated code](security.md)
-- [Responsible AI in Windows development](responsible-ai.md)
+- [Security and responsible AI](security-and-responsible-ai.md)

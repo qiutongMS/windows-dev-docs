@@ -13,7 +13,7 @@ The `winapp ui` commands and `winui-ui-testing` skill let your AI agent inspect,
 
 ## UI inspection commands
 
-The `winui-ui-testing` skill is included in the `winui@awesome-copilot` plugin. If you installed the plugin during [setup](setup.md), no additional install is required.
+The `winui-ui-testing` skill is included in the `winui@awesome-copilot` plugin. If you installed the plugin during [setup](quickstart.md#prerequisites), no additional install is required.
 
 | Command | What it does |
 |---------|-------------|
