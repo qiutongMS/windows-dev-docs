@@ -60,7 +60,6 @@ Before you continue, first ensure that the project's Architecture option is set 
 2. At the top of the C# file are various namespace definitions. Add the following namespaces:
 
 ```csharp
-using System;
 using System.Numerics;
 using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Effects;

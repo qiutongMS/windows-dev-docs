@@ -415,9 +415,6 @@ In this exercise, you start with the Windows Hello application built in the firs
 - The **AuthService** class needs to create an instance of the **MockStore** class and provide access to the properties of the **MockStore** object.
 
     ```cs
-    using System;
-    using System.Collections.Generic;
-
     namespace WindowsHelloLogin.AuthService
     {
         public class AuthService
@@ -909,8 +906,6 @@ In this exercise, you will be changing the client side views and helper classes 
 - In the **UserSelection** page class, only the code-behind needs to change, not the user interface. In UserSelection.xaml.cs, update the **UserSelection_Loaded** method and the **UserSelectionChanged** method to use the `UserAccount` class instead of the `Account` class. You will also need to get all users for this device through the **AuthService**.
 
     ```cs
-    using System.Collections.Generic;
-    using System.Diagnostics;
     using System.Linq;
     using WindowsHelloLogin.AuthService;
 
@@ -963,8 +958,6 @@ In this exercise, you will be changing the client side views and helper classes 
 - The **WindowsHelloRegister** page needs to have the code-behind file updated. The user interface does not need any changes. In WindowsHelloRegister.xaml.cs, remove the private `Account` variable at the top of the class, as it's no longer needed. Update the **RegisterButton_Click_Async** event handler to use the **AuthService**. This method will create a new **UserAccount** and then try and update its account details. If Windows Hello fails to create a key, the account will be removed as the registration process failed.
 
     ```cs
-    using System;
-
     private async void RegisterButton_Click_Async(object sender, RoutedEventArgs e)
     {
         ErrorMessage.Text = "";

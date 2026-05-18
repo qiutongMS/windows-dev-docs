@@ -34,8 +34,6 @@ The following is an example of connecting to and reading from a remote MySQL dat
 
 ``` csharp
 using MySql.Data.MySqlClient;
-using System.Data;
-using System.Diagnostics;
 
 const string M_str_sqlcon = "Server=myServerAddress;Database=myDataBase;IntegratedSecurity=yes;Uid=auth_windows;";
 using (var mySqlCn = new MySqlConnection(M_str_sqlcon))

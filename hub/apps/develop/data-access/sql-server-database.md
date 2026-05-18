@@ -80,8 +80,6 @@ sealed partial class App : Application
 We'll create a class that implements the [INotifyPropertyChanged](/dotnet/api/system.componentmodel.inotifypropertychanged) event so that we can bind attributes in our XAML UI to the properties in this class.
 
 ```csharp
-using System.ComponentModel;
-
 public class Product : INotifyPropertyChanged
 {
     public int ProductID { get; set; }
@@ -107,10 +105,7 @@ public class Product : INotifyPropertyChanged
 In the **MainWindow.xaml.cs** file of the Windows App SDK project, create a method that gets products from the Northwind sample database, and then returns them as an [ObservableCollection](/dotnet/api/system.collections.objectmodel.observablecollection-1) collection of `Product` instances.
 
 ```csharp
-using System;
-using System.Collections.ObjectModel;
 using System.Data.SqlClient;
-using System.Diagnostics;
 
 public ObservableCollection<Product> GetProducts(string connectionString)
 {

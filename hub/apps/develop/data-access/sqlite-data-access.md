@@ -129,9 +129,7 @@ Add the following `using` statements to the top of this file.
 
 ```csharp
 using Microsoft.Data.Sqlite;
-using System;
 using System.Collections.Generic;
-using System.IO;
 using Windows.Storage;
 ```
 
