@@ -255,9 +255,6 @@ Now that your app will be redrawing at 60 frames per second, it is more efficien
 
 3. Switch back to `MainWindow.xaml.cs`. Find your `canvas_Draw` method which should look like this:
 
-   > [!NOTE]
-   > The final WinUI 3 sample in this walkthrough stays in the `MainWindow.xaml` and `MainWindow.xaml.cs` files. If you created a page while experimenting, move the final animated sample code back into those two files so the XAML and code-behind stay aligned.
-
 ```csharp
 private void canvas_Draw(
     Microsoft.Graphics.Canvas.UI.Xaml.CanvasControl sender,
