@@ -15,7 +15,7 @@ ms.localizationpriority: medium
 
 This article describes Windows zooming and resizing elements and provides user experience guidelines for using these interaction mechanisms in your apps.
 
-> **Important APIs**: [**Windows.UI.Input**](/windows/windows-app-sdk/api/winrt/microsoft.ui.input), [**Input (XAML)**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input)
+> **Important APIs**: [**Windows.UI.Input**](/uwp/api/Windows.UI.Input), [**Input (XAML)**](/uwp/api/Windows.UI.Xaml.Input)
 
 Optical zoom lets users magnify their view of the content within a content area (it is performed on the content area itself), whereas resizing enables users to change the relative size of one or more objects without changing the view of the content area (it is performed on the objects within the content area).
 

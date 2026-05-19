@@ -16,7 +16,7 @@ ms.localizationpriority: medium
 
 Identify the input devices connected to a Windows app device and identify their capabilities and attributes.
 
-> **Important APIs**: [**Windows.Devices.Input**](/uwp/api/Windows.Devices.Input), [**Windows.UI.Input**](/windows/windows-app-sdk/api/winrt/microsoft.ui.input), [**Windows.UI.Xaml.Input**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input)
+> **Important APIs**: [**Windows.Devices.Input**](/uwp/api/Windows.Devices.Input), [**Windows.UI.Input**](/uwp/api/Windows.UI.Input), [**Windows.UI.Xaml.Input**](/uwp/api/Windows.UI.Xaml.Input)
 
 ## Retrieve mouse properties
 
