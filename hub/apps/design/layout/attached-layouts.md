@@ -240,7 +240,7 @@ Scrolling on Windows happens asynchronous to the UI thread. It is not controlled
 
 ![Realization rect](images/xaml-attached-layout-realizationrect.png)
 
-Since element creation is costly, virtualizing containers (for example, [ItemsRepeater](../controls/items-repeater.md)) will initially provide the attached layout with a [RealizationRect](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.virtualizinglayoutcontext.realizationrect) that matches the viewport. On idle time the container may grow the buffer of prepared content by making repeated calls to the layout using an increasingly larger realization rect. This behavior is a performance optimization that attempts to strike a balance between fast startup time and a good panning experience. The maximum buffer size that the ItemsRepeater will generate is controlled by its [VerticalCacheLength](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsrepeater.verticalcachelength) and [HorizontalCacheLength](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsrepeater.verticalcachelength) properties.
+Since element creation is costly, virtualizing containers (for example, [ItemsRepeater](../controls/items-repeater.md)) will initially provide the attached layout with a [RealizationRect](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.virtualizinglayoutcontext.realizationrect) that matches the viewport. On idle time the container may grow the buffer of prepared content by making repeated calls to the layout using an increasingly larger realization rect. This behavior is a performance optimization that attempts to strike a balance between fast startup time and a good panning experience. The maximum buffer size that the ItemsRepeater will generate is controlled by its [VerticalCacheLength](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsrepeater.verticalcachelength) and [HorizontalCacheLength](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsrepeater.horizontalcachelength) properties.
 
 **Re-using Elements (Recycling)**
 
@@ -251,7 +251,7 @@ The [VirtualizingLayoutContext](/windows/windows-app-sdk/api/winrt/microsoft.ui.
 1. Query the number of items in the data ([ItemCount](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.virtualizinglayoutcontext.itemcount)).
 2. Retrieve a specific item using the [GetItemAt](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.virtualizinglayoutcontext.getitemat) method.
 3. Retrieve a [RealizationRect](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.virtualizinglayoutcontext.realizationrect) that represents the viewport and buffer that the layout should fill with realized elements.
-4. Request the UIElement for a specific item with the [GetOrCreateElement](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.virtualizinglayoutcontext.getorcreateelementat) method.
+4. Request the UIElement for a specific item with the [GetOrCreateElementAt](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.virtualizinglayoutcontext.getorcreateelementat) method.
 
 Requesting an element for a given index will cause that element to be marked as "in use" for that pass of the layout. If the element does not already exist, then it will be realized and automatically prepared for use (for example, inflating the UI tree defined in a DataTemplate, processing any data binding, etc.).  Otherwise, it will be retrieved from a pool of existing instances.
 
@@ -624,7 +624,7 @@ The snippet below shows the additional logic that could be added to the MeasureO
                 }
                 else
                 {
-                    container = context = context.GetOrCreateElementAt(index, ElementRealizationOptions.ForceCreate | ElementRealizationOptions.SuppressAutoRecycle);
+                    container = context.GetOrCreateElementAt(index, ElementRealizationOptions.ForceCreate | ElementRealizationOptions.SuppressAutoRecycle);
                     state.IndexToElementMap.Add(index, container);
                 }
 
@@ -662,7 +662,7 @@ Content-dependent layouts rely on estimation to guess both the size of unrealize
 
 **Scroll Anchoring**
 
-XAML provides a mechanism to mitigate sudden viewport shifts by having scrolling controls support [scroll anchoring](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iscrollanchorprovider) by implementing the [IScrollAnchorPovider](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iscrollanchorprovider) interface. As the user manipulates the content, the scrolling control continually selects an element from the set of candidates that were opted-in to be tracked. If the position of the anchor element shifts during the layout then the scroll control automatically shifts its viewport to maintain the viewport.
+XAML provides a mechanism to mitigate sudden viewport shifts by having scrolling controls support [scroll anchoring](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iscrollanchorprovider) by implementing the [IScrollAnchorProvider](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iscrollanchorprovider) interface. As the user manipulates the content, the scrolling control continually selects an element from the set of candidates that were opted-in to be tracked. If the position of the anchor element shifts during the layout then the scroll control automatically shifts its viewport to maintain the viewport.
 
 The value of the [RecommendedAnchorIndex](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.virtualizinglayoutcontext.recommendedanchorindex) provided to the layout may reflect that currently selected anchor element chosen by the scrolling control. Alternatively, if a developer explicitly requests that an element be realized for an index with the [GetOrCreateElement](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsrepeater.getorcreateelement) method on the [ItemsRepeater](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.itemsrepeater), then that index is given as the [RecommendedAnchorIndex](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.virtualizinglayoutcontext.recommendedanchorindex) on the next layout pass. This enables the layout to be prepared for the likely scenario that a developer realizes an element and subsequently requests that it be brought into view via the [StartBringIntoView](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.startbringintoview) method.
 
