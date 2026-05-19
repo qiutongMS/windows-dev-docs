@@ -94,7 +94,7 @@ For more general guidance on visual feedback, see [Guidelines for visual feedbac
 
 A set of standard cursors is available for a mouse pointer. These are used to indicate the primary action of an element.
 
-Each standard cursor has a corresponding default image associated with it. The user or an app can replace the default image associated with any standard cursor at any time. Specify a cursor image through the **PointerCursor** function.
+Each standard cursor has a corresponding default image associated with it. The user or an app can replace the default image associated with any standard cursor at any time. In WinUI, specify a cursor image through the [**UIElement.ProtectedCursor**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.protectedcursor) property.
 
 If you need to customize the mouse cursor:
 

@@ -219,7 +219,7 @@ private void MediaButton_Click(object sender, RoutedEventArgs e)
 
 private static bool IsCtrlKeyPressed()
 {
-    var ctrlState = InputKeyboardSource.GetKeyStateForCurrentThread(VirtualKey.Control);
+    var ctrlState = Microsoft.UI.Input.InputKeyboardSource.GetKeyStateForCurrentThread(VirtualKey.Control);
     return (ctrlState & CoreVirtualKeyStates.Down) == CoreVirtualKeyStates.Down;
 }
 
@@ -244,7 +244,7 @@ Protected Overrides Sub OnNavigatedTo(e As Navigation.NavigationEventArgs)
 End Sub
 
 Private Function IsCtrlKeyPressed As Boolean
-    Dim ctrlState As CoreVirtualKeyStates = InputKeyboardSource.GetKeyStateForCurrentThread(VirtualKey.Control);
+    Dim ctrlState As CoreVirtualKeyStates = Microsoft.UI.Input.InputKeyboardSource.GetKeyStateForCurrentThread(VirtualKey.Control)
     Return (ctrlState & CoreVirtualKeyStates.Down) == CoreVirtualKeyStates.Down;
 End Function
 
