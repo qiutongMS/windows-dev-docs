@@ -82,7 +82,7 @@ Include a 44x44 icon with your project so that your logo can appear in those loc
 
 ## Step 3: Handle the activated event
 
-The file activation handler receives all file activation events.
+The [OnFileActivated](/uwp/api/windows.ui.xaml.application.onfileactivated) event handler receives all file activation events.
 
 ```csharp
 protected override void OnFileActivated(FileActivatedEventArgs args)
