@@ -50,8 +50,8 @@ The C#/WinRT custom type mappings are categorized by types in the Windows SDK or
 | Vector2 (Windows.Foundation.Numerics) | Vector2 (System.Numerics) |
 | Vector3 (Windows.Foundation.Numerics) | Vector3 (System.Numerics) |
 | Vector4 (Windows.Foundation.Numerics) | Vector4 (System.Numerics) |
-| IBindableIterable (Microsoft.UI.Xaml.Interop) | IEnumerable (System.Collections) |
-| IBindableVector (Microsoft.UI.Xaml.Interop) | IList (System.Collections) |
+| IBindableIterable (Windows.UI.Xaml.Interop) | IEnumerable (System.Collections) |
+| IBindableVector (Windows.UI.Xaml.Interop) | IList (System.Collections) |
 | TypeName (Windows.UI.Xaml.Interop) | Type (System) |
 
 ### Types with the same name and namespace
