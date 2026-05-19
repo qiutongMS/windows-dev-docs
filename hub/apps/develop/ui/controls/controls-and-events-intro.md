@@ -84,7 +84,7 @@ Here's the resulting XAML after you set the Foreground property.
 Here's how to set the Foreground property in code. 
 
 ```csharp
-Button1.Foreground = new SolidColorBrush(Windows.UI.Colors.Beige);
+Button1.Foreground = new SolidColorBrush(Microsoft.UI.Colors.Beige);
 ```
 ```cppwinrt
 Button1().Foreground(Media::SolidColorBrush(Windows::UI::Colors::Beige()));
@@ -107,7 +107,7 @@ The following example handles the `Click` event of a Button named `Button1`. Whe
 private void Button_Click(object sender, RoutedEventArgs e)
 {
     Button b = (Button)sender;
-    b.Foreground = new SolidColorBrush(Windows.UI.Colors.Blue);
+    b.Foreground = new SolidColorBrush(Microsoft.UI.Colors.Blue);
 }
 ```
 ```cppwinrt
@@ -116,13 +116,13 @@ struct MainPage : MainPageT<MainPage>
     {
         MainPage();
         ...
-        void Button1_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Windows::UI::Xaml::RoutedEventArgs const& e);
+        void Button1_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e);
     };
     
 #MainPage.cpp
-void MainPage::Button1_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Windows::UI::Xaml::RoutedEventArgs const& e)
+void MainPage::Button1_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
     {
-        auto b{ sender.as<winrt::Windows::UI::Xaml::Controls::Button>() };
+        auto b{ sender.as<winrt::Microsoft::UI::Xaml::Controls::Button>() };
         b.Foreground(Media::SolidColorBrush(Windows::UI::Colors::Blue()));
     }
 ```
@@ -153,7 +153,7 @@ Button1().Click({ this, &MainPage::Button1_Click });
 ## Related topics
 
 - [Index of controls by function](../../../design/controls/index.md)
-- [Windows.UI.Xaml.Controls namespace](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls)
+- [Microsoft.UI.Xaml.Controls namespace](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls)
 - [Layout](../../../design/layout/index.md)
 - [Style](../../../design/style/index.md)
 - [Usability](../../../design/usability/index.md)

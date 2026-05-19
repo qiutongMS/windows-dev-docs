@@ -8,7 +8,7 @@ ms.localizationpriority: medium
 ---
 # Layout panels
 
-Layout panels are containers that allow you to arrange and group UI elements in your app. The built-in XAML layout panels include [**RelativePanel**](/uwp/api/Windows.UI.Xaml.Controls.RelativePanel), [**StackPanel**](/uwp/api/Windows.UI.Xaml.Controls.StackPanel), [**Grid**](/uwp/api/Windows.UI.Xaml.Controls.Grid), [**VariableSizedWrapGrid**](/uwp/api/Windows.UI.Xaml.Controls.VariableSizedWrapGrid), and [**Canvas**](/uwp/api/Windows.UI.Xaml.Controls.Canvas). Here, we describe each panel and show how to use it to layout XAML UI elements.
+Layout panels are containers that allow you to arrange and group UI elements in your app. The built-in XAML layout panels include [**RelativePanel**](/windows/windows-app-sdk/api/winrt/microsoft.ui.Xaml.Controls.RelativePanel), [**StackPanel**](/windows/windows-app-sdk/api/winrt/microsoft.ui.Xaml.Controls.StackPanel), [**Grid**](/windows/windows-app-sdk/api/winrt/microsoft.ui.Xaml.Controls.Grid), [**VariableSizedWrapGrid**](/windows/windows-app-sdk/api/winrt/microsoft.ui.Xaml.Controls.VariableSizedWrapGrid), and [**Canvas**](/windows/windows-app-sdk/api/winrt/microsoft.ui.Xaml.Controls.Canvas). Here, we describe each panel and show how to use it to layout XAML UI elements.
 
 There are several things to consider when choosing a layout panel:
 - How the panel positions its child elements.
@@ -59,7 +59,7 @@ Using the built-in border properties reduces the XAML element count, which can i
 
 ## RelativePanel
 
-[**RelativePanel**](/uwp/api/Windows.UI.Xaml.Controls.RelativePanel) lets you layout UI elements by specifying where they go in relation to other elements and in relation to the panel. By default, an element is positioned in the upper left corner of the panel. You can use RelativePanel with [**VisualStateManager**](/uwp/api/Windows.UI.Xaml.VisualStateManager) and [**AdaptiveTrigger**](/uwp/api/Windows.UI.Xaml.AdaptiveTrigger) to rearrange your UI for different window sizes.
+[**RelativePanel**](/windows/windows-app-sdk/api/winrt/microsoft.ui.Xaml.Controls.RelativePanel) lets you layout UI elements by specifying where they go in relation to other elements and in relation to the panel. By default, an element is positioned in the upper left corner of the panel. You can use RelativePanel with [**VisualStateManager**](/windows/windows-app-sdk/api/winrt/microsoft.ui.Xaml.VisualStateManager) and [**AdaptiveTrigger**](/windows/windows-app-sdk/api/winrt/microsoft.ui.Xaml.AdaptiveTrigger) to rearrange your UI for different window sizes.
 
 This table shows the attached properties you can use to align an element in relation to the panel or other elements.
 
@@ -106,9 +106,9 @@ Here are a few things to note about the sizing of the rectangles:
 
 ## StackPanel
 
-[**StackPanel**](/uwp/api/Windows.UI.Xaml.Controls.StackPanel) arranges its child elements into a single line that can be oriented horizontally or vertically. StackPanel is typically used to arrange a small subsection of the UI on a page.
+[**StackPanel**](/windows/windows-app-sdk/api/winrt/microsoft.ui.Xaml.Controls.StackPanel) arranges its child elements into a single line that can be oriented horizontally or vertically. StackPanel is typically used to arrange a small subsection of the UI on a page.
 
-You can use the [**Orientation**](/uwp/api/windows.ui.xaml.controls.stackpanel.orientation) property to specify the direction of the child elements. The default orientation is [**Vertical**](/uwp/api/Windows.UI.Xaml.Controls.Orientation).
+You can use the [**Orientation**](/uwp/api/windows.ui.xaml.controls.stackpanel.orientation) property to specify the direction of the child elements. The default orientation is [**Vertical**](/windows/windows-app-sdk/api/winrt/microsoft.ui.Xaml.Controls.Orientation).
 
 The following XAML shows how to create a vertical StackPanel of items.
 
@@ -130,7 +130,7 @@ In a StackPanel, if a child element's size is not set explicitly, it stretches t
 
 ## Grid
 
-The [**Grid**](/uwp/api/Windows.UI.Xaml.Controls.Grid) panel supports fluid layouts and allows you to arrange controls in multi-row and multi-column layouts. You specify a Grid's rows and columns by using the [**RowDefinitions**](/uwp/api/windows.ui.xaml.controls.grid.rowdefinitions) and [**ColumnDefinitions**](/uwp/api/windows.ui.xaml.controls.grid.columndefinitions) properties.
+The [**Grid**](/windows/windows-app-sdk/api/winrt/microsoft.ui.Xaml.Controls.Grid) panel supports fluid layouts and allows you to arrange controls in multi-row and multi-column layouts. You specify a Grid's rows and columns by using the [**RowDefinitions**](/uwp/api/windows.ui.xaml.controls.grid.rowdefinitions) and [**ColumnDefinitions**](/uwp/api/windows.ui.xaml.controls.grid.columndefinitions) properties.
 
 To position objects in specific cells of the Grid, use the [**Grid.Column**](/dotnet/api/system.windows.controls.grid.column) and [**Grid.Row**](/dotnet/api/system.windows.controls.grid.row) attached properties.
 
@@ -167,9 +167,9 @@ In this example, the sizing works like this:
 
 You can distribute space within a column or a row by using **Auto** or star sizing. You use auto sizing to let UI elements resize to fit their content or parent container. You can also use auto sizing with the rows and columns of a grid. To use auto sizing, set the Height and/or Width of UI elements to **Auto**.
 
-You use proportional sizing, also called *star sizing*, to distribute available space among the rows and columns of a grid by weighted proportions. In XAML, star values are expressed as \* (or *n*\* for weighted star sizing). For example, to specify that one column is 5 times wider than the second column in a 2-column layout, use "5\*" and "\*" for the [**Width**](/uwp/api/windows.ui.xaml.controls.columndefinition.width) properties in the [**ColumnDefinition**](/uwp/api/Windows.UI.Xaml.Controls.ColumnDefinition) elements.
+You use proportional sizing, also called *star sizing*, to distribute available space among the rows and columns of a grid by weighted proportions. In XAML, star values are expressed as \* (or *n*\* for weighted star sizing). For example, to specify that one column is 5 times wider than the second column in a 2-column layout, use "5\*" and "\*" for the [**Width**](/uwp/api/windows.ui.xaml.controls.columndefinition.width) properties in the [**ColumnDefinition**](/windows/windows-app-sdk/api/winrt/microsoft.ui.Xaml.Controls.ColumnDefinition) elements.
 
-This example combines fixed, auto, and proportional sizing in a [**Grid**](/uwp/api/Windows.UI.Xaml.Controls.Grid) with 4 columns.
+This example combines fixed, auto, and proportional sizing in a [**Grid**](/windows/windows-app-sdk/api/winrt/microsoft.ui.Xaml.Controls.Grid) with 4 columns.
 
 | Column | Sizing | Description |
 | ------ | ------ | ----------- |
@@ -198,7 +198,7 @@ In the Visual Studio XAML designer, the result looks like this.
 
 ## VariableSizedWrapGrid
 
-[**VariableSizedWrapGrid**](/uwp/api/Windows.UI.Xaml.Controls.VariableSizedWrapGrid) is a Grid-style layout panel where rows or columns automatically wrap to a new row or column when the [**MaximumRowsOrColumns**](/uwp/api/windows.ui.xaml.controls.variablesizedwrapgrid.maximumrowsorcolumns) value is reached. 
+[**VariableSizedWrapGrid**](/windows/windows-app-sdk/api/winrt/microsoft.ui.Xaml.Controls.VariableSizedWrapGrid) is a Grid-style layout panel where rows or columns automatically wrap to a new row or column when the [**MaximumRowsOrColumns**](/uwp/api/windows.ui.xaml.controls.variablesizedwrapgrid.maximumrowsorcolumns) value is reached. 
 
 The [**Orientation**](/uwp/api/windows.ui.xaml.controls.variablesizedwrapgrid.orientation) property specifies whether the grid adds its items in rows or columns before wrapping. The default orientation is **Vertical**, which means the grid adds items from top to bottom until a column is full, then wraps to a new column. When the value is **Horizontal**, the grid adds items from left to right, then wraps to a new row.
 
@@ -230,7 +230,7 @@ In this example, the maximum number of rows in each column is 3. The first colum
 
 ## Canvas
 
-The [**Canvas**](/uwp/api/Windows.UI.Xaml.Controls.Canvas) panel positions its child elements using fixed coordinate points and does not support fluid layouts. You specify the points on individual child elements by setting the [**Canvas.Left**](/dotnet/api/system.windows.controls.canvas.left) and [**Canvas.Top**](/dotnet/api/system.windows.controls.canvas.top) attached properties on each element. The parent Canvas reads these attached property values from its children during the [Arrange](/uwp/api/windows.ui.xaml.uielement.arrange) pass of layout.
+The [**Canvas**](/windows/windows-app-sdk/api/winrt/microsoft.ui.Xaml.Controls.Canvas) panel positions its child elements using fixed coordinate points and does not support fluid layouts. You specify the points on individual child elements by setting the [**Canvas.Left**](/dotnet/api/system.windows.controls.canvas.left) and [**Canvas.Top**](/dotnet/api/system.windows.controls.canvas.top) attached properties on each element. The parent Canvas reads these attached property values from its children during the [Arrange](/uwp/api/windows.ui.xaml.uielement.arrange) pass of layout.
 
 Objects in a Canvas can overlap, where one object is drawn on top of another object. By default, the Canvas renders child objects in the order in which they’re declared, so the last child is rendered on top (each element has a default z-index of 0). This is the same as other built-in panels. However, Canvas also supports the [**Canvas.ZIndex**](/previous-versions/windows/silverlight/dotnet-windows-silverlight/cc190397(v=vs.95)) attached property that you can set on each of the child elements. You can set this property in code to change the draw order of elements during run time. The element with the highest Canvas.ZIndex value draws last and therefore draws over any other elements that share the same space or overlap in any way. Note that alpha value (transparency) is respected, so even if elements overlap, the contents shown in overlap areas might be blended if the top one has a non-maximum alpha value.
 
@@ -255,7 +255,7 @@ Use the Canvas panel with discretion. While it's convenient to be able to precis
 
 ## Panels for ItemsControl
 
-There are several special-purpose panels that can be used only as an [**ItemsPanel**](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemspanel) to display items in an [**ItemsControl**](/uwp/api/Windows.UI.Xaml.Controls.ItemsControl). These are [**ItemsStackPanel**](/uwp/api/Windows.UI.Xaml.Controls.ItemsStackPanel), [**ItemsWrapGrid**](/uwp/api/Windows.UI.Xaml.Controls.ItemsWrapGrid), [**VirtualizingStackPanel**](/uwp/api/Windows.UI.Xaml.Controls.VirtualizingStackPanel), and [**WrapGrid**](/uwp/api/Windows.UI.Xaml.Controls.WrapGrid). You can't use these panels for general UI layout.
+There are several special-purpose panels that can be used only as an [**ItemsPanel**](/uwp/api/windows.ui.xaml.controls.itemscontrol.itemspanel) to display items in an [**ItemsControl**](/windows/windows-app-sdk/api/winrt/microsoft.ui.Xaml.Controls.ItemsControl). These are [**ItemsStackPanel**](/windows/windows-app-sdk/api/winrt/microsoft.ui.Xaml.Controls.ItemsStackPanel), [**ItemsWrapGrid**](/windows/windows-app-sdk/api/winrt/microsoft.ui.Xaml.Controls.ItemsWrapGrid), [**VirtualizingStackPanel**](/windows/windows-app-sdk/api/winrt/microsoft.ui.Xaml.Controls.VirtualizingStackPanel), and [**WrapGrid**](/windows/windows-app-sdk/api/winrt/microsoft.ui.Xaml.Controls.WrapGrid). You can't use these panels for general UI layout.
 
 ## Get the sample code
 
