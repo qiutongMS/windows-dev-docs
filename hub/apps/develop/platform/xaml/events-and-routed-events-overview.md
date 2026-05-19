@@ -59,15 +59,15 @@ End Sub
 ```
 
 ```cppwinrt
-void winrt::MyNamespace::implementation::BlankPage::ShowUpdatesButton_Click(Windows::Foundation::IInspectable const& sender, Windows::UI::Xaml::RoutedEventArgs const& e)
+void winrt::MyNamespace::implementation::BlankPage::ShowUpdatesButton_Click(Windows::Foundation::IInspectable const& sender, Microsoft::UI::Xaml::RoutedEventArgs const& e)
 {
-    auto b{ sender.as<Windows::UI::Xaml::Controls::Button>() };
+    auto b{ sender.as<Microsoft::UI::Xaml::Controls::Button>() };
     // More logic to do here.
 }
 ```
 
 ```cpp
-void MyNamespace::BlankPage::ShowUpdatesButton_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e) 
+void MyNamespace::BlankPage::ShowUpdatesButton_Click(Platform::Object^ sender, Microsoft::UI::Xaml::RoutedEventArgs^ e) 
 {
     Button^ b = (Button^) sender;
     //more logic to do here...
@@ -168,7 +168,7 @@ It's not usually necessary to remove event handlers in code, even if you added t
 
 There are some rare cases where you do want to remove event handlers explicitly. These include:
 
-- Handlers you added for static events, which can't get garbage-collected in a conventional way. Examples of static events in the Windows Runtime API are the events of the [**CompositionTarget**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.Media.CompositionTarget) and [**Clipboard**](/uwp/api/Windows.ApplicationModel.DataTransfer.Clipboard) classes.
+- Handlers you added for static events, which can't get garbage-collected in a conventional way. Examples of static events in the Windows Runtime API are the events of the [**CompositionTarget**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.Media.CompositionTarget) and **Clipboard** classes.
 - Test code where you want the timing of handler removal to be immediate, or code where you what to swap old/new event handlers for an event at run time.
 - The implementation of a custom **remove** accessor.
 - Custom static events.

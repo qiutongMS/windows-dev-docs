@@ -142,7 +142,7 @@ This example shows how to retrieve the `redButtonStyle` resource out of a page's
     MainPage::MainPage()
     {
         InitializeComponent();
-        Windows::UI::Xaml::Style style = Resources().TryLookup(winrt::box_value(L"redButtonStyle")).as<Windows::UI::Xaml::Style>();
+        Microsoft::UI::Xaml::Style style = Resources().TryLookup(winrt::box_value(L"redButtonStyle")).as<Microsoft::UI::Xaml::Style>();
     }
 ```
 
@@ -178,9 +178,9 @@ To look up app-wide resources from code, use **Application.Current.Resources** t
     MainPage::MainPage()
     {
         InitializeComponent();
-        Windows::UI::Xaml::Style style = Application::Current().Resources()
+        Microsoft::UI::Xaml::Style style = Application::Current().Resources()
                                                                .TryLookup(winrt::box_value(L"appButtonStyle"))
-                                                               .as<Windows::UI::Xaml::Style>();
+                                                               .as<Microsoft::UI::Xaml::Style>();
     }
 ```
 
@@ -227,7 +227,7 @@ void App::OnLaunched(LaunchActivatedEventArgs const& e)
     // just ensure that the window is active
     if (rootFrame == nullptr)
     {
-        Windows::UI::Xaml::Media::SolidColorBrush brush{ Windows::UI::ColorHelper::FromArgb(255, 0, 255, 0) };
+        Microsoft::UI::Xaml::Media::SolidColorBrush brush{ Windows::UI::ColorHelper::FromArgb(255, 0, 255, 0) };
         Resources().Insert(winrt::box_value(L"brush"), winrt::box_value(brush));
         // … Other code that VS generates for you …
 ```
