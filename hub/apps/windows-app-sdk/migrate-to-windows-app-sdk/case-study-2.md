@@ -110,7 +110,7 @@ No changes are necessary to the target project's `App.idl` and `App.xaml`. But w
 
 ### Making the main window object available
 
-In this step we'll make the change that's explained in [Change Microsoft.UI.Xaml.Window.Current to App.Window](guides/winui3.md#change-windowsuixamlwindowcurrent-to-appwindow).
+In this step we'll make the change that's explained in [Change Windows.UI.Xaml.Window.Current to App.Window](guides/winui3.md#change-windowsuixamlwindowcurrent-to-appwindow).
 
 In the target project, **App** stores the main window object in its private data member *window*. Later in the migration process (when we migrate the source project's use of **Window.Current**), it'll be convenient if that *window* data member is static; and is also made available via an accessor function. So we'll make those changes next.
 

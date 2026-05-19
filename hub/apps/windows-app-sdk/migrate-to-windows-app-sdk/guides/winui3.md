@@ -181,7 +181,7 @@ To use **DataTransferManager.ShowShareUI** in your Windows App SDK app, you need
 
 ## ContentDialog, and Popup
 
-If in your UWP app you're using the [**Microsoft.UI.Xaml.Controls.ContentDialog**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentdialog) or [**Microsoft.UI.Xaml.Controls.Primitives.Popup**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.contentdialog) classes, then this section contains info to help you migrate that code. The code examples below use **ContentDialog**, but you can apply exactly the same techniques to displaying a **Popup** object.
+If in your UWP app you're using the [**Windows.UI.Xaml.Controls.ContentDialog**](/uwp/api/windows.ui.xaml.controls.contentdialog) or [**Windows.UI.Xaml.Controls.Primitives.Popup**](/uwp/api/windows.ui.xaml.controls.primitives.popup) classes, then this section contains info to help you migrate that code. The code examples below use **ContentDialog**, but you can apply exactly the same techniques to displaying a **Popup** object.
 
 Here's some typical UWP code to display a **ContentDialog**.
 

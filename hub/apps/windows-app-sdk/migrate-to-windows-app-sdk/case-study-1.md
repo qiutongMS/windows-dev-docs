@@ -146,7 +146,7 @@ Copy `LoadedImageBrush.cs` from the source project to the target project in the 
 * `namespace PhotoLab` => `namespace PhotoLabWinUI`
 * `Windows.UI.Composition` => `Microsoft.UI.Composition`
 * `Windows.UI.Xaml` => `Microsoft.UI.Xaml`
-* `Window.Current.Compositor` => `App.Window.Compositor` (see [Change Microsoft.UI.Xaml.Window.Current to App.Window](guides/winui3.md#change-windowsuixamlwindowcurrent-to-appwindow))
+* `Window.Current.Compositor` => `App.Window.Compositor` (see [Change Windows.UI.Xaml.Window.Current to App.Window](guides/winui3.md#change-windowsuixamlwindowcurrent-to-appwindow))
 
 2. Confirm that you can build the target solution (but don't run yet).
 
