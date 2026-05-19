@@ -15,18 +15,18 @@ ms.localizationpriority: medium
 
 ![Keyboard, remote, and D-pad](images/dpad-remote/dpad-remote-keyboard.png)
 
-To move focus programmatically in your Windows application, you can use either the [FocusManager.TryMoveFocus](/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_TryMoveFocus_Windows_UI_Xaml_Input_FocusNavigationDirection_) method or the [FindNextElement](/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_FindNextElement_Windows_UI_Xaml_Input_FocusNavigationDirection_) method.
+To move focus programmatically in your Windows application, you can use either the [FocusManager.TryMoveFocus](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager) method or the [FindNextElement](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager) method.
 
-[TryMoveFocus](/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_TryMoveFocus_Windows_UI_Xaml_Input_FocusNavigationDirection_) attempts to change focus from the element with focus to the next focusable element in the specified direction, while [FindNextElement](/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_FindNextElement_Windows_UI_Xaml_Input_FocusNavigationDirection_) retrieves the element (as a [DependencyObject](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dependencyobject)) that will receive focus based on the specified navigation direction (directional navigation only, cannot be used to emulate tab navigation).
+[TryMoveFocus](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager) attempts to change focus from the element with focus to the next focusable element in the specified direction, while [FindNextElement](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager) retrieves the element (as a [DependencyObject](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dependencyobject)) that will receive focus based on the specified navigation direction (directional navigation only, cannot be used to emulate tab navigation).
 
 > [!NOTE]
-> We recommend using the [FindNextElement](/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_FindNextElement_Windows_UI_Xaml_Input_FocusNavigationDirection_) method instead of [FindNextFocusableElement](/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_FindNextFocusableElement_Windows_UI_Xaml_Input_FocusNavigationDirection_) because FindNextFocusableElement retrieves a UIElement, which returns null if the next focusable element is not a UIElement (such as a Hyperlink object). 
+> We recommend using the [FindNextElement](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager) method instead of [FindNextFocusableElement](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager) because FindNextFocusableElement retrieves a UIElement, which returns null if the next focusable element is not a UIElement (such as a Hyperlink object). 
 
 ## Find a focus candidate within a scope
 
-You can customize the focus navigation behavior for both [TryMoveFocus](/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_TryMoveFocus_Windows_UI_Xaml_Input_FocusNavigationDirection_) and [FindNextElement](/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_FindNextElement_Windows_UI_Xaml_Input_FocusNavigationDirection_), including searching for the next focus candidate within a specific UI tree or excluding specific elements from consideration.
+You can customize the focus navigation behavior for both [TryMoveFocus](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager) and [FindNextElement](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager), including searching for the next focus candidate within a specific UI tree or excluding specific elements from consideration.
 
-This example uses a TicTacToe game to demonstrate the [TryMoveFocus](/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_TryMoveFocus_Windows_UI_Xaml_Input_FocusNavigationDirection_) and [FindNextElement](/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_FindNextElement_Windows_UI_Xaml_Input_FocusNavigationDirection_) methods.
+This example uses a TicTacToe game to demonstrate the [TryMoveFocus](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager) and [FindNextElement](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager) methods.
 
 ```xaml
 <StackPanel Orientation="Horizontal"
@@ -119,21 +119,21 @@ private void OnKeyDown(object sender, KeyRoutedEventArgs e)
 
 Use [FindNextElementOptions](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.findnextelementoptions) to further customize how focus candidates are identified. This object provides the following properties:
 
-- [SearchRoot](/uwp/api/windows.ui.xaml.input.findnextelementoptions#Windows_UI_Xaml_Input_FindNextElementOptions_SearchRoot) - Scope the search for focus navigation candidates to the children of this DependencyObject. Null indicates to start the search from the root of the visual tree.
+- [SearchRoot](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.findnextelementoptions) - Scope the search for focus navigation candidates to the children of this DependencyObject. Null indicates to start the search from the root of the visual tree.
 
 > [!Important] 
 > If one or more transforms are applied to the descendants of **SearchRoot** that place them outside of the directional area, these elements are still considered candidates.
 
-- [ExclusionRect](/uwp/api/windows.ui.xaml.input.findnextelementoptions#Windows_UI_Xaml_Input_FindNextElementOptions_ExclusionRect) - Focus navigation candidates are identified using a "fictitious" bounding rectangle where all overlapping objects are excluded from navigation focus. This rectangle is used only for calculations and is never added to the visual tree.
-- [HintRect](/uwp/api/windows.ui.xaml.input.findnextelementoptions#Windows_UI_Xaml_Input_FindNextElementOptions_HintRect) - Focus navigation candidates are identified using a "fictitious" bounding rectangle that identifies the elements most likely to receive focus. This rectangle is used only for calculations and is never added to the visual tree.
-- [XYFocusNavigationStrategyOverride](/uwp/api/windows.ui.xaml.input.findnextelementoptions#Windows_UI_Xaml_Input_FindNextElementOptions_XYFocusNavigationStrategyOverride) - The focus navigation strategy used to identify the best candidate element to receive focus.
+- [ExclusionRect](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.findnextelementoptions) - Focus navigation candidates are identified using a "fictitious" bounding rectangle where all overlapping objects are excluded from navigation focus. This rectangle is used only for calculations and is never added to the visual tree.
+- [HintRect](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.findnextelementoptions) - Focus navigation candidates are identified using a "fictitious" bounding rectangle that identifies the elements most likely to receive focus. This rectangle is used only for calculations and is never added to the visual tree.
+- [XYFocusNavigationStrategyOverride](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.findnextelementoptions) - The focus navigation strategy used to identify the best candidate element to receive focus.
 
 The following image illustrates some of these concepts. 
 
 When element B has focus, FindNextElement identifies I as the focus candidate when navigating to the right. The reasons for this are:
-- Because of the [HintRect](/uwp/api/windows.ui.xaml.input.findnextelementoptions#Windows_UI_Xaml_Input_FindNextElementOptions_HintRect) on A, the starting reference is A, not B
-- C is not a candidate because MyPanel has been specified as the [SearchRoot](/uwp/api/windows.ui.xaml.input.findnextelementoptions#Windows_UI_Xaml_Input_FindNextElementOptions_SearchRoot)
-- F is not a candidate because the [ExclusionRect](/uwp/api/windows.ui.xaml.input.findnextelementoptions#Windows_UI_Xaml_Input_FindNextElementOptions_ExclusionRect) overlaps it
+- Because of the [HintRect](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.findnextelementoptions) on A, the starting reference is A, not B
+- C is not a candidate because MyPanel has been specified as the [SearchRoot](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.findnextelementoptions)
+- F is not a candidate because the [ExclusionRect](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.findnextelementoptions) overlaps it
 
 ![Custom focus navigation behavior using navigation hints](images/keyboard/navigation-hints.png)
 
