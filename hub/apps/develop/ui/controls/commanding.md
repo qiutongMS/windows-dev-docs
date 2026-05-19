@@ -1,4 +1,4 @@
----
+﻿---
 title: Commanding in Windows apps
 description: How to use the XamlUICommand and StandardUICommand classes (along with the ICommand interface) to share and manage commands across various control types, regardless of the device and input type being used.
 ms.topic: overview
@@ -89,9 +89,9 @@ A [StandardUICommand](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input
 
 *StandardUICommandSample*
 
-| Download the code for this example |
+| Reference code for this example |
 | -------------------- |
-| [Commanding sample (StandardUICommand)](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/StandardUICommandPage.xaml) |
+| [StandardUICommand reference (WinUI Gallery)](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/StandardUICommandPage.xaml) |
 
 In this example, we show how to enhance a basic [ListView](../../../design/controls/listview-and-gridview.md) with a Delete item command implemented through the [StandardUICommand](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.standarduicommand) class, while optimizing the user experience for a variety of input types using a [MenuBar](../../../design/controls/menus.md), [Swipe](../../../design/controls/swipe.md) control, hover buttons, and [context menu](../../../design/controls/menus.md).
 
@@ -369,12 +369,12 @@ If you need to create a command that isn't defined by the [StandardUICommand](/w
 
 *XamlUICommandSample*
 
-| Download the code for this example |
+| Reference code for this example |
 | -------------------- |
-| [WinUI commanding sample (XamlUICommand)](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/XamlUICommandPage.xaml) |
-| Download the code for this example |
+| [XamlUICommand reference (WinUI Gallery)](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/XamlUICommandPage.xaml) |
+| Reference code for this example |
 | -------------------- |
-| [Commanding sample (XamlUICommand)](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/XamlUICommandPage.xaml) |
+| [XamlUICommand reference (WinUI Gallery)](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/XamlUICommandPage.xaml) |
 Many platform controls use the XamlUICommand properties under the covers, just like our StandardUICommand example in the previous section.
 
 **Xaml:**
@@ -616,15 +616,15 @@ Standard WinUI controls (button, list, selection, calendar, predictive text) pro
 
 *ICommand example*
 
-| Download the code for this example |
+| Reference code for this example |
 | -------------------- |
-| [Commanding sample (ICommand)](https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/WindowsAIFoundry/cs-winui/Util/AsyncCommand.cs) |
+| [ICommand reference implementation (AsyncCommand)](https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/WindowsAIFoundry/cs-winui/Util/AsyncCommand.cs) |
 
 In this basic example, we demonstrate how a single command can be invoked with a button click, a keyboard accelerator, and rotating a mouse wheel.
 
-| Download the code for this example |
+| Reference code for this example |
 | -------------------- |
-| [Commanding sample (ICommand)](https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/WindowsAIFoundry/cs-winui/Util/AsyncCommand.cs) |
+| [ICommand reference implementation (AsyncCommand)](https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/WindowsAIFoundry/cs-winui/Util/AsyncCommand.cs) |
 
 ```xaml
 <Page
@@ -1098,10 +1098,11 @@ WinUI provides a robust and flexible commanding system that lets you build apps 
 
 #### Topic samples
 
-- [Commanding sample (StandardUICommand)](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/StandardUICommandPage.xaml)
-- [Commanding sample (XamlUICommand)](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/XamlUICommandPage.xaml)
-- [Commanding sample (ICommand)](https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/WindowsAIFoundry/cs-winui/Util/AsyncCommand.cs)
+- [StandardUICommand reference (WinUI Gallery)](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/StandardUICommandPage.xaml)
+- [XamlUICommand reference (WinUI Gallery)](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/XamlUICommandPage.xaml)
+- [ICommand reference implementation (AsyncCommand)](https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/WindowsAIFoundry/cs-winui/Util/AsyncCommand.cs)
 
 #### Other samples
 
 - [Universal Windows Platform samples (C# and C++)](https://github.com/Microsoft/Windows-universal-samples/tree/b78d95134ce2d57c848e0a8dc339fc362748fb9c/Samples/RadialController)
+

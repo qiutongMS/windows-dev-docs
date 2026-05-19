@@ -15,12 +15,12 @@ ms.localizationpriority: medium
 
 MediaPlayerElement has customizable XAML transport controls to manage control of audio and video content within a Windows app. Here, we demonstrate how to customize the MediaTransportControls template. We'll show you how to work with the overflow menu, add a custom button and modify the slider.
 
-> **Important APIs**: [MediaPlayerElement](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.mediaplayerelement), [MediaPlayerElement.AreTransportControlsEnabled](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.mediaplayerelement.aretransportcontrolsenabled), [MediaTransportControls](/uwp/api/Windows.Media.SystemMediaTransportControls)
+> **Important APIs**: [MediaPlayerElement](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.mediaplayerelement), [MediaPlayerElement.AreTransportControlsEnabled](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.mediaplayerelement.aretransportcontrolsenabled), [MediaTransportControls](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.mediatransportcontrols)
 
 Before starting, you should be familiar with the MediaPlayerElement and the MediaTransportControls classes. For more info, see the MediaPlayerElement control guide.
 
 > [!TIP]
-> The examples in this topic are based on the [Media Transport Controls sample](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/MediaPlayerElementPage.xaml.cs). You can download the sample to view and run the completed code.
+> For a current WinUI 3 reference implementation, see the [MediaPlayerElement sample page in WinUI Gallery](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/MediaPlayerElementPage.xaml.cs). The examples in this topic build on the same control surface, but you'll still need to integrate the custom transport-control code shown here into your own app.
 
 ## When should you customize the template?
 
@@ -86,7 +86,7 @@ For more info about modifying styles and templates, see [Styling controls](../..
 
 ### Create a derived control
 
-To add to or modify the functionality of the transport controls, you must create a new class that's derived from MediaTransportControls. A derived class called `CustomMediaTransportControls` is shown in the [Media Transport Controls sample](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/MediaPlayerElementPage.xaml.cs) and the remaining examples on this page.
+To add to or modify the functionality of the transport controls, you must create a new class that's derived from MediaTransportControls. The [MediaPlayerElement sample page in WinUI Gallery](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/MediaPlayerElementPage.xaml.cs) shows the related WinUI 3 control setup, and the remaining examples on this page show how to add a derived class called `CustomMediaTransportControls`.
 
 **To create a new class derived from MediaTransportControls**
 1. Add a new class file to your project.
@@ -193,7 +193,7 @@ Because the overflow menu is comprised of text buttons, you must add a text labe
 
 ### Adding a custom button
 
-One reason you might want to customize MediaTransportControls is to add a custom command to the control. Whether you add it as a primary command or a secondary command, the procedure for creating the command button and modifying its behavior is the same. In the [Media Transport Controls sample](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/MediaPlayerElementPage.xaml.cs), a "rating" button is added to the primary commands.
+One reason you might want to customize MediaTransportControls is to add a custom command to the control. Whether you add it as a primary command or a secondary command, the procedure for creating the command button and modifying its behavior is the same. Use the [MediaPlayerElement sample page in WinUI Gallery](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/MediaPlayerElementPage.xaml.cs) as a WinUI 3 reference for the surrounding control setup, then apply the custom "rating" button changes shown here.
 
 **To add a custom command button**
 1. Create an AppBarButton object and add it to the CommandBar in the control template.
