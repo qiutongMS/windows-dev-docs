@@ -441,7 +441,7 @@ Next, a global [**TranslateTransform**](/windows/windows-app-sdk/api/winrt/micro
 ```cpp
 // Global translation transform used for changing the position of 
 // the Rectangle based on input data from the touch contact.
-Microsoft::UI::Xaml::Media::TranslateTransform^ dragTranslation;
+Windows::UI::Xaml::Media::TranslateTransform^ dragTranslation;
 ```
 
 ```cs

@@ -78,7 +78,7 @@ End Sub
 ```c++
 void MyProject::MainPage::Grid_KeyUp(
   Platform::Object^ sender,
-  Microsoft::UI::Xaml::Input::KeyRoutedEventArgs^ e)
+  Windows::UI::Xaml::Input::KeyRoutedEventArgs^ e)
   {
       //handling code here
   }
@@ -165,10 +165,10 @@ void MainPage::OnNavigatedTo(NavigationEventArgs^ e)
 }
 void MainPage::ProgrammaticFocus(Object^ sender, RoutedEventArgs^ e) 
 {
-    this->Focus(Microsoft::UI::Xaml::FocusState::Programmatic);
+    this->Focus(Windows::UI::Xaml::FocusState::Programmatic);
 }
 
-void KeyboardSupport::MainPage::MediaButton_Click(Platform::Object^ sender, Microsoft::UI::Xaml::RoutedEventArgs^ e)
+void KeyboardSupport::MainPage::MediaButton_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
     FrameworkElement^ fe = safe_cast<FrameworkElement^>(sender);
     if (fe->Name == "PlayButton") {DemoMovie->Play();}
@@ -179,17 +179,17 @@ void KeyboardSupport::MainPage::MediaButton_Click(Platform::Object^ sender, Micr
 
 bool KeyboardSupport::MainPage::IsCtrlKeyPressed()
 {
-    auto ctrlState = Microsoft::UI::Input::InputKeyboardSource::GetKeyStateForCurrentThread(VirtualKey::Control);
+    auto ctrlState = CoreWindow::GetForCurrentThread()->GetKeyState(VirtualKey::Control);
     return (ctrlState & CoreVirtualKeyStates::Down) == CoreVirtualKeyStates::Down;
 }
 
-void KeyboardSupport::MainPage::Grid_KeyDown(Platform::Object^ sender, Microsoft::UI::Xaml::Input::KeyRoutedEventArgs^ e)
+void KeyboardSupport::MainPage::Grid_KeyDown(Platform::Object^ sender, Windows::UI::Xaml::Input::KeyRoutedEventArgs^ e)
 {
     if (e->Key == VirtualKey::Control) isCtrlKeyPressed = true;
 }
 
 
-void KeyboardSupport::MainPage::Grid_KeyUp(Platform::Object^ sender, Microsoft::UI::Xaml::Input::KeyRoutedEventArgs^ e)
+void KeyboardSupport::MainPage::Grid_KeyUp(Platform::Object^ sender, Windows::UI::Xaml::Input::KeyRoutedEventArgs^ e)
 {
     if (IsCtrlKeyPressed()) 
     {
