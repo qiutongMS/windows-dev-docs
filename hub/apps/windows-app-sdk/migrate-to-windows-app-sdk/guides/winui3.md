@@ -28,9 +28,9 @@ You may need to refactor your Visual State Manager and **Page.Resources** XAML m
 
 In the Windows App SDK, the [**AcrylicBrush**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.acrylicbrush) always samples from the app content.
 
-## Change Microsoft.UI.Xaml.Window.Current to App.Window
+## Change Windows.UI.Xaml.Window.Current to App.Window
 
-This section applies if you're using the [**Microsoft.UI.Xaml.Window.Current**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.window.current) property in your UWP app. That property isn't supported in the Windows App SDK, so this section describes how to port UWP code that uses **Window.Current**.
+This section applies if you're using the [**Windows.UI.Xaml.Window.Current**](/uwp/api/windows.ui.xaml.window.current) property in your UWP app. That property isn't supported in the Windows App SDK, so this section describes how to port UWP code that uses **Window.Current**.
 
 ```csharp
 // MainPage.xaml.cs in a UWP app

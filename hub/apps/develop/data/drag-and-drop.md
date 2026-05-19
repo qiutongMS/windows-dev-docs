@@ -49,7 +49,7 @@ In most cases, the system will construct a data package for you. The system auto
 - Images
 - Text
 
-For other content, you'll need to handle the [**DragStarting**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.dragstarting) and [**DropCompleted**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.dropcompleted) events and use them to construct your own [DataPackage](/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.datatransfer.datapackage).
+For other content, you'll need to handle the [**DragStarting**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.dragstarting) and [**DropCompleted**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.dropcompleted) events and use them to construct your own [DataPackage](/uwp/api/windows.applicationmodel.datatransfer.datapackage).
 
 ## Enable dropping
 
@@ -146,7 +146,7 @@ The [UIElement](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement) 
 | Functionality | Windows App SDK</br> Microsoft.UI.Input.DragDrop namespace |
 | --- | --- |
 | DragPrimitive | [DragOperation](/windows/windows-app-sdk/api/winrt/microsoft.ui.input.dragdrop.dragoperation) |
-| Create a data package | [DataPackage](/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.datatransfer.datapackage)  |
+| Create a data package | [DataPackage](/uwp/api/windows.applicationmodel.datatransfer.datapackage)  |
 | Hand off drag to the shell  |[DragOperation.StartAsync](/windows/windows-app-sdk/api/winrt/microsoft.ui.input.dragdrop.dragoperation)  |
 | Receive drop from the shell  | [DragDropManager.TargetRequested](/windows/windows-app-sdk/api/winrt/microsoft.ui.input.dragdrop.dragdropmanager) <br/>[ICoreDropOperationTarget](/windows/windows-app-sdk/api/winrt/microsoft.ui.input.dragdrop.dragoperation)  |
 
