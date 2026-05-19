@@ -15,7 +15,7 @@ Design your app with the expectation that touch will be the primary input method
 
 However, keep in mind that a UI optimized for touch is not always superior to a traditional UI. Both provide advantages and disadvantages that are unique to a technology and application. In the move to a touch-first UI, it is important to understand the core differences between touch, touchpad, pen/stylus, mouse, and keyboard input.
 
-> **Important APIs**: [**Microsoft.UI.Xaml.Input**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input), [**Windows.UI.Core**](/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching), [**Windows.Devices.Input**](/uwp/api/Windows.Devices.Input)
+> **Important APIs**: [**Microsoft.UI.Xaml.Input**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input), [**Windows.UI.Core**](/uwp/api/Windows.UI.Core), [**Windows.Devices.Input**](/uwp/api/Windows.Devices.Input)
 
 Many devices have multi-touch screens that support using one or more fingers (or touch contacts) as input. The touch contacts, and their movement, are interpreted as touch gestures and manipulations to support various user interactions.
 
