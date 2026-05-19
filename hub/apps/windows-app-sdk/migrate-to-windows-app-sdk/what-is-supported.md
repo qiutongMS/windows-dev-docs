@@ -34,7 +34,7 @@ WinUI and the Windows App SDK are new technologies and, when compared to UWP, th
 | [PrintManager](/uwp/api/windows.graphics.printing.printmanager) | ⚠️ Supported on Windows 11 (not yet available on Windows 10) |
 | [CoreWindow](/uwp/api/windows.ui.core.corewindow) and related APIs | ❌ Not supported in 1.7. For alternative APIs with some of the same functionality, see [AppWindow](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow), and [HWND](/windows/apps/develop/ui-input/retrieve-hwnd)-based APIs. |
 | [Virtual key support for gamepad input](/uwp/api/windows.system.virtualkey) | ❌ Not supported in 1.7; see [Gamepad support in WinUI](https://github.com/microsoft/microsoft-ui-xaml/issues/6891) |
-| [InkCanvas](/uwp/api/windows.ui.xaml.controls.inkcanvas) | ❌ Not supported in 1.7 |
+| [InkCanvas](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.inkcanvas) | ❌ Not supported in 1.7 |
 | [Single-app kiosk](https://github.com/microsoft/WindowsAppSDK/issues/3642) | ❌ Not supported in 1.7 |
 | [Xbox](/windows/uwp/xbox-apps/) and HoloLens | ❌ Not supported in 1.7 |
 

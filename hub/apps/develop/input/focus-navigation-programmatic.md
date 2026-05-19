@@ -17,7 +17,7 @@ ms.localizationpriority: medium
 
 To move focus programmatically in your Windows application, you can use either the [FocusManager.TryMoveFocus](/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_TryMoveFocus_Windows_UI_Xaml_Input_FocusNavigationDirection_) method or the [FindNextElement](/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_FindNextElement_Windows_UI_Xaml_Input_FocusNavigationDirection_) method.
 
-[TryMoveFocus](/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_TryMoveFocus_Windows_UI_Xaml_Input_FocusNavigationDirection_) attempts to change focus from the element with focus to the next focusable element in the specified direction, while [FindNextElement](/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_FindNextElement_Windows_UI_Xaml_Input_FocusNavigationDirection_) retrieves the element (as a [DependencyObject](/uwp/api/windows.ui.xaml.dependencyobject)) that will receive focus based on the specified navigation direction (directional navigation only, cannot be used to emulate tab navigation).
+[TryMoveFocus](/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_TryMoveFocus_Windows_UI_Xaml_Input_FocusNavigationDirection_) attempts to change focus from the element with focus to the next focusable element in the specified direction, while [FindNextElement](/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_FindNextElement_Windows_UI_Xaml_Input_FocusNavigationDirection_) retrieves the element (as a [DependencyObject](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dependencyobject)) that will receive focus based on the specified navigation direction (directional navigation only, cannot be used to emulate tab navigation).
 
 > [!NOTE]
 > We recommend using the [FindNextElement](/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_FindNextElement_Windows_UI_Xaml_Input_FocusNavigationDirection_) method instead of [FindNextFocusableElement](/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_FindNextFocusableElement_Windows_UI_Xaml_Input_FocusNavigationDirection_) because FindNextFocusableElement retrieves a UIElement, which returns null if the next focusable element is not a UIElement (such as a Hyperlink object). 
@@ -117,7 +117,7 @@ private void OnKeyDown(object sender, KeyRoutedEventArgs e)
 }
 ```
 
-Use [FindNextElementOptions](/uwp/api/windows.ui.xaml.input.findnextelementoptions) to further customize how focus candidates are identified. This object provides the following properties:
+Use [FindNextElementOptions](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.findnextelementoptions) to further customize how focus candidates are identified. This object provides the following properties:
 
 - [SearchRoot](/uwp/api/windows.ui.xaml.input.findnextelementoptions#Windows_UI_Xaml_Input_FindNextElementOptions_SearchRoot) - Scope the search for focus navigation candidates to the children of this DependencyObject. Null indicates to start the search from the root of the visual tree.
 
@@ -149,7 +149,7 @@ Because this is a routed event, it bubbles from the focused element up through s
 
 <a name="split-view-code-sample"></a>
 
-Here, we show how a Grid opens a [SplitView](/uwp/api/windows.ui.xaml.controls.splitview) when the user attempts to move focus to the left of the left-most focusable control (see [Designing for Xbox and TV](../../design/devices/designing-for-tv.md#navigation-pane)).
+Here, we show how a Grid opens a [SplitView](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.splitview) when the user attempts to move focus to the left of the left-most focusable control (see [Designing for Xbox and TV](../../design/devices/designing-for-tv.md#navigation-pane)).
 
 ```xaml
 <Grid NoFocusCandidateFound="OnNoFocusCandidateFound">
@@ -251,7 +251,7 @@ private void OnGettingFocus(UIElement sender, GettingFocusEventArgs args)
 }
 ```
 
-Here, we show how to handle the [LosingFocus](/uwp/api/Windows.UI.Xaml.UIElement#Windows_UI_Xaml_UIElement_LosingFocus) event for a [CommandBar](/uwp/api/windows.ui.xaml.controls.commandbar) and set focus when the menu is closed.
+Here, we show how to handle the [LosingFocus](/uwp/api/Windows.UI.Xaml.UIElement#Windows_UI_Xaml_UIElement_LosingFocus) event for a [CommandBar](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.commandbar) and set focus when the menu is closed.
 
 ```XAML
 <CommandBar x:Name="MyCommandBar" LosingFocus="OnLosingFocus">
@@ -283,7 +283,7 @@ private void OnLosingFocus(UIElement sender, LosingFocusEventArgs args)
 
 ## Find the first and last focusable element
 
-The [FocusManager.FindFirstFocusableElement](/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_FindFirstFocusableElement_Windows_UI_Xaml_DependencyObject_) and [FocusManager.FindLastFocusableElement](/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_FindLastFocusableElement_Windows_UI_Xaml_DependencyObject_) methods move focus to the first or last focusable element within the scope of an object (the element tree of a [UIElement](/uwp/api/windows.ui.xaml.uielement) or the text tree of a [TextElement](/uwp/api/windows.ui.xaml.documents.textelement)). The scope is specified in the call (if the argument is null, the scope is the current window).
+The [FocusManager.FindFirstFocusableElement](/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_FindFirstFocusableElement_Windows_UI_Xaml_DependencyObject_) and [FocusManager.FindLastFocusableElement](/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_FindLastFocusableElement_Windows_UI_Xaml_DependencyObject_) methods move focus to the first or last focusable element within the scope of an object (the element tree of a [UIElement](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement) or the text tree of a [TextElement](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement)). The scope is specified in the call (if the argument is null, the scope is the current window).
 
 If no focus candidates can be identified in the scope, null is returned.
 

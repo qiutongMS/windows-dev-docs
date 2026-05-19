@@ -127,7 +127,7 @@ public partial class App : Application
 
 ## Migrate the LoadedImageBrush model
 
-**LoadedImageBrush** is a specialization of [**XamlCompositionBrushBase**](/uwp/api/windows.ui.xaml.media.xamlcompositionbrushbase). The *PhotoLab* sample app uses the **LoadedImageBrush** class to apply effects to photos.
+**LoadedImageBrush** is a specialization of [**XamlCompositionBrushBase**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.xamlcompositionbrushbase). The *PhotoLab* sample app uses the **LoadedImageBrush** class to apply effects to photos.
 
 ### Reference the Win2D NuGet package
 
@@ -146,7 +146,7 @@ Copy `LoadedImageBrush.cs` from the source project to the target project in the 
 * `namespace PhotoLab` => `namespace PhotoLabWinUI`
 * `Windows.UI.Composition` => `Microsoft.UI.Composition`
 * `Windows.UI.Xaml` => `Microsoft.UI.Xaml`
-* `Window.Current.Compositor` => `App.Window.Compositor` (see [Change Windows.UI.Xaml.Window.Current to App.Window](guides/winui3.md#change-windowsuixamlwindowcurrent-to-appwindow))
+* `Window.Current.Compositor` => `App.Window.Compositor` (see [Change Microsoft.UI.Xaml.Window.Current to App.Window](guides/winui3.md#change-windowsuixamlwindowcurrent-to-appwindow))
 
 2. Confirm that you can build the target solution (but don't run yet).
 

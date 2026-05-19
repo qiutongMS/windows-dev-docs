@@ -42,9 +42,9 @@ The PDE debugger extension (for the `!pde.dse` command) is available by download
 
 Frequently there'll be multiple stowed exceptions, with some at the end that were handled/ignored. Most commonly, the first stowed exception is the interesting one. In some cases, the first stowed exception might be a re-throw of the second, so if the second stowed exception shows deeper into the same stack as the first, then the second exception might be the origination of the error. The error code shown with each stowed exception is also valuable, since that provides the **HRESULT** associated with that exception.
 
-## Change Windows.UI.Core.CoreDispatcher to Microsoft.UI.Dispatching.DispatcherQueue
+## Change Microsoft.UI.Dispatching.CoreDispatcher to Microsoft.UI.Dispatching.DispatcherQueue
 
-This section applies if you're using the [**Windows.UI.Core.CoreDispatcher**](/uwp/api/Windows.UI.Core.CoreDispatcher) class in your UWP app. That includes the use of any methods or properties that take or return a **CoreDispatcher**, such as the [**DependencyObject.Dispatcher**](/uwp/api/windows.ui.xaml.dependencyobject.dispatcher) and [**CoreWindow.Dispatcher**](/uwp/api/windows.ui.core.corewindow.dispatcher) properties. For example, you'll be calling **DependencyObject.Dispatcher** when you retrieve the **CoreDispatcher** belonging to a [**Windows.UI.Xaml.Controls.Page**](/uwp/api/windows.ui.xaml.controls.page).
+This section applies if you're using the [**Microsoft.UI.Dispatching.CoreDispatcher**](/uwp/api/Microsoft.UI.Dispatching.CoreDispatcher) class in your UWP app. That includes the use of any methods or properties that take or return a **CoreDispatcher**, such as the [**DependencyObject.Dispatcher**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dependencyobject.dispatcher) and [**CoreWindow.Dispatcher**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dependencyobject.dispatcher) properties. For example, you'll be calling **DependencyObject.Dispatcher** when you retrieve the **CoreDispatcher** belonging to a [**Microsoft.UI.Xaml.Controls.Page**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dependencyobject.dispatcher).
 
 ```csharp
 // MainPage.xaml.cs in a UWP app
@@ -84,7 +84,7 @@ if (this->DispatcherQueue().HasThreadAccess())
 
 ## Change CoreDispatcher.RunAsync to DispatcherQueue.TryEnqueue
 
-This section applies if you're using the [**Windows.UI.Core.CoreDispatcher.RunAsync**](/uwp/api/windows.ui.core.coredispatcher.runasync) method to schedule a task to run on the main UI thread (or on the thread associated with a particular [**Windows.UI.Core.CoreDispatcher**](/uwp/api/Windows.UI.Core.CoreDispatcher)).
+This section applies if you're using the [**Microsoft.UI.Dispatching.CoreDispatcher.RunAsync**](/uwp/api/Microsoft.UI.Dispatching.CoreDispatcher.runasync) method to schedule a task to run on the main UI thread (or on the thread associated with a particular [**Microsoft.UI.Dispatching.CoreDispatcher**](/uwp/api/Microsoft.UI.Dispatching.CoreDispatcher)).
 
 ```csharp
 // MainPage.xaml.cs in a UWP app
@@ -97,7 +97,7 @@ public void NotifyUser(string strMessage)
     else
     {
         var task = this.Dispatcher.RunAsync(
-            Windows.UI.Core.CoreDispatcherPriority.Normal,
+            Microsoft.UI.Dispatching.CoreDispatcherPriority.Normal,
             () => StatusBlock.Text = strMessage);
     }
 }
@@ -168,7 +168,7 @@ void MainPage::NotifyUser(std::wstring strMessage)
 
 This section applies if you use the [**winrt::resume_foreground**](/uwp/cpp-ref-for-winrt/resume-foreground) function in a coroutine in your C++/WinRT UWP app.
 
-In UWP, the use case for [**winrt::resume_foreground**](/uwp/cpp-ref-for-winrt/resume-foreground) is to switch execution to a foreground thread (that foreground thread is often the one that's associated with a [**Windows.UI.Core.CoreDispatcher**](/uwp/api/Windows.UI.Core.CoreDispatcher)). Here's an example of that.
+In UWP, the use case for [**winrt::resume_foreground**](/uwp/cpp-ref-for-winrt/resume-foreground) is to switch execution to a foreground thread (that foreground thread is often the one that's associated with a [**Microsoft.UI.Dispatching.CoreDispatcher**](/uwp/api/Microsoft.UI.Dispatching.CoreDispatcher)). Here's an example of that.
 
 ```
 // MainPage.cpp in a UWP app
@@ -183,7 +183,7 @@ winrt::fire_and_forget MainPage::ClickHandler(IInspectable const&, RoutedEventAr
 In your Windows App SDK app:
 
 * Instead of **winrt::resume_foreground**, you'll need to use **wil::resume_foreground** (from the [Windows Implementation Libraries (WIL)](https://github.com/Microsoft/wil)).
-* And instead of **CoreDispatcher**, you'll need to use the [**Microsoft.UI.Dispatching.DispatcherQueue**](/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueue) class, as described in [Change Windows.UI.Core.CoreDispatcher to Microsoft.UI.Dispatching.DispatcherQueue](#change-windowsuicorecoredispatcher-to-microsoftuidispatchingdispatcherqueue).
+* And instead of **CoreDispatcher**, you'll need to use the [**Microsoft.UI.Dispatching.DispatcherQueue**](/windows/windows-app-sdk/api/winrt/microsoft.ui.dispatching.dispatcherqueue) class, as described in [Change Microsoft.UI.Dispatching.CoreDispatcher to Microsoft.UI.Dispatching.DispatcherQueue](#change-windowsuicorecoredispatcher-to-microsoftuidispatchingdispatcherqueue).
 
 So first add a reference to the [Microsoft.Windows.ImplementationLibrary](https://www.nuget.org/packages/Microsoft.Windows.ImplementationLibrary/) NuGet package.
 

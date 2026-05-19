@@ -20,8 +20,8 @@ Receive, process, and manage input data from pointing devices (such as touch, mo
 
 ## Important APIs
 - [Windows.Devices.Input](/uwp/api/Windows.Devices.Input)
-- [Windows.UI.Input](/uwp/api/Windows.UI.Core)
-- [Windows.UI.Xaml.Input](/uwp/api/Windows.UI.Input)
+- [Windows.UI.Input](/windows/windows-app-sdk/api/winrt/microsoft.ui.input)
+- [Microsoft.UI.Xaml.Input](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input)
 
 ## Pointers
 Most interaction experiences typically involve the user identifying the object they want to interact with by pointing at it through input devices such as touch, mouse, pen/stylus, and touchpad. Because the raw Human Interface Device (HID) data provided by these input devices includes many common properties, the data is promoted and consolidated into a unified input stack and exposed as device-agnostic pointer data. Your Windows applications can then consume this data without worrying about the input device being used.
@@ -29,7 +29,7 @@ Most interaction experiences typically involve the user identifying the object t
 > [!NOTE]
 > Device-specific info is also promoted from the raw HID data should your app require it.
 
-Each input point (or contact) on the input stack is represented by a [**Pointer**](/uwp/api/Windows.UI.Xaml.Input.Pointer) object exposed through the [**PointerRoutedEventArgs**](/uwp/api/Windows.UI.Xaml.Input.PointerRoutedEventArgs) parameter in the various pointer event handlers. In the case of multi-pen or multi-touch input, each contact is treated as a unique input pointer.
+Each input point (or contact) on the input stack is represented by a [**Pointer**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointer) object exposed through the [**PointerRoutedEventArgs**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointerroutedeventargs) parameter in the various pointer event handlers. In the case of multi-pen or multi-touch input, each contact is treated as a unique input pointer.
 
 ## Pointer events
 
@@ -61,9 +61,9 @@ Here are some code snippets from a basic pointer tracking app that show how to l
 
 ### Create the UI
 
-For this example, we use a [Rectangle](/uwp/api/windows.ui.xaml.shapes.rectangle) (`Target`) as the object consuming pointer input. The color of the target changes when the pointer status changes.
+For this example, we use a [Rectangle](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.rectangle) (`Target`) as the object consuming pointer input. The color of the target changes when the pointer status changes.
 
-Details for each pointer are displayed in a floating [TextBlock](/uwp/api/Windows.UI.Xaml.Controls.TextBlock) that follows the pointer as it moves. The pointer events themselves are reported in the [RichTextBlock](/uwp/api/Windows.UI.Xaml.Controls.RichTextBlock) to the right of the rectangle.
+Details for each pointer are displayed in a floating [TextBlock](/uwp/api/Microsoft.UI.Xaml.Controls.TextBlock) that follows the pointer as it moves. The pointer events themselves are reported in the [RichTextBlock](/uwp/api/Microsoft.UI.Xaml.Controls.RichTextBlock) to the right of the rectangle.
 
 This is the Extensible Application Markup Language (XAML) for the UI in this example. 
 
@@ -120,9 +120,9 @@ This is the Extensible Application Markup Language (XAML) for the UI in this exa
 
 ### Listen for pointer events
 
-In most cases, we recommend that you get pointer info through the [**PointerRoutedEventArgs**](/uwp/api/Windows.UI.Xaml.Input.PointerRoutedEventArgs) of the event handler.
+In most cases, we recommend that you get pointer info through the [**PointerRoutedEventArgs**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointerroutedeventargs) of the event handler.
 
-If the event argument doesn't expose the pointer details required, you can get access to extended [**PointerPoint**](/uwp/api/Windows.UI.Input.PointerPoint) info exposed through the [**GetCurrentPoint**](/uwp/api/windows.ui.xaml.input.pointerroutedeventargs.getcurrentpoint) and [**GetIntermediatePoints**](/uwp/api/windows.ui.xaml.input.pointerroutedeventargs.getintermediatepoints) methods of [**PointerRoutedEventArgs**](/uwp/api/Windows.UI.Xaml.Input.PointerRoutedEventArgs).
+If the event argument doesn't expose the pointer details required, you can get access to extended [**PointerPoint**](/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpoint) info exposed through the [**GetCurrentPoint**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointerroutedeventargs.getcurrentpoint) and [**GetIntermediatePoints**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointerroutedeventargs.getintermediatepoints) methods of [**PointerRoutedEventArgs**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointerroutedeventargs).
 
 The following code sets up the global dictionary object for tracking each active pointer, and identifies the various pointer event listeners for the target object.
 
@@ -130,14 +130,14 @@ The following code sets up the global dictionary object for tracking each active
 // Dictionary to maintain information about each active pointer. 
 // An entry is added during PointerPressed/PointerEntered events and removed 
 // during PointerReleased/PointerCaptureLost/PointerCanceled/PointerExited events.
-Dictionary<uint, Windows.UI.Xaml.Input.Pointer> pointers;
+Dictionary<uint, Microsoft.UI.Xaml.Input.Pointer> pointers;
 
 public MainPage()
 {
     this.InitializeComponent();
 
     // Initialize the dictionary.
-    pointers = new Dictionary<uint, Windows.UI.Xaml.Input.Pointer>();
+    pointers = new Dictionary<uint, Microsoft.UI.Xaml.Input.Pointer>();
 
     // Declare the pointer event handlers.
     Target.PointerPressed += 
@@ -205,7 +205,7 @@ void Target_PointerPressed(object sender, PointerRoutedEventArgs e)
     }
 
     // Change background color of target when pointer contact detected.
-    Target.Fill = new SolidColorBrush(Windows.UI.Colors.Green);
+    Target.Fill = new SolidColorBrush(Microsoft.UI.Colors.Green);
 
     // Display pointer details.
     CreateInfoPop(ptrPt);
@@ -241,7 +241,7 @@ private void Target_PointerEntered(object sender, PointerRoutedEventArgs e)
     if (pointers.Count == 0)
     {
         // Change background color of target when pointer contact detected.
-        Target.Fill = new SolidColorBrush(Windows.UI.Colors.Blue);
+        Target.Fill = new SolidColorBrush(Microsoft.UI.Colors.Blue);
     }
 
     // Display pointer details.
@@ -357,7 +357,7 @@ void Target_PointerReleased(object sender, PointerRoutedEventArgs e)
     if (ptrPt.PointerDevice.PointerDeviceType != Windows.Devices.Input.PointerDeviceType.Mouse)
     {
         // Update target UI.
-        Target.Fill = new SolidColorBrush(Windows.UI.Colors.Red);
+        Target.Fill = new SolidColorBrush(Microsoft.UI.Colors.Red);
 
         DestroyInfoPop(ptrPt);
 
@@ -376,7 +376,7 @@ void Target_PointerReleased(object sender, PointerRoutedEventArgs e)
     }
     else
     {
-        Target.Fill = new SolidColorBrush(Windows.UI.Colors.Blue);
+        Target.Fill = new SolidColorBrush(Microsoft.UI.Colors.Blue);
     }
 }
 ```
@@ -408,7 +408,7 @@ private void Target_PointerExited(object sender, PointerRoutedEventArgs e)
 
     if (pointers.Count == 0)
     {
-        Target.Fill = new SolidColorBrush(Windows.UI.Colors.Red);
+        Target.Fill = new SolidColorBrush(Microsoft.UI.Colors.Red);
     }
 
     // Update the UI and pointer details.
@@ -448,7 +448,7 @@ private void Target_PointerCanceled(object sender, PointerRoutedEventArgs e)
 
     if (pointers.Count == 0)
     {
-        Target.Fill = new SolidColorBrush(Windows.UI.Colors.Black);
+        Target.Fill = new SolidColorBrush(Microsoft.UI.Colors.Black);
     }
 
     DestroyInfoPop(ptrPt);
@@ -483,7 +483,7 @@ private void Target_PointerCaptureLost(object sender, PointerRoutedEventArgs e)
 
     if (pointers.Count == 0)
     {
-        Target.Fill = new SolidColorBrush(Windows.UI.Colors.Black);
+        Target.Fill = new SolidColorBrush(Microsoft.UI.Colors.Black);
     }
 
     // Remove contact from dictionary.
@@ -499,9 +499,9 @@ private void Target_PointerCaptureLost(object sender, PointerRoutedEventArgs e)
 
 ### Get pointer properties
 
-As stated earlier, you must get most extended pointer info from a [**Windows.UI.Input.PointerPoint**](/uwp/api/Windows.UI.Input.PointerPoint) object obtained through the [**GetCurrentPoint**](/uwp/api/windows.ui.xaml.input.pointerroutedeventargs.getcurrentpoint) and [**GetIntermediatePoints**](/uwp/api/windows.ui.xaml.input.pointerroutedeventargs.getintermediatepoints) methods of [**PointerRoutedEventArgs**](/uwp/api/Windows.UI.Xaml.Input.PointerRoutedEventArgs). The following code snippets show how.
+As stated earlier, you must get most extended pointer info from a [**Windows.UI.Input.PointerPoint**](/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpoint) object obtained through the [**GetCurrentPoint**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointerroutedeventargs.getcurrentpoint) and [**GetIntermediatePoints**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointerroutedeventargs.getintermediatepoints) methods of [**PointerRoutedEventArgs**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointerroutedeventargs). The following code snippets show how.
 
--   First, we create a new [**TextBlock**](/uwp/api/Windows.UI.Xaml.Controls.TextBlock) for each pointer.
+-   First, we create a new [**TextBlock**](/uwp/api/Microsoft.UI.Xaml.Controls.TextBlock) for each pointer.
 
 ```csharp
 /// <summary>
@@ -512,7 +512,7 @@ void CreateInfoPop(PointerPoint ptrPt)
 {
     TextBlock pointerDetails = new TextBlock();
     pointerDetails.Name = ptrPt.PointerId.ToString();
-    pointerDetails.Foreground = new SolidColorBrush(Windows.UI.Colors.White);
+    pointerDetails.Foreground = new SolidColorBrush(Microsoft.UI.Colors.White);
     pointerDetails.Text = QueryPointer(ptrPt);
 
     TranslateTransform x = new TranslateTransform();
@@ -524,7 +524,7 @@ void CreateInfoPop(PointerPoint ptrPt)
 }
 ```
 
--   Then we provide a way to update the pointer info in an existing [**TextBlock**](/uwp/api/Windows.UI.Xaml.Controls.TextBlock) associated with that pointer.
+-   Then we provide a way to update the pointer info in an existing [**TextBlock**](/uwp/api/Microsoft.UI.Xaml.Controls.TextBlock) associated with that pointer.
 
 ```csharp
 /// <summary>
@@ -535,7 +535,7 @@ void UpdateInfoPop(PointerPoint ptrPt)
 {
     foreach (var pointerDetails in Container.Children)
     {
-        if (pointerDetails.GetType().ToString() == "Windows.UI.Xaml.Controls.TextBlock")
+        if (pointerDetails.GetType().ToString() == "Microsoft.UI.Xaml.Controls.TextBlock")
         {
             TextBlock textBlock = (TextBlock)pointerDetails;
             if (textBlock.Name == ptrPt.PointerId.ToString())
@@ -627,7 +627,7 @@ This particular app uses both color and animation to highlight the primary point
 
 ### Visual feedback
 
-We define a **[UserControl](/uwp/api/windows.ui.xaml.controls.usercontrol)**, based on a XAML **[Ellipse](/uwp/api/windows.ui.xaml.shapes.ellipse)** object, that highlights where each pointer is on the canvas and uses a **[Storyboard](/uwp/api/windows.ui.xaml.media.animation.storyboard)** to animate the ellipse that corresponds to the primary pointer.
+We define a **[UserControl](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.usercontrol)**, based on a XAML **[Ellipse](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.ellipse)** object, that highlights where each pointer is on the canvas and uses a **[Storyboard](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.storyboard)** to animate the ellipse that corresponds to the primary pointer.
 
 **Here's the XAML:**
 
@@ -702,9 +702,9 @@ We define a **[UserControl](/uwp/api/windows.ui.xaml.controls.usercontrol)**, ba
 And here's the code-behind:
 ```csharp
 using Windows.Foundation;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+Microsoft.UI.Xaml;
+Microsoft.UI.Xaml.Controls;
+Microsoft.UI.Xaml.Media;
 
 // The User Control item template is documented at 
 // https://go.microsoft.com/fwlink/?LinkId=234236
@@ -819,7 +819,7 @@ namespace UWP_Pointers
 ```
 
 ### Create the UI
-The UI in this example is limited to the input **[Canvas](/uwp/api/windows.ui.xaml.controls.canvas)** where we track any pointers and render the pointer indicators and primary pointer animation (if applicable), along with a header bar containing a pointer counter and a primary pointer identifier.
+The UI in this example is limited to the input **[Canvas](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.canvas)** where we track any pointers and render the pointer indicators and primary pointer animation (if applicable), along with a header bar containing a pointer counter and a primary pointer identifier.
 
 Here's the MainPage.xaml:
 
@@ -883,16 +883,16 @@ Finally, we define our basic pointer event handlers in the MainPage.xaml.cs code
 
 ### Other samples
 
-- [Basic input sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BasicInput)
-- [Low latency input sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/LowLatencyInput)
-- [User interaction mode sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/UserInteractionMode)
-- [Focus visuals sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlFocusVisuals)
+- [Basic input sample](https://https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui
+- [Low latency input sample](https://https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui
+- [User interaction mode sample](https://https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui
+- [Focus visuals sample](https://https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/Accessibility/AccessibilityKeyboardPage.xaml
 
 ### Archive samples
 
-- [Input: XAML user input events sample](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Input%20XAML%20user%20input%20events%20sample)
-- [Input: Device capabilities sample](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%23%5D-Windows%208%20app%20samples/C%23/Windows%208%20app%20samples/Input%20Device%20capabilities%20sample%20(Windows%208))
-- [Input: Manipulations and gestures sample](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Input%20Gestures%20and%20manipulations%20with%20GestureRecognizer)
+- [Input: XAML user input events sample](https://https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui
+- [Input: Device capabilities sample](https://https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui
+- [Input: Manipulations and gestures sample](https://https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/Input/cs-winui/GestureRecognizer.xaml
 - [Input: Touch hit testing sample](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20desktop%20samples/%5BC%2B%2B%5D-Windows%208%20desktop%20samples/C%2B%2B/Windows%208%20desktop%20samples/Input%20Touch%20hit%20testing%20sample)
-- [XAML scrolling, panning, and zooming sample](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Universal%20Windows%20app%20samples/111487-Universal%20Windows%20app%20samples/XAML%20scrolling%2C%20panning%2C%20and%20zooming%20sample)
+- [XAML scrolling, panning, and zooming sample](https://https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/ScrollViewerPage.xaml
 - [Input: Simplified ink sample](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Input%20Simplified%20ink%20sample)
