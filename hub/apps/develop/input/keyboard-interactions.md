@@ -413,7 +413,7 @@ Some key differences you should be aware of when designing your WinUI app for us
 
 #### Directional navigation
 
-Directional navigation is managed by a WinUI [Focus Manager](/uwp/api/Windows.UI.Xaml.Input.FocusManager) helper class, which takes the directional key pressed (arrow key, D-pad) and attempts to move focus in the corresponding visual direction.
+Directional navigation is managed by a WinUI [Focus Manager](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.Input.FocusManager) helper class, which takes the directional key pressed (arrow key, D-pad) and attempts to move focus in the corresponding visual direction.
 
 **NOTE** Navigation using the keyboard Tab key is not considered directional navigation. For more info, see the [Tab stops](#tab-stops) section.
 

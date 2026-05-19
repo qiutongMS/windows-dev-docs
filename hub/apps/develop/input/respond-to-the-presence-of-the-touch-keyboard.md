@@ -17,7 +17,7 @@ Learn how to tailor the UI of your app when showing or hiding the touch keyboard
 ### Important APIs
 
 - [AutomationPeer](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.automation.peers.automationpeer)
-- [InputPane](/uwp/api/Windows.UI.ViewManagement.InputPane)
+- InputPane
 
 :::image type="content" source="images/keyboard/default.png" alt-text="The touch keyboard in default layout mode.":::
 
@@ -58,7 +58,7 @@ Here are a few basic recommendations for custom text input controls.
 
     Because the touch keyboard occludes a large portion of the screen, Windows ensures that the input field with focus scrolls into view as a user navigates through the controls on the form, including controls that are not currently in view.
 
-    When customizing your UI, provide similar behavior on the appearance of the touch keyboard by handling the [Showing](/uwp/api/windows.ui.viewmanagement.inputpane.showing) and [Hiding](/uwp/api/windows.ui.viewmanagement.inputpane.hiding) events exposed by the [**InputPane**](/uwp/api/Windows.UI.ViewManagement.InputPane) object.
+    When customizing your UI, provide similar behavior on the appearance of the touch keyboard by handling the Showing and Hiding events exposed by the **InputPane** object.
 
     ![a form with and without the touch keyboard showing](images/touch-keyboard-pan1.png)
 
@@ -68,13 +68,13 @@ Here are a few basic recommendations for custom text input controls.
 
 ## Handling the Showing and Hiding events
 
-Here's an example of attaching event handlers for the [Showing](/uwp/api/windows.ui.viewmanagement.inputpane.showing) and [Hiding](/uwp/api/windows.ui.viewmanagement.inputpane.hiding) events of the touch keyboard.
+Here's an example of attaching event handlers for the Showing and Hiding events of the touch keyboard.
 
 > [!NOTE]
-> The code samples use `InputPane.GetForCurrentView()`, which is a UWP-era API. For WinUI 3 desktop apps, consider using [InputPane.GetForWindow](/uwp/api/windows.ui.viewmanagement.inputpane.getforwindow) with your window's HWND instead.
+> The code samples use `InputPane.GetForCurrentView()`, which is a UWP-era API. For WinUI 3 desktop apps, consider using InputPane.GetForWindow with your window's HWND instead.
 
 ```csharp
-using Windows.UI.ViewManagement;
+using Microsoft.UI.Windowing;;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
 using Windows.Foundation;
@@ -123,7 +123,7 @@ namespace SDKTemplate
 
 ```cppwinrt
 ...
-#include <winrt/Windows.UI.ViewManagement.h>
+#include <winrt/Microsoft.UI.Windowing.h>
 ...
 private:
     winrt::event_token m_showingEventToken;

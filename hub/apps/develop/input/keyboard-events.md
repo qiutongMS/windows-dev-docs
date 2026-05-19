@@ -78,7 +78,7 @@ End Sub
 ```c++
 void MyProject::MainPage::Grid_KeyUp(
   Platform::Object^ sender,
-  Windows::UI::Xaml::Input::KeyRoutedEventArgs^ e)
+  Microsoft::UI::Xaml::Input::KeyRoutedEventArgs^ e)
   {
       //handling code here
   }
@@ -104,9 +104,9 @@ Modifier keys are keys such as Ctrl or Shift that users typically press in combi
 > [!NOTE]
 > For built-in keyboard shortcuts, see [Access keys](../../design/input/access-keys.md) and [Keyboard accelerators](../../design/input/keyboard-accelerators.md).
 
-You can detect shortcut key combinations in the [**KeyDown**](/uwp/api/windows.ui.xaml.uielement.keydown) and [**KeyUp**](/uwp/api/windows.ui.xaml.uielement.keyup) event handlers. When a keyboard event occurs for a non-modifier key, you can then check whether a modifier key is in the pressed state.
+You can detect shortcut key combinations in the [**KeyDown**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keydown) and [**KeyUp**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keyup) event handlers. When a keyboard event occurs for a non-modifier key, you can then check whether a modifier key is in the pressed state.
 
-Alternatively, the [**GetKeyState()**](/uwp/api/windows.ui.core.corewindow.getkeystate) function of the [**CoreWindow**](/uwp/api/windows.ui.core.corewindow) (obtained through [**CoreWindow.GetForCurrentThread()**](/uwp/api/windows.ui.core.corewindow.getforcurrentthread)) can also be used to check modifier state when a non-modifier key is pressed.
+In WinUI 3 desktop apps, you can also use [**InputKeyboardSource**](/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputkeyboardsource) and call `GetKeyStateForCurrentThread` to check modifier state when a non-modifier key is pressed.
 
 The following examples implement this second method while also including stub code for the first implementation.
 
@@ -165,10 +165,10 @@ void MainPage::OnNavigatedTo(NavigationEventArgs^ e)
 }
 void MainPage::ProgrammaticFocus(Object^ sender, RoutedEventArgs^ e) 
 {
-    this->Focus(Windows::UI::Xaml::FocusState::Programmatic);
+    this->Focus(Microsoft::UI::Xaml::FocusState::Programmatic);
 }
 
-void KeyboardSupport::MainPage::MediaButton_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+void KeyboardSupport::MainPage::MediaButton_Click(Platform::Object^ sender, Microsoft::UI::Xaml::RoutedEventArgs^ e)
 {
     FrameworkElement^ fe = safe_cast<FrameworkElement^>(sender);
     if (fe->Name == "PlayButton") {DemoMovie->Play();}
@@ -179,17 +179,17 @@ void KeyboardSupport::MainPage::MediaButton_Click(Platform::Object^ sender, Wind
 
 bool KeyboardSupport::MainPage::IsCtrlKeyPressed()
 {
-    auto ctrlState = CoreWindow::GetForCurrentThread()->GetKeyState(VirtualKey::Control);
+    auto ctrlState = Microsoft::UI::Input::InputKeyboardSource::GetKeyStateForCurrentThread(VirtualKey::Control);
     return (ctrlState & CoreVirtualKeyStates::Down) == CoreVirtualKeyStates::Down;
 }
 
-void KeyboardSupport::MainPage::Grid_KeyDown(Platform::Object^ sender, Windows::UI::Xaml::Input::KeyRoutedEventArgs^ e)
+void KeyboardSupport::MainPage::Grid_KeyDown(Platform::Object^ sender, Microsoft::UI::Xaml::Input::KeyRoutedEventArgs^ e)
 {
     if (e->Key == VirtualKey::Control) isCtrlKeyPressed = true;
 }
 
 
-void KeyboardSupport::MainPage::Grid_KeyUp(Platform::Object^ sender, Windows::UI::Xaml::Input::KeyRoutedEventArgs^ e)
+void KeyboardSupport::MainPage::Grid_KeyUp(Platform::Object^ sender, Microsoft::UI::Xaml::Input::KeyRoutedEventArgs^ e)
 {
     if (IsCtrlKeyPressed()) 
     {
@@ -219,7 +219,7 @@ private void MediaButton_Click(object sender, RoutedEventArgs e)
 
 private static bool IsCtrlKeyPressed()
 {
-    var ctrlState = CoreWindow.GetForCurrentThread().GetKeyState(VirtualKey.Control);
+    var ctrlState = InputKeyboardSource.GetKeyStateForCurrentThread(VirtualKey.Control);
     return (ctrlState & CoreVirtualKeyStates.Down) == CoreVirtualKeyStates.Down;
 }
 
@@ -244,7 +244,7 @@ Protected Overrides Sub OnNavigatedTo(e As Navigation.NavigationEventArgs)
 End Sub
 
 Private Function IsCtrlKeyPressed As Boolean
-    Dim ctrlState As CoreVirtualKeyStates = CoreWindow.GetForCurrentThread().GetKeyState(VirtualKey.Control);
+    Dim ctrlState As CoreVirtualKeyStates = InputKeyboardSource.GetKeyStateForCurrentThread(VirtualKey.Control);
     Return (ctrlState & CoreVirtualKeyStates.Down) == CoreVirtualKeyStates.Down;
 End Function
 
