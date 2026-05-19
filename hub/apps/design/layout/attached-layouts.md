@@ -81,7 +81,7 @@ With an attached layout, a single instance of the layout object may be associate
 <!-- ... --->
 <Page.Resources>
     <ExampleLayout x:Name="exampleLayout"/>
-<Page.Resources>
+</Page.Resources>
 
 <LayoutPanel x:Name="example1" Layout="{StaticResource exampleLayout}"/>
 <LayoutPanel x:Name="example2" Layout="{StaticResource exampleLayout}"/>

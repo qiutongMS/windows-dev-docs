@@ -117,9 +117,9 @@ Inside of the **uap3:AppExtension** element, add a [uap3:Properties](/uwp/schema
       <uap3:Properties> 
         <SingleTap>myapp-copilothotkey://?state=Tap</SingleTap>
         <PressAndHoldStart>myapp-copilothotkey://?state=Down</PressAndHoldStart> 
-        <PressAndHoldStop>myapp-copilothotkey:?//state=Up</PressAndHoldStop> 
+        <PressAndHoldStop>myapp-copilothotkey://?state=Up</PressAndHoldStop>
       </uap3:Properties> 
-    </ uap3:AppExtension> 
+    </uap3:AppExtension>
   </uap3:Extension> 
   ...
 ```

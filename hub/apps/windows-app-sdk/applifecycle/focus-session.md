@@ -97,7 +97,7 @@ private void Manager_IsFocusActiveChanged(Windows.UI.Shell.FocusSessionManager s
 ```cpp
 // pch.h
 ...
-#include <winrt/Windows.UI.Shell.h
+#include <winrt/Windows.UI.Shell.h>
 #include <winrt/Windows.UI.Xaml.Navigation.h>
 
 // MainWindow.xaml.h
