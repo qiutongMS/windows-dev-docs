@@ -24,7 +24,7 @@ These steps show how to register for a custom URI scheme name, `alsdk://`, and h
 The following APIs are used in this topic:
 
 - [Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs](/uwp/api/Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs)
-- [Microsoft.UI.Xaml.Application.OnActivated](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.onactivated)
+- [Windows.UI.Xaml.Application.OnActivated](/uwp/api/windows.ui.xaml.application.onactivated)
 - [AppInstance.GetCurrent().GetActivatedEventArgs](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance.getactivatedeventargs)
 
 > [!NOTE]
