@@ -20,7 +20,7 @@ In this topic, we cover what's involved in creating an attached layout (virtuali
 
 > **Important APIs**:
 
-> * [ScrollViewer](/uwp/api/windows.ui.xaml.controls.scrollviewer)
+> * [ScrollViewer](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollviewer)
 > * [ItemsRepeater](../controls/items-repeater.md)
 > * [Layout](/uwp/api/microsoft.ui.xaml.controls.layout)
 >     * [NonVirtualizingLayout](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayout)
@@ -42,7 +42,7 @@ XAML's layout system, which answers these questions, is briefly covered as part 
 
 ### Containers and Context
 
-Conceptually, XAML's [Panel](/uwp/api/windows.ui.xaml.controls.panel) fills two important roles in the framework:
+Conceptually, XAML's [Panel](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.panel) fills two important roles in the framework:
 
 1. It can contain child elements and introduces branching in the tree of elements.
 2. It applies a specific layout strategy to those children.
@@ -56,9 +56,9 @@ The [ItemsRepeater](../controls/items-repeater.md) also behaves like Panel, but,
 
 #### Containers
 
-Conceptually, [Panel](/uwp/api/windows.ui.xaml.controls.panel) is a container of elements that also has the ability to render pixels for a [Background](/uwp/api/windows.ui.xaml.controls.panel.background).  Panels provide a way to encapsulate common layout logic in an easy to use package.
+Conceptually, [Panel](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.panel) is a container of elements that also has the ability to render pixels for a [Background](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.panel.background).  Panels provide a way to encapsulate common layout logic in an easy to use package.
 
-The concept of **attached layout** makes the distinction between the two roles of container and layout more clear.  If the container delegates its layout logic to another object we would call that object the attached layout as seen in the snippet below. Containers that inherit from [FrameworkElement](/uwp/api/windows.ui.xaml.frameworkelement), such as the LayoutPanel, automatically expose the common properties that provide input to XAML's layout process (for example, Height and Width).
+The concept of **attached layout** makes the distinction between the two roles of container and layout more clear.  If the container delegates its layout logic to another object we would call that object the attached layout as seen in the snippet below. Containers that inherit from [FrameworkElement](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement), such as the LayoutPanel, automatically expose the common properties that provide input to XAML's layout process (for example, Height and Width).
 
 ```xaml
 <LayoutPanel>
@@ -126,7 +126,7 @@ First, decide whether the layout you need to create should support UI virtualiza
 3. Virtualizing layouts always have some additional CPU and memory cost/complexity/overhead compared to a non-virtualizing layout.  As a general rule of thumb if the children the layout will need to manage will likely fit in an area that is 3x the size of the viewport, then there may not be much gain from a virtualizing layout. The 3x size is discussed in greater detail later in this doc, but is due to the asynchronous nature of scrolling on Windows and its impact on virtualization.
 
 > [!TIP]
-> As a point of reference, the default settings for the [ListView](/uwp/api/windows.ui.xaml.controls.listview) (and [ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater)) are that recycling doesn't begin until the number of items are enough to fill up 3x the size of the current viewport.
+> As a point of reference, the default settings for the [ListView](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.listview) (and [ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater)) are that recycling doesn't begin until the number of items are enough to fill up 3x the size of the current viewport.
 
 **Choose your base type**
 
@@ -144,8 +144,8 @@ The approach for creating a non-virtualizing layout should feel familiar to anyo
 1. Derive from the base type [NonVirtualizingLayout](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayout) (instead of Panel).
 2. *(Optional)* Define dependency properties that when changed will invalidate the layout.
 3. _(**New**/Optional)_ Initialize any state object required by the layout as part of the [InitializeForContextCore](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.initializeforcontextcore). Stash it with the host container by using the [LayoutState](/uwp/api/microsoft.ui.xaml.controls.layoutcontext.layoutstate) provided with the context.
-4. Override the [MeasureOverride](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayout.measureoverride) and call the [Measure](/uwp/api/windows.ui.xaml.uielement.measure) method on all the children.
-5. Override the [ArrangeOverride](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayout.arrangeoverride) and call the [Arrange](/uwp/api/windows.ui.xaml.uielement.arrange) method on all the children.
+4. Override the [MeasureOverride](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayout.measureoverride) and call the [Measure](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.measure) method on all the children.
+5. Override the [ArrangeOverride](/uwp/api/microsoft.ui.xaml.controls.nonvirtualizinglayout.arrangeoverride) and call the [Arrange](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.arrange) method on all the children.
 6. *(**New**/Optional)* Clean up any saved state as part of the [UninitializeForContextCore](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.uninitializeforcontextcore).
 
 ### Example: A Simple Stack Layout (Varying-Sized Items)
@@ -208,9 +208,9 @@ Similar to a non-virtualizing layout, the high-level steps for a virtualizing la
 1. Derive from the base type [VirtualizingLayout](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout).
 2. (Optional) Define your dependency properties that when changed will invalidate the layout.
 3. Initialize any state object that will be required by the layout as part of the [InitializeForContextCore](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.initializeforcontextcore). Stash it with the host container by using the [LayoutState](/uwp/api/microsoft.ui.xaml.controls.layoutcontext.layoutstate) provided with the context.
-4. Override the [MeasureOverride](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.measureoverride) and call the [Measure](/uwp/api/windows.ui.xaml.uielement.measure) method for each child that should be realized.
+4. Override the [MeasureOverride](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.measureoverride) and call the [Measure](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.measure) method for each child that should be realized.
    1. The [GetOrCreateElementAt](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.getorcreateelementat) method is used to retrieve a UIElement that has been prepared by the framework (for example, data bindings applied).
-5. Override the [ArrangeOverride](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.arrangeoverride) and call the [Arrange](/uwp/api/windows.ui.xaml.uielement.arrange) method for each realized child.
+5. Override the [ArrangeOverride](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.arrangeoverride) and call the [Arrange](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.arrange) method for each realized child.
 6. (Optional) Clean up any saved state as part of the [UninitializeForContextCore](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.uninitializeforcontextcore).
 
 > [!TIP]
@@ -274,8 +274,8 @@ The general approach is for the layout to:
 2. As part of the [MeasureOverride](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.measureoverride):
    1. Use the [RealizationRect](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.realizationrect) to determine which items should appear within the viewport.
    2. Retrieve the UIElement that should represent the item with the [GetOrCreateElementAt](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.getorcreateelementat) method.
-   3. [Measure](/uwp/api/windows.ui.xaml.uielement.measure) the UIElement with the pre-calculated size.
-3. As part of the [ArrangeOverride](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.arrangeoverride), [Arrange](/uwp/api/windows.ui.xaml.uielement.arrange) each realized UIElement with the precalculated position.
+   3. [Measure](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.measure) the UIElement with the pre-calculated size.
+3. As part of the [ArrangeOverride](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayout.arrangeoverride), [Arrange](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.arrange) each realized UIElement with the precalculated position.
 
 > [!NOTE]
 > A data layout approach is often incompatible with _data virtualization_.  Specifically, where the only data loaded into memory is that data required to fill what's visible to the user.  Data virtualization isn't referring to lazy or incremental loading of data as a user scrolls down where that data remains resident.  Rather, it's referring to when items are released from memory as they're scrolled out of view.  Having a data layout that inspects every data item as part of a data layout would prevent data virtualization from working as expected.  An exception is a layout like the UniformGridLayout which assumes that everything has the same size.
@@ -662,9 +662,9 @@ Content-dependent layouts rely on estimation to guess both the size of unrealize
 
 **Scroll Anchoring**
 
-XAML provides a mechanism to mitigate sudden viewport shifts by having scrolling controls support [scroll anchoring](/uwp/api/windows.ui.xaml.controls.iscrollanchorprovider) by implementing the [IScrollAnchorPovider](/uwp/api/windows.ui.xaml.controls.iscrollanchorprovider) interface. As the user manipulates the content, the scrolling control continually selects an element from the set of candidates that were opted-in to be tracked. If the position of the anchor element shifts during the layout then the scroll control automatically shifts its viewport to maintain the viewport.
+XAML provides a mechanism to mitigate sudden viewport shifts by having scrolling controls support [scroll anchoring](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iscrollanchorprovider) by implementing the [IScrollAnchorPovider](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.iscrollanchorprovider) interface. As the user manipulates the content, the scrolling control continually selects an element from the set of candidates that were opted-in to be tracked. If the position of the anchor element shifts during the layout then the scroll control automatically shifts its viewport to maintain the viewport.
 
-The value of the [RecommendedAnchorIndex](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.recommendedanchorindex) provided to the layout may reflect that currently selected anchor element chosen by the scrolling control. Alternatively, if a developer explicitly requests that an element be realized for an index with the [GetOrCreateElement](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater.getorcreateelement) method on the [ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater), then that index is given as the [RecommendedAnchorIndex](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.recommendedanchorindex) on the next layout pass. This enables the layout to be prepared for the likely scenario that a developer realizes an element and subsequently requests that it be brought into view via the [StartBringIntoView](/uwp/api/windows.ui.xaml.uielement.startbringintoview) method.
+The value of the [RecommendedAnchorIndex](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.recommendedanchorindex) provided to the layout may reflect that currently selected anchor element chosen by the scrolling control. Alternatively, if a developer explicitly requests that an element be realized for an index with the [GetOrCreateElement](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater.getorcreateelement) method on the [ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater), then that index is given as the [RecommendedAnchorIndex](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.recommendedanchorindex) on the next layout pass. This enables the layout to be prepared for the likely scenario that a developer realizes an element and subsequently requests that it be brought into view via the [StartBringIntoView](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.startbringintoview) method.
 
 The [RecommendedAnchorIndex](/uwp/api/microsoft.ui.xaml.controls.virtualizinglayoutcontext.recommendedanchorindex) is the index for the item in the data source that a content-dependent layout should position first when estimating the position of its items. It should serve as the starting point for positioning other realized items.
 
@@ -1187,4 +1187,4 @@ public class VirtualizingStackLayout : VirtualizingLayout
 ## Related articles
 
 - [ItemsRepeater](/uwp/api/microsoft.ui.xaml.controls.itemsrepeater)
-- [ScrollViewer](/uwp/api/windows.ui.xaml.controls.scrollviewer)
+- [ScrollViewer](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.scrollviewer)

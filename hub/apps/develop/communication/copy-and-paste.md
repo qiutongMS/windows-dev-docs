@@ -29,7 +29,7 @@ First, include the [Windows.ApplicationModel.DataTransfer](/uwp/api/Windows.Appl
 ### [C#](#tab/cs)
 
 ```cs
-using Windows.ApplicationModel.DataTransfer;
+using Microsoft.Windows.ApplicationModel.DataTransfer;
 ...
 var dataPackage = new DataPackage();
 ```
@@ -47,7 +47,7 @@ DataPackage dataPackage;
 
 ## Copy and cut
 
-Copy and cut (also referred to as *move*) work almost exactly the same. Choose which operation you want by using the [RequestedOperation](/uwp/api/windows.applicationmodel.datatransfer.datapackage.requestedoperation) property.
+Copy and cut (also referred to as *move*) work almost exactly the same. Choose which operation you want by using the [RequestedOperation](/uwp/api/Windows.ApplicationModel.DataTransfer.datapackage.requestedoperation) property.
 
 ### [C#](#tab/cs)
 
@@ -71,7 +71,7 @@ dataPackage.RequestedOperation(DataPackageOperation::Move);
 
 ## Set the copied content
 
-Next, you can add the data that a user has selected to the [DataPackage](/uwp/api/Windows.ApplicationModel.DataTransfer.DataPackage) object. If this data is supported by the **DataPackage** class, you can use one of the corresponding [methods](/uwp/api/windows.applicationmodel.datatransfer.datapackage#methods) of the **DataPackage** object. Here's how to add text by using the [SetText](/uwp/api/windows.applicationmodel.datatransfer.datapackage.settext) method:
+Next, you can add the data that a user has selected to the [DataPackage](/uwp/api/Windows.ApplicationModel.DataTransfer.DataPackage) object. If this data is supported by the **DataPackage** class, you can use one of the corresponding [methods](/uwp/api/Windows.ApplicationModel.DataTransfer.datapackage#methods) of the **DataPackage** object. Here's how to add text by using the [SetText](/uwp/api/Windows.ApplicationModel.DataTransfer.datapackage.settext) method:
 
 ### [C#](#tab/cs)
 
@@ -87,7 +87,7 @@ dataPackage.SetText(L"Hello World!");
 
 ---
 
-The last step is to add the [DataPackage](/uwp/api/Windows.ApplicationModel.DataTransfer.DataPackage) to the clipboard by calling the static [SetContent](/uwp/api/windows.applicationmodel.datatransfer.clipboard.setcontent) method.
+The last step is to add the [DataPackage](/uwp/api/Windows.ApplicationModel.DataTransfer.DataPackage) to the clipboard by calling the static [SetContent](/uwp/api/Windows.ApplicationModel.DataTransfer.clipboard.setcontent) method.
 
 ### [C#](#tab/cs)
 
@@ -105,7 +105,7 @@ Clipboard::SetContent(dataPackage);
 
 ## Paste
 
-To get the contents of the clipboard, call the static [GetContent](/uwp/api/windows.applicationmodel.datatransfer.clipboard.getcontent) method. This method returns a [DataPackageView](/uwp/api/Windows.ApplicationModel.DataTransfer.DataPackageView) that contains the content. This object is almost identical to a [DataPackage](/uwp/api/Windows.ApplicationModel.DataTransfer.DataPackage) object, except that its contents are read-only. With that object, you can use either the [AvailableFormats](/uwp/api/windows.applicationmodel.datatransfer.datapackageview.availableformats) or the [Contains](/uwp/api/windows.applicationmodel.datatransfer.datapackageview.contains) method to identify what formats are available. Then, you can call the corresponding [DataPackageView](/uwp/api/Windows.ApplicationModel.DataTransfer.DataPackageView) method to get the data.
+To get the contents of the clipboard, call the static [GetContent](/uwp/api/Windows.ApplicationModel.DataTransfer.clipboard.getcontent) method. This method returns a [DataPackageView](/uwp/api/Windows.ApplicationModel.DataTransfer.DataPackageView) that contains the content. This object is almost identical to a [DataPackage](/uwp/api/Windows.ApplicationModel.DataTransfer.DataPackage) object, except that its contents are read-only. With that object, you can use either the [AvailableFormats](/uwp/api/Windows.ApplicationModel.DataTransfer.datapackageview.availableformats) or the [Contains](/uwp/api/Windows.ApplicationModel.DataTransfer.datapackageview.contains) method to identify what formats are available. Then, you can call the corresponding [DataPackageView](/uwp/api/Windows.ApplicationModel.DataTransfer.DataPackageView) method to get the data.
 
 ### [C#](#tab/cs)
 
@@ -141,7 +141,7 @@ void MainPage::OutputClipboardText()
 
 ## Track changes to the clipboard
 
-In addition to copy and paste commands, you may also want to track clipboard changes. Do this by handling the clipboard's [ContentChanged](/uwp/api/windows.applicationmodel.datatransfer.clipboard.contentchanged) event.
+In addition to copy and paste commands, you may also want to track clipboard changes. Do this by handling the clipboard's [ContentChanged](/uwp/api/Windows.ApplicationModel.DataTransfer.clipboard.contentchanged) event.
 
 ### [C#](#tab/cs)
 
@@ -178,18 +178,18 @@ Clipboard::ContentChanged([this](auto const&, auto const&)
 
 - [Clipboard sample](https://github.com/microsoft/Windows-universal-samples/tree/master/Samples/Clipboard)
 - [Communication](index.md)
-- [DataTransfer](/uwp/api/windows.applicationmodel.datatransfer)
-- [DataPackage](/uwp/api/windows.applicationmodel.datatransfer.datapackage)
-- [DataPackageView](/uwp/api/windows.applicationmodel.datatransfer.datapackageview)
+- [DataTransfer](/uwp/api/Windows.ApplicationModel.DataTransfer)
+- [DataPackage](/uwp/api/Windows.ApplicationModel.DataTransfer.datapackage)
+- [DataPackageView](/uwp/api/Windows.ApplicationModel.DataTransfer.datapackageview)
 - [DataPackagePropertySet]( /uwp/api/Windows.ApplicationModel.DataTransfer.DataPackagePropertySet)
-- [DataRequest](/uwp/api/windows.applicationmodel.datatransfer.datarequest) 
+- [DataRequest](/uwp/api/Windows.ApplicationModel.DataTransfer.datarequest)
 - [DataRequested]( /uwp/api/Windows.ApplicationModel.DataTransfer.DataTransferManager)
-- [FailWithDisplayText](/uwp/api/windows.applicationmodel.datatransfer.datarequest.failwithdisplaytext)
-- [ShowShareUi](/uwp/api/windows.applicationmodel.datatransfer.datatransfermanager.showshareui)
-- [RequestedOperation](/uwp/api/windows.applicationmodel.datatransfer.datapackage.requestedoperation) 
+- [FailWithDisplayText](/uwp/api/Windows.ApplicationModel.DataTransfer.datarequest.failwithdisplaytext)
+- [ShowShareUi](/uwp/api/Windows.ApplicationModel.DataTransfer.datatransfermanager.showshareui)
+- [RequestedOperation](/uwp/api/Windows.ApplicationModel.DataTransfer.datapackage.requestedoperation)
 - [ControlsList](/windows/apps/design/controls/index)
-- [SetContent](/uwp/api/windows.applicationmodel.datatransfer.clipboard.setcontent)
-- [GetContent](/uwp/api/windows.applicationmodel.datatransfer.clipboard.getcontent)
-- [AvailableFormats](/uwp/api/windows.applicationmodel.datatransfer.datapackageview.availableformats)
-- [Contains](/uwp/api/windows.applicationmodel.datatransfer.datapackageview.contains)
-- [ContentChanged](/uwp/api/windows.applicationmodel.datatransfer.clipboard.contentchanged)
+- [SetContent](/uwp/api/Windows.ApplicationModel.DataTransfer.clipboard.setcontent)
+- [GetContent](/uwp/api/Windows.ApplicationModel.DataTransfer.clipboard.getcontent)
+- [AvailableFormats](/uwp/api/Windows.ApplicationModel.DataTransfer.datapackageview.availableformats)
+- [Contains](/uwp/api/Windows.ApplicationModel.DataTransfer.datapackageview.contains)
+- [ContentChanged](/uwp/api/Windows.ApplicationModel.DataTransfer.clipboard.contentchanged)

@@ -16,7 +16,7 @@ The [Windows App SDK](../windows-app-sdk/index.md) provides the following featur
 
 | Feature | Description |
 |---------|-------------|
-| [Manage resources with MRT Core](../windows-app-sdk/mrtcore/mrtcore-overview.md) | Use the *MRT Core* APIs in the [Microsoft.Windows.ApplicationModel.Resources](/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources) namespace to manage app resources such as strings and images in multiple languages, scales, and contrast variants independently of your app's logic. MRT Core is a streamlined version of the older resource management APIs in the [Windows.ApplicationModel.Resources](/uwp/api/windows.applicationmodel.resources) of the Windows platform. |
+| [Manage resources with MRT Core](../windows-app-sdk/mrtcore/mrtcore-overview.md) | Use the *MRT Core* APIs in the [Microsoft.Windows.ApplicationModel.Resources](/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources) namespace to manage app resources such as strings and images in multiple languages, scales, and contrast variants independently of your app's logic. MRT Core is a streamlined version of the older resource management APIs in the [Windows.ApplicationModel.Resources](/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources) of the Windows platform. |
 
 ## Windows OS features
 
@@ -28,7 +28,7 @@ The following articles provide information about features available via WinRT AP
 
 | Article | Description |
 |---------|-------------|
-| [App resources](/windows/uwp/app-resources/) | Learn how to use the APIs in the [Windows.ApplicationModel.Resources](/uwp/api/windows.applicationmodel.resources) namespace and other related namespaces to manage app resources such as strings and images in multiple languages, scales, and contrast variants independently of your app's logic. |
+| [App resources](/windows/uwp/app-resources/) | Learn how to use the APIs in the [Windows.ApplicationModel.Resources](/windows/windows-app-sdk/api/winrt/microsoft.windows.applicationmodel.resources) namespace and other related namespaces to manage app resources such as strings and images in multiple languages, scales, and contrast variants independently of your app's logic. |
 | [Data binding](/windows/uwp/data-binding/) | Learn how to bind your app's UI to data and keep the UI in sync with changes to the data. |
 | [Files, folders, and libraries](/windows/uwp/files/) | Learn how to read and write text and other data formats in files, and to manage files and folders. |
 
