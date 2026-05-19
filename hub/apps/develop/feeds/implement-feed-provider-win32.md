@@ -104,7 +104,7 @@ struct FeedProvider : winrt::implements<FeedProvider, winrt::Microsoft::Windows:
 {
     FeedProvider() {}
 
-    /* IFeedrovider required functions that need to be implemented */
+    /* IFeedProvider required functions that need to be implemented */
     void OnFeedProviderEnabled(winrt::Microsoft::Windows::Widgets::Feeds::Providers::FeedProviderEnabledArgs args);
     void OnFeedProviderDisabled(winrt::Microsoft::Windows::Widgets::Feeds::Providers::FeedProviderDisabledArgs args);
     void OnFeedEnabled(winrt::Microsoft::Windows::Widgets::Feeds::Providers::FeedEnabledArgs args);
@@ -125,7 +125,7 @@ In the next few sections, we'll implement the methods of the **IFeedProvider** i
 
 
 ```cpp
-// WidgetProvider.cpp
+// FeedProvider.cpp
 namespace winrt
 {
     using namespace Microsoft::Windows::Widgets::Feeds::Providers;

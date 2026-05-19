@@ -228,7 +228,7 @@ If the newly entered value is not valid, you use the SelectedValue to revert the
 ```csharp
 private void FontSizeComboBox_TextSubmitted(ComboBox sender, ComboBoxTextSubmittedEventArgs e)
 {
-    if (byte.TryParse(e.Text, out double newValue))
+    if (double.TryParse(e.Text, out double newValue))
     {
         // Update the app's font size.
         _fontSize = newValue;

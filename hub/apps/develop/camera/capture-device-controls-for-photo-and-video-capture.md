@@ -278,7 +278,7 @@ In the [**SelectionChanged**](/uwp/api/windows.ui.xaml.controls.primitives.selec
 
 :::code language="csharp" source="~/../snippets-windows/winappsdk/audio-video-camera/camera-winui/CS/CameraWinUI/MainWindow.ManualControls.xaml.cs" id="SnippetWhiteBalanceComboBox":::
 
-In the **ValueChanged** event handler, get the current value of the control and the set the white balance value by calling [**SetValueAsync**](/uwp/api/windows.media.devices.exposurecontrol.setvalueasync).
+In the **ValueChanged** event handler, get the current value of the control and the set the white balance value by calling [**SetValueAsync**](/uwp/api/windows.media.devices.whitebalancecontrol.setvalueasync).
 
 :::code language="csharp" source="~/../snippets-windows/winappsdk/audio-video-camera/camera-winui/CS/CameraWinUI/MainWindow.ManualControls.xaml.cs" id="SnippetWhiteBalanceSlider":::
 

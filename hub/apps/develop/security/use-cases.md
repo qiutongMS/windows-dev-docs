@@ -148,7 +148,7 @@ navigator.credentials.create({
       // User-friendly name of your service.
       name: "Passkeys Developer",
       // Relying party (RP) identifier (hostname/FQDN).
-      id: passkeys.contoso"
+      id: "passkeys.contoso"
     },
 
     user: {

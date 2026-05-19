@@ -138,7 +138,7 @@ void BackgroundTask::OnCanceled(_In_ IBackgroundTaskInstance /* taskInstance */,
 }
 ```
 
-The following example shows how to implement **IBackgroundTask** using C#. In the Windows App SDK github sample, you can see this registration code in [BackgroundTask.cpp](https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/BackgroundTask/InProc%20BackgroundTask/cs-winui/BackgroundTaskBuilder/BackgroundTask.cs#L21).
+The following example shows how to implement **IBackgroundTask** using C#. In the Windows App SDK github sample, you can see this implementation code in [BackgroundTask.cs](https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/BackgroundTask/InProc%20BackgroundTask/cs-winui/BackgroundTaskBuilder/BackgroundTask.cs#L21).
 
 ```csharp
 [ComVisible(true)]

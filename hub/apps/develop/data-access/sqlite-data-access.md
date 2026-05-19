@@ -19,7 +19,7 @@ This tutorial shows you how to integrate SQLite into your WinUI application usin
 
 In this tutorial, you'll learn how to:
 
-- Configure your Windows app to use SQLite with the Microsoft.Data.SQLite library
+- Configure your Windows app to use SQLite with the Microsoft.Data.Sqlite library
 - Create and initialize a local database
 - Implement secure data insertion and retrieval methods
 - Build a simple user interface to interact with your data
@@ -74,7 +74,7 @@ The [Microsoft.Data.Sqlite](/dotnet/api/microsoft.data.sqlite) library implement
 
 The rest of this guide helps you to use this library.
 
-## Set up your solution to use the Microsoft.Data.SQLite library
+## Set up your solution to use the Microsoft.Data.Sqlite library
 
 We'll start with a basic WinUI project, and then install the SQLite NuGet package. See [Create a WinUI app](/windows/apps/tutorials/winui-notes/intro) for instructions on how to create your first WinUI project.
 
@@ -94,7 +94,7 @@ Let's start by adding a class to your project named **DataAccess**. If you plan 
 
     At this point, you have a choice. You can use the version of SQLite that is included with Windows or if you have some reason to use a specific version of SQLite, you can include the SQLite library in your package. We are going to use the version of SQLite that's included with Windows.
 
-1. Choose the **Browse** tab, search for the **Microsoft.Data.SQLite** package, and then install the latest stable version.
+1. Choose the **Browse** tab, search for the **Microsoft.Data.Sqlite** package, and then install the latest stable version.
 
     ![SQLite NuGet package](images/sqlite-nuget-package.png)
 
