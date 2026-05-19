@@ -63,7 +63,7 @@ Here are some code snippets from a basic pointer tracking app that show how to l
 
 For this example, we use a [Rectangle](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.shapes.rectangle) (`Target`) as the object consuming pointer input. The color of the target changes when the pointer status changes.
 
-Details for each pointer are displayed in a floating [TextBlock](/uwp/api/Microsoft.UI.Xaml.Controls.TextBlock) that follows the pointer as it moves. The pointer events themselves are reported in the [RichTextBlock](/uwp/api/Microsoft.UI.Xaml.Controls.RichTextBlock) to the right of the rectangle.
+Details for each pointer are displayed in a floating [TextBlock](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textblock) that follows the pointer as it moves. The pointer events themselves are reported in the [RichTextBlock](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.richtextblock) to the right of the rectangle.
 
 This is the Extensible Application Markup Language (XAML) for the UI in this example. 
 
@@ -501,7 +501,7 @@ private void Target_PointerCaptureLost(object sender, PointerRoutedEventArgs e)
 
 As stated earlier, you must get most extended pointer info from a [**Windows.UI.Input.PointerPoint**](/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpoint) object obtained through the [**GetCurrentPoint**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointerroutedeventargs.getcurrentpoint) and [**GetIntermediatePoints**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointerroutedeventargs.getintermediatepoints) methods of [**PointerRoutedEventArgs**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointerroutedeventargs). The following code snippets show how.
 
--   First, we create a new [**TextBlock**](/uwp/api/Microsoft.UI.Xaml.Controls.TextBlock) for each pointer.
+-   First, we create a new [**TextBlock**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textblock) for each pointer.
 
 ```csharp
 /// <summary>
@@ -524,7 +524,7 @@ void CreateInfoPop(PointerPoint ptrPt)
 }
 ```
 
--   Then we provide a way to update the pointer info in an existing [**TextBlock**](/uwp/api/Microsoft.UI.Xaml.Controls.TextBlock) associated with that pointer.
+-   Then we provide a way to update the pointer info in an existing [**TextBlock**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textblock) associated with that pointer.
 
 ```csharp
 /// <summary>

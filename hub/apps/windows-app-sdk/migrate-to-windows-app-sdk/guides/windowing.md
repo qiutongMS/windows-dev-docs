@@ -1,6 +1,6 @@
 ---
 title: Windowing functionality migration
-description: This topic contains guidance related to window management, including migrating from UWP's [**ApplicationView**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow)/[**CoreWindow**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow) or [**AppWindow**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow) to the Window App SDK [**Microsoft.UI.Windowing.AppWindow**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow).
+description: This topic contains guidance related to window management, including migrating from UWP's [**ApplicationView**](/uwp/api/windows.ui.viewmanagement.applicationview)/[**CoreWindow**](/uwp/api/windows.ui.core.corewindow) or [**AppWindow**](/uwp/api/windows.ui.windowmanagement.appwindow) to the Window App SDK [**Microsoft.UI.Windowing.AppWindow**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow).
 ms.topic: how-to
 ms.date: 07/14/2025
 keywords: Windows, App, SDK, migrate, migrating, migration, port, porting, windowing
@@ -9,17 +9,17 @@ ms.localizationpriority: medium
 
 # Windowing functionality migration
 
-This topic contains guidance related to window management, including migrating from UWP's [**ApplicationView**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow)/[**CoreWindow**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow) or [**AppWindow**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow) to the Window App SDK [**Microsoft.UI.Windowing.AppWindow**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow).
+This topic contains guidance related to window management, including migrating from UWP's [**ApplicationView**](/uwp/api/windows.ui.viewmanagement.applicationview)/[**CoreWindow**](/uwp/api/windows.ui.core.corewindow) or [**AppWindow**](/uwp/api/windows.ui.windowmanagement.appwindow) to the Window App SDK [**Microsoft.UI.Windowing.AppWindow**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow).
 
 ## Important APIs
 
 * [**Microsoft.UI.Windowing.AppWindow**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow)
-* [**Microsoft.UI.Dispatching.CoreWindow.Dispatcher**](/uwp/api/Microsoft.UI.Dispatching.CoreWindow.dispatcher) property
+* [**Windows.UI.Core.CoreWindow.Dispatcher**](/uwp/api/windows.ui.core.corewindow.dispatcher) property
 * [**Microsoft.UI.Window.DispatcherQueue**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.window.dispatcherqueue) property
 
 ## Summary of API and/or feature differences
 
-The Windows App SDK provides a [**Microsoft.UI.Windowing.AppWindow**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow) class that's based on the Win32 HWND model. That **AppWindow** class is the Windows App SDK's version of UWP's [**ApplicationView**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow)/[**CoreWindow**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow) and [**AppWindow**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow).
+The Windows App SDK provides a [**Microsoft.UI.Windowing.AppWindow**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow) class that's based on the Win32 HWND model. That **AppWindow** class is the Windows App SDK's version of UWP's [**ApplicationView**](/uwp/api/windows.ui.viewmanagement.applicationview)/[**CoreWindow**](/uwp/api/windows.ui.core.corewindow) and [**AppWindow**](/uwp/api/windows.ui.windowmanagement.appwindow).
 
 To take advantage of the Windows App SDK windowing APIs means that you'll migrate your UWP code to use the Win32 model. For more info about the Windows App SDK **AppWindow**, see [Manage app windows](../../windowing/windowing-overview.md).
 
@@ -28,12 +28,12 @@ To take advantage of the Windows App SDK windowing APIs means that you'll migrat
 
 ## Window types in UWP versus the Windows App SDK
 
-In a UWP app, you can host window content using [**ApplicationView**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow)/[**CoreWindow**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow), or [**AppWindow**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow). The work involved in migrating that code to the Windows App SDK depends on which of those two windowing models your UWP app uses. If you're familiar with UWP's [**Windows.UI.WindowManagement.AppWindow**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow), then you might see similarities between that and [**Microsoft.UI.Windowing.AppWindow**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow).
+In a UWP app, you can host window content using [**ApplicationView**](/uwp/api/windows.ui.viewmanagement.applicationview)/[**CoreWindow**](/uwp/api/windows.ui.core.corewindow), or [**AppWindow**](/uwp/api/windows.ui.windowmanagement.appwindow). The work involved in migrating that code to the Windows App SDK depends on which of those two windowing models your UWP app uses. If you're familiar with UWP's [**Windows.UI.WindowManagement.AppWindow**](/uwp/api/windows.ui.windowmanagement.appwindow), then you might see similarities between that and [**Microsoft.UI.Windowing.AppWindow**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow).
 
 ### UWP window types
 
-* [**Microsoft.UI.Windowing.ApplicationView**](/uwp/api/Microsoft.UI.Windowing.ApplicationView)/[**Microsoft.UI.Dispatching.CoreWindow**](/uwp/api/Microsoft.UI.Dispatching.CoreWindow).
-* [**Windows.UI.WindowManagement.AppWindow**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow). **AppWindow** consolidates the UI thread and the window that the app uses to display content. UWP apps that use **AppWindow** will have less work to do than **ApplicationView**/**CoreWindow** apps to migrate to the Windows App SDK **AppWindow**.
+* [**Windows.UI.ViewManagement.ApplicationView**](/uwp/api/windows.ui.viewmanagement.applicationview)/[**Windows.UI.Core.CoreWindow**](/uwp/api/windows.ui.core.corewindow).
+* [**Windows.UI.WindowManagement.AppWindow**](/uwp/api/windows.ui.windowmanagement.appwindow). **AppWindow** consolidates the UI thread and the window that the app uses to display content. UWP apps that use **AppWindow** will have less work to do than **ApplicationView**/**CoreWindow** apps to migrate to the Windows App SDK **AppWindow**.
 
 ### Windows App SDK window type
 
@@ -206,11 +206,11 @@ For Windows App SDK apps that are simple enough, you needn't create pages or use
 
 ## Change CoreWindow.Dispatcher to Window.DispatcherQueue
 
-Some use cases for UWP's [**Microsoft.UI.Dispatching.CoreWindow**](/uwp/api/Microsoft.UI.Dispatching.CoreWindow) class migrate to the Windows App SDK's [**Microsoft.UI.Xaml.Window**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.window).
+Some use cases for UWP's [**Windows.UI.Core.CoreWindow**](/uwp/api/windows.ui.core.corewindow) class migrate to the Windows App SDK's [**Microsoft.UI.Xaml.Window**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.window).
 
-For example, if you're using the [**Microsoft.UI.Dispatching.CoreWindow.Dispatcher**](/uwp/api/Microsoft.UI.Dispatching.CoreWindow.dispatcher) property in your UWP app, then the solution is *not* to migrate to the [**Microsoft.UI.Xaml.Window.Dispatcher**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.window.dispatcher) property (which always returns null). Instead, migrate to the [**Microsoft.UI.Xaml.Window.DispatcherQueue**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.window.dispatcherqueue) property, which returns a [**Microsoft.UI.Dispatching.DispatcherQueue**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.window.dispatcherqueue).
+For example, if you're using the [**Windows.UI.Core.CoreWindow.Dispatcher**](/uwp/api/windows.ui.core.corewindow.dispatcher) property in your UWP app, then the solution is *not* to migrate to the [**Microsoft.UI.Xaml.Window.Dispatcher**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.window.dispatcher) property (which always returns null). Instead, migrate to the [**Microsoft.UI.Xaml.Window.DispatcherQueue**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.window.dispatcherqueue) property, which returns a [**Microsoft.UI.Dispatching.DispatcherQueue**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.window.dispatcherqueue).
 
-For more info, and code examples, see [Change Microsoft.UI.Dispatching.CoreDispatcher to Microsoft.UI.Dispatching.DispatcherQueue](threading.md#change-windowsuicorecoredispatcher-to-microsoftuidispatchingdispatcherqueue).
+For more info, and code examples, see [Change Windows.UI.Core.CoreDispatcher to Microsoft.UI.Dispatching.DispatcherQueue](threading.md#change-windowsuicorecoredispatcher-to-microsoftuidispatchingdispatcherqueue).
 
 ## Related topics
 
