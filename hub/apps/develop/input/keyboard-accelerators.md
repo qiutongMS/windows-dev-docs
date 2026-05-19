@@ -382,7 +382,7 @@ By default, when keyboard accelerators are declared, all controls (except [MenuF
 ![Screenshot of a Save button with a tool tip above it that indicates support for the Ctrl+S accelerator.](images/accelerators/accelerators_tooltip_savebutton_small.png)</br>
 *Accelerator key combo in tooltip*
 
-For [Button](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.button), [AppBarButton](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbarbutton), and [AppBarToggleButton](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbartogglebutton) objects, the keyboard accelerator is appended to the control's default tooltip. For [MenuFlyoutItem](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbarbutton) and [ToggleMenuFlyoutItem](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.togglemenuflyoutitem) objects, the keyboard accelerator is displayed with the flyout text.
+For [Button](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.button), [AppBarButton](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbarbutton), and [AppBarToggleButton](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.appbartogglebutton) objects, the keyboard accelerator is appended to the control's default tooltip. For [MenuFlyoutItem](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.menuflyoutitem) and [ToggleMenuFlyoutItem](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.togglemenuflyoutitem) objects, the keyboard accelerator is displayed with the flyout text.
 
 > [!NOTE]
 > Specifying a tooltip (see Button1 in the following example) overrides this behavior.
