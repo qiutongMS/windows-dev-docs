@@ -40,9 +40,9 @@ Independent of mode, there are two kinds of binding, and you typically declare b
 
 ### Sample apps that demonstrate {x:Bind}
 
-- [{x:Bind} sample](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/Fundamentals/BindingPage.xaml).
+- [{x:Bind} reference (WinUI Gallery BindingPage)](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/Fundamentals/BindingPage.xaml).
 - [QuizGame](https://github.com/microsoft/Windows-appsample-networkhelper).
-- [XAML UI Basics sample](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/Fundamentals/BindingPage.xaml).
+- [{Binding} reference (WinUI Gallery BindingPage)](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/Fundamentals/BindingPage.xaml).
 
 ### Sample apps that demonstrate {Binding}
 
