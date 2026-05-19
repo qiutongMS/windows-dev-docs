@@ -218,12 +218,12 @@ namespace winrt::BgLabelControlApp::implementation
 
 This walkthrough won't use the **OnLabelChanged** callback, but it's provided so that you can see how to register a dependency property with a property-changed callback. The implementation of **OnLabelChanged** also shows how to obtain a derived projected type from a base projected type (the base projected type is DependencyObject, in this case). And it shows how to then obtain a pointer to the type that implements the projected type. That second operation will naturally only be possible in the project that implements the projected type (that is, the project that implements the runtime class).
 
-The [xaml_typename](/uwp/cpp-ref-for-winrt/xaml-typename) function is provided by the Microsoft.UI.Xaml.Interop namespace that is not included by default in the WinUI project template. Add a line to the precompiled header file for your project, `pch.h`, to include the header file associated with this namespace.
+The [xaml_typename](/uwp/cpp-ref-for-winrt/xaml-typename) function is provided by the Windows.UI.Xaml.Interop namespace that is not included by default in the WinUI project template. Add a line to the precompiled header file for your project, `pch.h`, to include the header file associated with this namespace.
 
 ```cppwinrt
 // pch.h
 ...
-#include <winrt/Microsoft.UI.Xaml.Interop.h>
+#include <winrt/Windows.UI.Xaml.Interop.h>
 ...
 ```
 
