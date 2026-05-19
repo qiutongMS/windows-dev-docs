@@ -29,7 +29,7 @@ These steps show how to register for a custom file type, .alsdk, and how to acti
 The following APIs are used in this topic:
 
 - [Windows.ApplicationModel.Activation.FileActivatedEventArgs](/uwp/api/Windows.ApplicationModel.Activation.FileActivatedEventArgs)
-- [Microsoft.UI.Xaml.Application.OnFileActivated](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application)
+- [Microsoft.UI.Xaml.Application](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application)
 - [AppInstance.GetActivatedEventArgs](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance.getactivatedeventargs)
 
 ## Step 1: Specify the extension point in the package manifest
@@ -82,7 +82,7 @@ Include a 44x44 icon with your project so that your logo can appear in those loc
 
 ## Step 3: Handle the activated event
 
-Override [Microsoft.UI.Xaml.Application.OnFileActivated](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application) to receive file activation events.
+The file activation handler receives all file activation events.
 
 ```csharp
 protected override void OnFileActivated(FileActivatedEventArgs args)
