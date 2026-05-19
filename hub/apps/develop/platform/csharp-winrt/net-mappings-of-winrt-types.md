@@ -52,7 +52,7 @@ The C#/WinRT custom type mappings are categorized by types in the Windows SDK or
 | Vector4 (Windows.Foundation.Numerics) | Vector4 (System.Numerics) |
 | IBindableIterable (Microsoft.UI.Xaml.Interop) | IEnumerable (System.Collections) |
 | IBindableVector (Microsoft.UI.Xaml.Interop) | IList (System.Collections) |
-| TypeName (Microsoft.UI.Xaml.Interop) | Type (System) |
+| TypeName (Windows.UI.Xaml.Interop) | Type (System) |
 
 ### Types with the same name and namespace
 
@@ -64,7 +64,7 @@ The C#/WinRT custom type mappings are categorized by types in the Windows SDK or
 | Rect | Windows.Foundation |
 | Size | Windows.Foundation |
 | Color | Windows.UI |
-| TypeKind | Microsoft.UI.Xaml.Interop |
+| TypeKind | Windows.UI.Xaml.Interop |
 
 ## Mappings for WinRT types in WinUI
 

@@ -33,7 +33,7 @@ This section applies if you're using the [**Windows.ApplicationModel.Resources.C
 
 ```csharp
 // In a UWP app
-using Microsoft.Windows.ApplicationModel.Resources.Core;
+using Windows.ApplicationModel.Resources.Core;
 ...
 var currentResourceManager = ResourceManager.Current;
 ```
