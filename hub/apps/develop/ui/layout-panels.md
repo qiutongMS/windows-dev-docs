@@ -59,7 +59,7 @@ Using the built-in border properties reduces the XAML element count, which can i
 
 ## RelativePanel
 
-Microsoft.UI.Xaml.AdaptiveTrigger
+[**RelativePanel**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.relativepanel) lets you layout UI elements by specifying where they go in relation to other elements and in relation to the panel. By default, an element is positioned in the upper left corner of the panel. You can use RelativePanel with [**VisualStateManager**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.visualstatemanager) and [**AdaptiveTrigger**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.adaptivetrigger) to rearrange your UI for different window sizes.
 
 This table shows the attached properties you can use to align an element in relation to the panel or other elements.
 
