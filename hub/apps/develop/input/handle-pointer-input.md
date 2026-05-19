@@ -499,7 +499,7 @@ private void Target_PointerCaptureLost(object sender, PointerRoutedEventArgs e)
 
 ### Get pointer properties
 
-As stated earlier, you must get most extended pointer info from a [**Windows.UI.Input.PointerPoint**](/uwp/api/Windows.UI.Input.PointerPoint) object obtained through the [**GetCurrentPoint**](/uwp/api/windows.ui.xaml.input.pointerroutedeventargs.getcurrentpoint) and [**GetIntermediatePoints**](/uwp/api/windows.ui.xaml.input.pointerroutedeventargs.getintermediatepoints) methods of [**PointerRoutedEventArgs**](/uwp/api/Windows.UI.Xaml.Input.PointerRoutedEventArgs). The following code snippets show how.
+As stated earlier, you must get most extended pointer info from a [**Microsoft.UI.Input.PointerPoint**](/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpoint) object obtained through the [**GetCurrentPoint**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointerroutedeventargs.getcurrentpoint) and [**GetIntermediatePoints**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointerroutedeventargs.getintermediatepoints) methods of [**PointerRoutedEventArgs**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.pointerroutedeventargs). The following code snippets show how.
 
 -   First, we create a new [**TextBlock**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textblock) for each pointer.
 

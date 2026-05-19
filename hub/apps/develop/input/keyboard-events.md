@@ -179,7 +179,7 @@ void KeyboardSupport::MainPage::MediaButton_Click(Platform::Object^ sender, Wind
 
 bool KeyboardSupport::MainPage::IsCtrlKeyPressed()
 {
-    auto ctrlState = CoreWindow::GetForCurrentThread()->GetKeyState(VirtualKey::Control);
+    auto ctrlState = Microsoft::UI::Input::InputKeyboardSource::GetKeyStateForCurrentThread(VirtualKey::Control);
     return (ctrlState & CoreVirtualKeyStates::Down) == CoreVirtualKeyStates::Down;
 }
 
