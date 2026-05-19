@@ -44,7 +44,7 @@ To wire the events in XAML, you specify the string-form name of the handler meth
 You write the actual handler in the programming language that you're using for all your app's code and code-behind. With the attribute `Click="ShowUpdatesButton_Click"`, you have created a contract that when the XAML is markup-compiled and parsed, both the XAML markup compile step in your IDE's build action and the eventual XAML parse when the app loads can find a method named `ShowUpdatesButton_Click` as part of the app's code. `ShowUpdatesButton_Click` must be a method that implements a compatible method signature (based on a delegate) for any handler of the [**Click**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.buttonbase.click) event. For example, this code defines the `ShowUpdatesButton_Click` handler.
 
 ```csharp
-private void ShowUpdatesButton_Click (object sender, RoutedEventArgs e) 
+private void ShowUpdatesButton_Click (object sender, RoutedEventArgs e)
 {
     Button b = sender as Button;
     //more logic to do here...
@@ -59,15 +59,15 @@ End Sub
 ```
 
 ```cppwinrt
-void winrt::MyNamespace::implementation::BlankPage::ShowUpdatesButton_Click(Windows::Foundation::IInspectable const& sender, Windows::UI::Xaml::RoutedEventArgs const& e)
+void winrt::MyNamespace::implementation::BlankPage::ShowUpdatesButton_Click(Windows::Foundation::IInspectable const& sender, Microsoft::UI::Xaml::RoutedEventArgs const& e)
 {
-    auto b{ sender.as<Windows::UI::Xaml::Controls::Button>() };
+    auto b{ sender.as<Microsoft::UI::Xaml::Controls::Button>() };
     // More logic to do here.
 }
 ```
 
 ```cpp
-void MyNamespace::BlankPage::ShowUpdatesButton_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e) 
+void MyNamespace::BlankPage::ShowUpdatesButton_Click(Platform::Object^ sender, Microsoft::UI::Xaml::RoutedEventArgs^ e)
 {
     Button^ b = (Button^) sender;
     //more logic to do here...
@@ -158,7 +158,7 @@ textBlock1().PointerEntered({this, &MainPage::TextBlock1_PointerEntered });
 ```
 
 ```cpp
-textBlock1->PointerEntered += 
+textBlock1->PointerEntered +=
 ref new PointerEventHandler(this, &BlankPage::textBlock1_PointerEntered);
 ```
 
@@ -280,7 +280,7 @@ Determining whether and where in UI an element is visible to mouse, touch, and s
 - If the element is a control, its [**IsEnabled**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.control.isenabled) property value must be **true**.
 - The element must have actual dimensions in layout. An element where either [**ActualHeight**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.actualheight) and [**ActualWidth**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.frameworkelement.actualwidth) are 0 won't fire input events.
 
-Some controls have special rules for hit testing. For example, [**TextBlock**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.Controls.TextBlock) has no **Background** property, but is still hit testable within the entire region of its dimensions. [**Image**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.Controls.Image) and [**MediaElement**](/uwp/api/windows.ui.xaml.controls.mediaelement) controls are hit testable over their defined rectangle dimensions, regardless of transparent content such as alpha channel in the media source file being displayed. [**WebView**](/uwp/api/windows.ui.xaml.controls.webview) controls have special hit testing behavior because the input can be handled by the hosted HTML and fire script events.
+Some controls have special rules for hit testing. For example, [**TextBlock**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.Controls.TextBlock) has no **Background** property, but is still hit testable within the entire region of its dimensions. [**Image**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.Controls.Image) and [**MediaElement**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.mediaelement) controls are hit testable over their defined rectangle dimensions, regardless of transparent content such as alpha channel in the media source file being displayed. [**WebView**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.webview) controls have special hit testing behavior because the input can be handled by the hosted HTML and fire script events.
 
 Most [**Panel**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.Controls.Panel) classes and [**Border**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.Controls.Border) are not hit-testable in their own background, but can still handle the user input events that are routed from the elements that they contain.
 

@@ -29,7 +29,7 @@ These steps show how to register for a custom file type, .alsdk, and how to acti
 The following APIs are used in this topic:
 
 - [Windows.ApplicationModel.Activation.FileActivatedEventArgs](/uwp/api/Windows.ApplicationModel.Activation.FileActivatedEventArgs)
-- [Windows.UI.Xaml.Application.OnFileActivated](/uwp/api/windows.ui.xaml.application.onfileactivated)
+- [Microsoft.UI.Xaml.Application.OnFileActivated](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.onfileactivated)
 - [AppInstance.GetActivatedEventArgs](/windows/windows-app-sdk/api/winrt/microsoft.windows.applifecycle.appinstance.getactivatedeventargs)
 
 ## Step 1: Specify the extension point in the package manifest
@@ -82,7 +82,7 @@ Include a 44x44 icon with your project so that your logo can appear in those loc
 
 ## Step 3: Handle the activated event
 
-The [OnFileActivated](/uwp/api/windows.ui.xaml.application.onfileactivated) event handler receives all file activation events.
+The [OnFileActivated](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.application.onfileactivated) event handler receives all file activation events.
 
 ```csharp
 protected override void OnFileActivated(FileActivatedEventArgs args)
@@ -127,6 +127,6 @@ The files that you receive could come from an untrusted source. We recommend tha
 
 ## Related content
 
-- [Association launching sample](https://github.com/microsoft/Windows-universal-samples/tree/master/Samples/AssociationLaunching)
+- [Association launching sample](https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/AppLifecycle/Activation/cs2/cs-winui-packaged/CsWinUiDesktopActivation/CsWinUiDesktopActivation/MainWindow.xaml.cs)
 - [Launch the default app for a file](launch-the-default-app-for-a-file.md)
 - [Handle URI activation](handle-uri-activation.md)
