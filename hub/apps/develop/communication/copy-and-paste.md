@@ -29,7 +29,7 @@ First, include the [Windows.ApplicationModel.DataTransfer](/uwp/api/Windows.Appl
 ### [C#](#tab/cs)
 
 ```cs
-using Microsoft.Windows.ApplicationModel.DataTransfer;
+using Windows.ApplicationModel.DataTransfer;
 ...
 var dataPackage = new DataPackage();
 ```
