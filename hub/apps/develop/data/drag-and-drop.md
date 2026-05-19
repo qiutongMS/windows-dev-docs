@@ -148,7 +148,7 @@ The [UIElement](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement) 
 | DragPrimitive | [DragOperation](/windows/windows-app-sdk/api/winrt/microsoft.ui.input.dragdrop.dragoperation) |
 | Create a data package | [DataPackage](/uwp/api/windows.applicationmodel.datatransfer.datapackage)  |
 | Hand off drag to the shell  |[DragOperation.StartAsync](/windows/windows-app-sdk/api/winrt/microsoft.ui.input.dragdrop.dragoperation)  |
-| Receive drop from the shell  | [DragDropManager.TargetRequested](/windows/windows-app-sdk/api/winrt/microsoft.ui.input.dragdrop.dragdropmanager) <br/>[ICoreDropOperationTarget](/windows/windows-app-sdk/api/winrt/microsoft.ui.input.dragdrop.dragoperation)  |
+| Receive drop from the shell  | [DragDropManager.TargetRequested](/windows/windows-app-sdk/api/winrt/microsoft.ui.input.dragdrop.dragdropmanager) <br/>[IDropOperationTarget](/windows/windows-app-sdk/api/winrt/microsoft.ui.input.dragdrop.idropoperationtarget)  |
 
 ## See also
 
