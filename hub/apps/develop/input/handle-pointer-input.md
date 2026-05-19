@@ -38,7 +38,7 @@ Pointer events expose basic info such as input device type and detection state (
 Windows apps can listen for the following pointer events:
 
 > [!NOTE]
-> Constrain pointer input to a specific UI element by calling  [**CapturePointer**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.capturepointer) on that element within a pointer event handler. When a pointer is captured by an element, only that object receives pointer input events, even when the pointer moves outside the bounding area of the object. The [**IsInContact**](/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpointproperties.isincontact) (mouse button pressed, touch or stylus in contact) must be true for **CapturePointer** to be successful.
+> Constrain pointer input to a specific UI element by calling  [**CapturePointer**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.capturepointer) on that element within a pointer event handler. When a pointer is captured by an element, only that object receives pointer input events, even when the pointer moves outside the bounding area of the object. The [**IsInContact**](/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpoint.isincontact) (mouse button pressed, touch or stylus in contact) must be true for **CapturePointer** to be successful.
 
 | Event | Description |
 |---|---|
