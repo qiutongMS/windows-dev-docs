@@ -742,9 +742,10 @@ In code-behind, we connect to our view model that contains our command code. In 
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Input;
 using UICommand1.ViewModel;
 using Windows.System;
-using Microsoft.UI.Dispatching;
+using Windows.UI.Core;
 
 namespace UICommand1.View
 {

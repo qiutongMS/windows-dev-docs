@@ -1226,7 +1226,7 @@ The following example demonstrates how to create two tree views whose items can 
 
 ```csharp
 using System;
-using Microsoft.Windows.ApplicationModel.DataTransfer;
+using Windows.ApplicationModel.DataTransfer;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 
