@@ -20,7 +20,7 @@ Receive, process, and manage input data from pointing devices (such as touch, mo
 
 ## Important APIs
 - [Windows.Devices.Input](/uwp/api/Windows.Devices.Input)
-- [Windows.UI.Input](/windows/windows-app-sdk/api/winrt/microsoft.ui.input)
+- [Microsoft.UI.Input](/windows/windows-app-sdk/api/winrt/microsoft.ui.input)
 - [Microsoft.UI.Xaml.Input](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input)
 
 ## Pointers

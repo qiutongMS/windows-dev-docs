@@ -75,7 +75,7 @@ Most mouse input can be handled through the common routed input events supported
 - [**RightTapped**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.righttapped)
 - [**Tapped**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.tapped)
 
-However, you can take advantage of the specific capabilities of each device (such as mouse wheel events) using the pointer, gesture, and manipulation events in [Windows.UI.Input](/windows/windows-app-sdk/api/winrt/Microsoft.UI.Input).
+However, you can take advantage of the specific capabilities of each device (such as mouse wheel events) using the pointer, gesture, and manipulation events in [Microsoft.UI.Input](/windows/windows-app-sdk/api/winrt/Microsoft.UI.Input).
 
 **Samples:** See our [BasicInput sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/BasicInput), for .
 
