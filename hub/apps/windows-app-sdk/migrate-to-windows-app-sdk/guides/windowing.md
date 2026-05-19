@@ -126,7 +126,7 @@ If your app uses a default title bar, then there's no additional title bar work 
 1. Customize the system-drawn title bar
 2. App-drawn custom title bar
 
-Code that uses the UWP [**ApplicationViewTitleBar**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowtitlebar), [**CoreApplicationViewTitleBar**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowtitlebar), and [**AppWindowTitleBar**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowtitlebar) classes migrates to using the Windows App SDK [**Microsoft.UI.Windowing.AppWindowTitleBar**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowtitlebar) class.
+Code that uses the UWP [**ApplicationViewTitleBar**](/uwp/api/windows.ui.viewmanagement.applicationviewtitlebar), [**CoreApplicationViewTitleBar**](/uwp/api/windows.applicationmodel.core.coreapplicationviewtitlebar), and [**AppWindowTitleBar**](/uwp/api/windows.ui.windowmanagement.appwindowtitlebar) classes migrates to using the Windows App SDK [**Microsoft.UI.Windowing.AppWindowTitleBar**](/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindowtitlebar) class.
 
 ### Customize the system-drawn title bar
 

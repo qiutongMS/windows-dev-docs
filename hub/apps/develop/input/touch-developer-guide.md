@@ -575,14 +575,14 @@ All of the pointer events, gesture events and manipulation events mentioned here
 
 ### Samples
 
-- [Basic input sample](https://https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui
-- [Low latency input sample](https://https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui
-- [User interaction mode sample](https://https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui
-- [Focus visuals sample](https://https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/Accessibility/AccessibilityKeyboardPage.xaml
+- [Basic input sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui)
+- [Low latency input sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui)
+- [User interaction mode sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui)
+- [Focus visuals sample](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/Accessibility/AccessibilityKeyboardPage.xaml)
 
 ### Archive Samples
 
-- [Input: Device capabilities sample](https://https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui
-- [Input: XAML user input events sample](https://https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui
-- [XAML scrolling, panning, and zooming sample](https://https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/ScrollViewerPage.xaml
-- [Input: Gestures and manipulations with GestureRecognizer](https://https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/Input/cs-winui/GestureRecognizer.xaml
+- [Input: Device capabilities sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui)
+- [Input: XAML user input events sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui)
+- [XAML scrolling, panning, and zooming sample](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/ScrollViewerPage.xaml)
+- [Input: Gestures and manipulations with GestureRecognizer](https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/Input/cs-winui/GestureRecognizer.xaml)

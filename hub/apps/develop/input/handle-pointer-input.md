@@ -702,9 +702,9 @@ We define a **[UserControl](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml
 And here's the code-behind:
 ```csharp
 using Windows.Foundation;
-Microsoft.UI.Xaml;
-Microsoft.UI.Xaml.Controls;
-Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 
 // The User Control item template is documented at 
 // https://go.microsoft.com/fwlink/?LinkId=234236
@@ -883,16 +883,16 @@ Finally, we define our basic pointer event handlers in the MainPage.xaml.cs code
 
 ### Other samples
 
-- [Basic input sample](https://https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui
-- [Low latency input sample](https://https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui
-- [User interaction mode sample](https://https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui
-- [Focus visuals sample](https://https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/Accessibility/AccessibilityKeyboardPage.xaml
+- [Basic input sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui)
+- [Low latency input sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui)
+- [User interaction mode sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui)
+- [Focus visuals sample](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/Accessibility/AccessibilityKeyboardPage.xaml)
 
 ### Archive samples
 
-- [Input: XAML user input events sample](https://https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui
-- [Input: Device capabilities sample](https://https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui
-- [Input: Manipulations and gestures sample](https://https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/Input/cs-winui/GestureRecognizer.xaml
+- [Input: XAML user input events sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui)
+- [Input: Device capabilities sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui)
+- [Input: Manipulations and gestures sample](https://github.com/microsoft/WindowsAppSDK-Samples/blob/main/Samples/Input/cs-winui/GestureRecognizer.xaml)
 - [Input: Touch hit testing sample](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20desktop%20samples/%5BC%2B%2B%5D-Windows%208%20desktop%20samples/C%2B%2B/Windows%208%20desktop%20samples/Input%20Touch%20hit%20testing%20sample)
-- [XAML scrolling, panning, and zooming sample](https://https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/ScrollViewerPage.xaml
+- [XAML scrolling, panning, and zooming sample](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/ScrollViewerPage.xaml)
 - [Input: Simplified ink sample](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Input%20Simplified%20ink%20sample)

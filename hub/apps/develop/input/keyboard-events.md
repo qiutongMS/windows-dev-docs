@@ -78,7 +78,7 @@ End Sub
 ```c++
 void MyProject::MainPage::Grid_KeyUp(
   Platform::Object^ sender,
-  Microsoft.UI.XamlInput::KeyRoutedEventArgs^ e)
+  Microsoft::UI::Xaml::Input::KeyRoutedEventArgs^ e)
   {
       //handling code here
   }
@@ -165,10 +165,10 @@ void MainPage::OnNavigatedTo(NavigationEventArgs^ e)
 }
 void MainPage::ProgrammaticFocus(Object^ sender, RoutedEventArgs^ e) 
 {
-    this->Focus(Microsoft.UI.XamlFocusState::Programmatic);
+    this->Focus(Microsoft::UI::Xaml::FocusState::Programmatic);
 }
 
-void KeyboardSupport::MainPage::MediaButton_Click(Platform::Object^ sender, Microsoft.UI.XamlRoutedEventArgs^ e)
+void KeyboardSupport::MainPage::MediaButton_Click(Platform::Object^ sender, Microsoft::UI::Xaml::RoutedEventArgs^ e)
 {
     FrameworkElement^ fe = safe_cast<FrameworkElement^>(sender);
     if (fe->Name == "PlayButton") {DemoMovie->Play();}
@@ -183,13 +183,13 @@ bool KeyboardSupport::MainPage::IsCtrlKeyPressed()
     return (ctrlState & CoreVirtualKeyStates::Down) == CoreVirtualKeyStates::Down;
 }
 
-void KeyboardSupport::MainPage::Grid_KeyDown(Platform::Object^ sender, Microsoft.UI.XamlInput::KeyRoutedEventArgs^ e)
+void KeyboardSupport::MainPage::Grid_KeyDown(Platform::Object^ sender, Microsoft::UI::Xaml::Input::KeyRoutedEventArgs^ e)
 {
     if (e->Key == VirtualKey::Control) isCtrlKeyPressed = true;
 }
 
 
-void KeyboardSupport::MainPage::Grid_KeyUp(Platform::Object^ sender, Microsoft.UI.XamlInput::KeyRoutedEventArgs^ e)
+void KeyboardSupport::MainPage::Grid_KeyUp(Platform::Object^ sender, Microsoft::UI::Xaml::Input::KeyRoutedEventArgs^ e)
 {
     if (IsCtrlKeyPressed()) 
     {
@@ -394,14 +394,14 @@ You can make it much faster and easier for users to enter data in your app by se
 ### Samples
 
 - [Touch keyboard sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/TouchKeyboard)
-- [Basic input sample](https://https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui
-- [Low latency input sample](https://https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui
-- [Focus visuals sample](https://https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/Accessibility/AccessibilityKeyboardPage.xaml
+- [Basic input sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui)
+- [Low latency input sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui)
+- [Focus visuals sample](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/Accessibility/AccessibilityKeyboardPage.xaml)
 
 ### Archive Samples
 
-- [Input sample](https://https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui
-- [Input: Device capabilities sample](https://https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui
+- [Input sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui)
+- [Input: Device capabilities sample](https://github.com/microsoft/WindowsAppSDK-Samples/tree/main/Samples/Input/cs-winui)
 - [Input: Touch keyboard sample](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BC%23%5D-Windows%208%20app%20samples/C%23/Windows%208%20app%20samples/Input%20Touch%20keyboard%20sample%20(Windows%208))
 - [Responding to the appearance of the on-screen keyboard sample](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Responding%20to%20the%20appearance%20of%20the%20on-screen%20keyboard%20sample)
 - [XAML text editing sample](https://github.com/microsoftarchive/msdn-code-gallery-microsoft/tree/411c271e537727d737a53fa2cbe99eaecac00cc0/Official%20Windows%20Platform%20Sample/Windows%208%20app%20samples/%5BVB%5D-Windows%208%20app%20samples/VB/Windows%208%20app%20samples/XAML%20text%20editing%20sample%20(Windows%208))
