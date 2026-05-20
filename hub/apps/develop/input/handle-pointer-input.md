@@ -212,7 +212,7 @@ void Target_PointerPressed(object sender, PointerRoutedEventArgs e)
 }
 ```
 
--   This handler manages the [**PointerEntered**](/uwp/api/windows.ui.xaml.uielement.pointerentered) event. We add the event to the event log, add the pointer to the pointer collection, and display the pointer details.
+-   This handler manages the [**PointerEntered**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.pointerentered) event. We add the event to the event log, add the pointer to the pointer collection, and display the pointer details.
 
 ```csharp
 /// <summary>
@@ -299,7 +299,7 @@ private void Target_PointerMoved(object sender, PointerRoutedEventArgs e)
 }
 ```
 
--   This handler manages the [**PointerWheelChanged**](/uwp/api/windows.ui.xaml.uielement.pointerwheelchanged) event. We add the event to the event log, add the pointer to the pointer array (if necessary), and display the pointer details.
+-   This handler manages the [**PointerWheelChanged**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.pointerwheelchanged) event. We add the event to the event log, add the pointer to the pointer array (if necessary), and display the pointer details.
 
 ```csharp
 /// <summary>
@@ -381,7 +381,7 @@ void Target_PointerReleased(object sender, PointerRoutedEventArgs e)
 }
 ```
 
--   This handler manages the [**PointerExited**](/uwp/api/windows.ui.xaml.uielement.pointerexited) event (when contact with the digitizer is maintained). We add the event to the event log, remove the pointer from the pointer array, and update the pointer details.
+-   This handler manages the [**PointerExited**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.pointerexited) event (when contact with the digitizer is maintained). We add the event to the event log, remove the pointer from the pointer array, and update the pointer details.
 
 ```csharp
 /// <summary>
@@ -416,7 +416,7 @@ private void Target_PointerExited(object sender, PointerRoutedEventArgs e)
 }
 ```
 
--   This handler manages the [**PointerCanceled**](/uwp/api/windows.ui.xaml.uielement.pointercanceled) event. We add the event to the event log, remove the pointer from the pointer array, and update the pointer details.
+-   This handler manages the [**PointerCanceled**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.pointercanceled) event. We add the event to the event log, remove the pointer from the pointer array, and update the pointer details.
 
 ```csharp
 /// <summary>
@@ -455,7 +455,7 @@ private void Target_PointerCanceled(object sender, PointerRoutedEventArgs e)
 }
 ```
 
--   This handler manages the [**PointerCaptureLost**](/uwp/api/windows.ui.xaml.uielement.pointercapturelost) event. We add the event to the event log, remove the pointer from the pointer array, and update the pointer details.
+-   This handler manages the [**PointerCaptureLost**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.pointercapturelost) event. We add the event to the event log, remove the pointer from the pointer array, and update the pointer details.
 
     > [!NOTE]
     > [**PointerCaptureLost**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.pointercapturelost) can occur instead of [**PointerReleased**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.pointerreleased). Pointer capture can be lost for various reasons including user interaction, programmatic capture of another pointer, calling [**PointerReleased**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.pointerreleased).     
