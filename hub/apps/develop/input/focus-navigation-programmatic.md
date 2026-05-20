@@ -283,7 +283,7 @@ private void OnLosingFocus(UIElement sender, LosingFocusEventArgs args)
 
 ## Find the first and last focusable element
 
-The [FocusManager.FindFirstFocusableElement](/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_FindFirstFocusableElement_Windows_UI_Xaml_DependencyObject_) and [FocusManager.FindLastFocusableElement](/uwp/api/windows.ui.xaml.input.focusmanager#Windows_UI_Xaml_Input_FocusManager_FindLastFocusableElement_Windows_UI_Xaml_DependencyObject_) methods move focus to the first or last focusable element within the scope of an object (the element tree of a [UIElement](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement) or the text tree of a [TextElement](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement)). The scope is specified in the call (if the argument is null, the scope is the current window).
+The [FocusManager.FindFirstFocusableElement](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager) and [FocusManager.FindLastFocusableElement](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.focusmanager) methods move focus to the first or last focusable element within the scope of an object (the element tree of a [UIElement](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement) or the text tree of a [TextElement](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.documents.textelement)). The scope is specified in the call (if the argument is null, the scope is the current window).
 
 If no focus candidates can be identified in the scope, null is returned.
 
