@@ -21,21 +21,21 @@ The following keyboard events can occur for both hardware and touch keyboards.
 
 | Event                                      | Description                    |
 |--------------------------------------------|--------------------------------|
-| [**KeyDown**](/uwp/api/windows.ui.xaml.uielement.keydown) | Occurs when a key is pressed.  |
-| [**KeyUp**](/uwp/api/windows.ui.xaml.uielement.keyup)     | Occurs when a key is released. |
+| [**KeyDown**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keydown) | Occurs when a key is pressed.  |
+| [**KeyUp**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keyup)     | Occurs when a key is released. |
 
 > [!IMPORTANT]
 > Some XAML controls handle input events internally. In these cases, it might appear that an input event doesn't occur because your event listener doesn't invoke the associated handler. Typically, this subset of keys is processed by the class handler to provide built in support of basic keyboard accessibility. For example, the [**Button**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.button) class overrides the [**OnKeyDown**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.control.onkeydown) events for both the Space key and the Enter key (as well as [**OnPointerPressed**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.control.onpointerpressed)) and routes them to the [**Click**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.buttonbase.click) event of the control. When a key press is handled by the control class, the [**KeyDown**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keydown) and [**KeyUp**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keyup) events are not raised.  
-> This provides a built-in keyboard equivalent for invoking the button, similar to tapping it with a finger or clicking it with a mouse. Keys other than Space or Enter still fire [**KeyDown**](/uwp/api/windows.ui.xaml.uielement.keydown) and [**KeyUp**](/uwp/api/windows.ui.xaml.uielement.keyup) events. For more info about how class-based handling of events works (specifically, the "Input event handlers in controls" section), see [Events and routed events overview](/windows/apps/develop/platform/xaml/events-and-routed-events-overview).
+> This provides a built-in keyboard equivalent for invoking the button, similar to tapping it with a finger or clicking it with a mouse. Keys other than Space or Enter still fire [**KeyDown**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keydown) and [**KeyUp**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keyup) events. For more info about how class-based handling of events works (specifically, the "Input event handlers in controls" section), see [Events and routed events overview](/windows/apps/develop/platform/xaml/events-and-routed-events-overview).
 
 
 Controls in your UI generate keyboard events only when they have input focus. An individual control gains focus when the user clicks or taps directly on that control in the layout, or uses the Tab key to step into a tab sequence within the content area.
 
-You can also call a control's [**Focus**](/uwp/api/windows.ui.xaml.controls.control.focus) method to force focus. This is necessary when you implement shortcut keys, because keyboard focus is not set by default when your UI loads. For more info, see the **Shortcut keys example** later in this topic.
+You can also call a control's [**Focus**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.control#Microsoft_UI_Xaml_Controls_Control_Focus_Microsoft_UI_Xaml_FocusState_) method to force focus. This is necessary when you implement shortcut keys, because keyboard focus is not set by default when your UI loads. For more info, see the **Shortcut keys example** later in this topic.
 
-For a control to receive input focus, it must be enabled, visible, and have [**IsTabStop**](/uwp/api/windows.ui.xaml.controls.control.istabstop) and [**HitTestVisible**](/uwp/api/windows.ui.xaml.uielement.ishittestvisible) property values of **true**. This is the default state for most controls. When a control has input focus, it can raise and respond to keyboard input events as described later in this topic. You can also respond to a control that is receiving or losing focus by handling the [**GotFocus**](/uwp/api/windows.ui.xaml.uielement.gotfocus) and [**LostFocus**](/uwp/api/windows.ui.xaml.uielement.lostfocus) events.
+For a control to receive input focus, it must be enabled, visible, and have [**IsTabStop**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.control#Microsoft_UI_Xaml_Controls_Control_IsTabStop) and [**HitTestVisible**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.ishittestvisible) property values of **true**. This is the default state for most controls. When a control has input focus, it can raise and respond to keyboard input events as described later in this topic. You can also respond to a control that is receiving or losing focus by handling the [**GotFocus**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.gotfocus) and [**LostFocus**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.lostfocus) events.
 
-By default, the tab sequence of controls is the order in which they appear in the Extensible Application Markup Language (XAML). However, you can modify this order by using the [**TabIndex**](/uwp/api/windows.ui.xaml.controls.control.tabindex) property. For more info, see [Implementing keyboard accessibility](/previous-versions/windows/apps/hh868161(v=win.10)).
+By default, the tab sequence of controls is the order in which they appear in the Extensible Application Markup Language (XAML). However, you can modify this order by using the [**TabIndex**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.control#Microsoft_UI_Xaml_Controls_Control_TabIndex) property. For more info, see [Implementing keyboard accessibility](/previous-versions/windows/apps/hh868161(v=win.10)).
 
 ## Keyboard event handlers
 
@@ -60,7 +60,7 @@ You can also attach an event handler in code. For more info, see [Events and rou
 
 ### Defining a keyboard event handler
 
-The following example shows the incomplete event handler definition for the [**KeyUp**](/uwp/api/windows.ui.xaml.uielement.keyup) event handler that was attached in the preceding example.
+The following example shows the incomplete event handler definition for the [**KeyUp**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keyup) event handler that was attached in the preceding example.
 
 ```csharp
 void Grid_KeyUp(object sender, KeyRoutedEventArgs e)
@@ -95,7 +95,7 @@ All keyboard events use [**KeyRoutedEventArgs**](/windows/windows-app-sdk/api/wi
 
 ### Virtual keys
 
-The [**KeyDown**](/uwp/api/windows.ui.xaml.uielement.keydown) event is raised if a key is pressed. Likewise, [**KeyUp**](/uwp/api/windows.ui.xaml.uielement.keyup) is raised if a key is released. Usually, you listen to the events to process a specific key value. To determine which key is pressed or released, check the [**Key**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyroutedeventargs.key) value in the event data. **Key** returns a [**VirtualKey**](/uwp/api/Windows.System.VirtualKey) value. The **VirtualKey** enumeration includes all the supported keys.
+The [**KeyDown**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keydown) event is raised if a key is pressed. Likewise, [**KeyUp**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keyup) is raised if a key is released. Usually, you listen to the events to process a specific key value. To determine which key is pressed or released, check the [**Key**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyroutedeventargs.key) value in the event data. **Key** returns a [**VirtualKey**](/uwp/api/Windows.System.VirtualKey) value. The **VirtualKey** enumeration includes all the supported keys.
 
 ### Modifier keys
 
@@ -104,7 +104,7 @@ Modifier keys are keys such as Ctrl or Shift that users typically press in combi
 > [!NOTE]
 > For built-in keyboard shortcuts, see [Access keys](../../design/input/access-keys.md) and [Keyboard accelerators](../../design/input/keyboard-accelerators.md).
 
-You can detect shortcut key combinations in the [**KeyDown**](/uwp/api/windows.ui.xaml.uielement.keydown) and [**KeyUp**](/uwp/api/windows.ui.xaml.uielement.keyup) event handlers. When a keyboard event occurs for a non-modifier key, you can then check whether a modifier key is in the pressed state.
+You can detect shortcut key combinations in the [**KeyDown**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keydown) and [**KeyUp**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keyup) event handlers. When a keyboard event occurs for a non-modifier key, you can then check whether a modifier key is in the pressed state.
 
 Alternatively, in WinUI 3 you can use [**InputKeyboardSource.GetKeyStateForCurrentThread**](/windows/windows-app-sdk/api/winrt/microsoft.ui.input.inputkeyboardsource.getkeystateforcurrentthread) to check modifier state when a non-modifier key is pressed.
 
@@ -284,7 +284,7 @@ End Sub
 ## Keyboard routed events
 
 
-Certain events are routed events, including [**KeyDown**](/uwp/api/windows.ui.xaml.uielement.keydown) and [**KeyUp**](/uwp/api/windows.ui.xaml.uielement.keyup). Routed events use the bubbling routing strategy. The bubbling routing strategy means that an event originates from a child object and is then routed up to successive parent objects in the object tree. This presents another opportunity to handle the same event and interact with the same event data.
+Certain events are routed events, including [**KeyDown**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keydown) and [**KeyUp**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keyup). Routed events use the bubbling routing strategy. The bubbling routing strategy means that an event originates from a child object and is then routed up to successive parent objects in the object tree. This presents another opportunity to handle the same event and interact with the same event data.
 
 Consider the following XAML example, which handles [**KeyUp**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keyup) events for a [**Canvas**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.canvas) and two [**Button**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.button) objects. In this case, if you release a key while focus is held by either **Button** object, it raises the **KeyUp** event. The event is then bubbled up to the parent **Canvas**.
 
@@ -296,7 +296,7 @@ Consider the following XAML example, which handles [**KeyUp**](/windows/windows-
 </StackPanel>
 ```
 
-The following example shows how to implement the [**KeyUp**](/uwp/api/windows.ui.xaml.uielement.keyup) event handler for the corresponding XAML content in the preceding example.
+The following example shows how to implement the [**KeyUp**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keyup) event handler for the corresponding XAML content in the preceding example.
 
 ```csharp
 void StackPanel_KeyUp(object sender, KeyRoutedEventArgs e)
@@ -317,7 +317,7 @@ The purpose of the [**Handled**](/windows/windows-app-sdk/api/winrt/microsoft.ui
 
 ### AddHandler and already-handled keyboard events
 
-You can use a special technique for attaching handlers that can act on events that you already marked as handled. This technique uses the [**AddHandler**](/uwp/api/windows.ui.xaml.uielement.addhandler) method to register a handler, rather than using XAML attributes or language-specific syntax for adding handlers, such as += in C\#.
+You can use a special technique for attaching handlers that can act on events that you already marked as handled. This technique uses the [**AddHandler**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.addhandler) method to register a handler, rather than using XAML attributes or language-specific syntax for adding handlers, such as += in C\#.
 
 A general limitation of this technique is that the **AddHandler** API takes a parameter of type [**RoutedEvent**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.routedevent) identifying the routed event in question. Not all routed events provide a **RoutedEvent** identifier, and this consideration thus affects which routed events can still be handled in the [**Handled**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyroutedeventargs.handled) case. The [**KeyDown**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keydown) and [**KeyUp**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keyup) events have routed event identifiers ([**KeyDownEvent**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keydownevent) and [**KeyUpEvent**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keyupevent)) on [**UIElement**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement). However, other events such as [**TextBox.TextChanged**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox.textchanged) do not have routed event identifiers and thus cannot be used with the **AddHandler** technique.
 
@@ -351,21 +351,21 @@ In the following example, we subclass the control and override the KeyDown behav
 
 A small number of UI elements provide built-in support for commanding. Commanding uses input-related routed events in its underlying implementation. It enables processing of related UI input, such as a certain pointer action or a specific accelerator key, by invoking a single command handler.
 
-If commanding is available for a UI element, consider using its commanding APIs instead of any discrete input events. For more info, see [**ButtonBase.Command**](/uwp/api/windows.ui.xaml.controls.primitives.buttonbase.command).
+If commanding is available for a UI element, consider using its commanding APIs instead of any discrete input events. For more info, see [**ButtonBase.Command**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.buttonbase.command).
 
 You can also implement [**ICommand**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.icommand) to encapsulate command functionality that you invoke from ordinary event handlers. This enables you to use commanding even when there is no **Command** property available.
 
 ## Text input and controls
 
-Certain controls react to keyboard events with their own handling. For instance, [**TextBox**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox) is a control that is designed to capture and then visually represent text that was entered by using the keyboard. It uses [**KeyUp**](/uwp/api/windows.ui.xaml.uielement.keyup) and [**KeyDown**](/uwp/api/windows.ui.xaml.uielement.keydown) in its own logic to capture keystrokes, then also raises its own [**TextChanged**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox.textchanged) event if the text actually changed.
+Certain controls react to keyboard events with their own handling. For instance, [**TextBox**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox) is a control that is designed to capture and then visually represent text that was entered by using the keyboard. It uses [**KeyUp**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keyup) and [**KeyDown**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keydown) in its own logic to capture keystrokes, then also raises its own [**TextChanged**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox.textchanged) event if the text actually changed.
 
-You can still generally add handlers for [**KeyUp**](/uwp/api/windows.ui.xaml.uielement.keyup) and [**KeyDown**](/uwp/api/windows.ui.xaml.uielement.keydown) to a [**TextBox**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox), or any related control that is intended to process text input. However, as part of its intended design, a control might not respond to all key values that are directed to it through key events. Behavior is specific to each control.
+You can still generally add handlers for [**KeyUp**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keyup) and [**KeyDown**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keydown) to a [**TextBox**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox), or any related control that is intended to process text input. However, as part of its intended design, a control might not respond to all key values that are directed to it through key events. Behavior is specific to each control.
 
 As an example, [**ButtonBase**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.buttonbase) (the base class for [**Button**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.button)) processes [**KeyUp**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keyup) so that it can check for the Spacebar or Enter key. **ButtonBase** considers **KeyUp** equivalent to a mouse left button down for purposes of raising a [**Click**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.buttonbase.click) event. This processing of the event is accomplished when **ButtonBase** overrides the virtual method [**OnKeyUp**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.control.onkeyup). In its implementation, it sets [**Handled**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyroutedeventargs.handled) to **true**. The result is that any parent of a button that is listening for a key event, in the case of a Spacebar, would not receive the already-handled event for its own handlers.
 
 Another example is [**TextBox**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox). Some keys, such as the arrow keys, are not considered text by **TextBox** and are instead considered specific to the control UI behavior. The **TextBox** marks these event cases as handled.
 
-Custom controls can implement their own similar override behavior for key events by overriding [**OnKeyDown**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.control.onkeydown) / [**OnKeyUp**](/uwp/api/windows.ui.xaml.controls.control.onkeyup). If your custom control processes specific accelerator keys, or has control or focus behavior that is similar to the scenario described for [**TextBox**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox), you should place this logic in your own **OnKeyDown** / **OnKeyUp** overrides.
+Custom controls can implement their own similar override behavior for key events by overriding [**OnKeyDown**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.control.onkeydown) / [**OnKeyUp**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.control.onkeyup). If your custom control processes specific accelerator keys, or has control or focus behavior that is similar to the scenario described for [**TextBox**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox), you should place this logic in your own **OnKeyDown** / **OnKeyUp** overrides.
 
 ## The touch keyboard
 
@@ -375,7 +375,7 @@ When the touch keyboard appears, it automatically repositions your UI to ensure 
 
 If you create a custom control that requires text input, but does not derive from a standard text input control, you can add touch keyboard support by implementing the correct UI Automation control patterns. For more info, see the [Touch keyboard sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/TouchKeyboard).
 
-Key presses on the touch keyboard raise [**KeyDown**](/uwp/api/windows.ui.xaml.uielement.keydown) and [**KeyUp**](/uwp/api/windows.ui.xaml.uielement.keyup) events just like key presses on hardware keyboards. However, the touch keyboard will not raise input events for Ctrl+A, Ctrl+Z, Ctrl+X, Ctrl+C, and Ctrl+V, which are reserved for text manipulation in the input control.
+Key presses on the touch keyboard raise [**KeyDown**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keydown) and [**KeyUp**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.uielement.keyup) events just like key presses on hardware keyboards. However, the touch keyboard will not raise input events for Ctrl+A, Ctrl+Z, Ctrl+X, Ctrl+C, and Ctrl+V, which are reserved for text manipulation in the input control.
 
 You can make it much faster and easier for users to enter data in your app by setting the input scope of the text control to match the kind of data you expect the user to enter. The input scope provides a hint at the type of text input expected by the control so the system can provide a specialized touch keyboard layout for the input type. For example, if a text box is used only to enter a 4-digit PIN, set the [**InputScope**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.textbox.inputscope) property to [**Number**](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.inputscopenamevalue). This tells the system to show the numeric keypad layout, which makes it easier for the user to enter the PIN. For more detail, see [Use input scope to change the touch keyboard](../../design/input/use-input-scope-to-change-the-touch-keyboard.md).
 
