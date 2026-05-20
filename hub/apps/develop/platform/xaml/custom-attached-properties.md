@@ -74,7 +74,7 @@ Defining the attached property in C++/CX is a bit more complex. You have to deci
 ```csharp
 public class GameService : DependencyObject
 {
-    public static readonly DependencyProperty IsMovableProperty =
+    public static readonly DependencyProperty IsMovableProperty = 
     DependencyProperty.RegisterAttached(
       "IsMovable",
       typeof(Boolean),
@@ -96,10 +96,10 @@ public class GameService : DependencyObject
 Public Class GameService
     Inherits DependencyObject
 
-    Public Shared ReadOnly IsMovableProperty As DependencyProperty =
-        DependencyProperty.RegisterAttached("IsMovable",
-        GetType(Boolean),
-        GetType(GameService),
+    Public Shared ReadOnly IsMovableProperty As DependencyProperty = 
+        DependencyProperty.RegisterAttached("IsMovable",  
+        GetType(Boolean), 
+        GetType(GameService), 
         New PropertyMetadata(False))
 
     Public Shared Sub SetIsMovable(ByRef element As UIElement, value As Boolean)
@@ -283,7 +283,7 @@ protected override Size ArrangeOverride(Size finalSize)
         double y = (double) Canvas.GetTop(child);
         child.Arrange(new Rect(new Point(x, y), child.DesiredSize));
     }
-    return base.ArrangeOverride(finalSize);
+    return base.ArrangeOverride(finalSize); 
     // real Canvas has more sophisticated sizing
 }
 ```

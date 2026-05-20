@@ -285,7 +285,7 @@ private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
 // MainPage.xaml.cpp
 
 void winrt::BasicNavigation::implementation::MainPage::HyperlinkButton_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
-{
+{ 
     Frame().Navigate(xaml_typename<BasicNavigation::Page2>(), winrt::box_value(name().Text()));
 }
 ```
@@ -370,14 +370,14 @@ By default, each page is animated into the frame when navigation occurs. The def
 These animations are represented by sub-classes of [NavigationTransitionInfo](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.animation.navigationtransitioninfo). To specify the animation to use for a page transition, you'll use the third overload of the `Navigate` method and pass a `NavigationTransitionInfo` sub-class as the third parameter (`infoOverride`). Here's the signature of this `Navigate` overload:
 
 ```csharp
-public bool Navigate(System.Type sourcePageType,
+public bool Navigate(System.Type sourcePageType, 
                      object parameter,
                      NavigationTransitionInfo infoOverride);
 ```
 
 ```cppwinrt
-bool Navigate(TypeName const& sourcePageType,
-              IInspectable const& parameter,
+bool Navigate(TypeName const& sourcePageType, 
+              IInspectable const& parameter, 
               NavigationTransitionInfo const& infoOverride);
 ```
 
@@ -388,9 +388,9 @@ In the `HyperlinkButton_Click` event handler of the `MainPage` code-behind file,
 
 private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
 {
-    Frame.Navigate(typeof(Page2),
+    Frame.Navigate(typeof(Page2), 
                    name.Text,
-                   new SlideNavigationTransitionInfo()
+                   new SlideNavigationTransitionInfo() 
                        { Effect = SlideNavigationTransitionEffect.FromRight});
 }
 ```
@@ -408,7 +408,7 @@ using namespace winrt::Microsoft::UI::Xaml::Media::Animation;
 // ...
 
 void winrt::BasicNavigation::implementation::MainPage::HyperlinkButton_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
-{
+{   
     // Create the slide transition and set the transition effect to FromRight.
     SlideNavigationTransitionInfo slideEffect = SlideNavigationTransitionInfo();
     slideEffect.Effect(SlideNavigationTransitionEffect(SlideNavigationTransitionEffect::FromRight));
@@ -429,7 +429,7 @@ private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
 {
     Frame.Navigate(typeof(MainPage),
                    null,
-                   new SlideNavigationTransitionInfo()
+                   new SlideNavigationTransitionInfo() 
                        { Effect = SlideNavigationTransitionEffect.FromLeft});
 }
 ```
@@ -442,7 +442,7 @@ using namespace winrt::Microsoft::UI::Xaml::Media::Animation;
 // ...
 
 void winrt::BasicNavigation::implementation::MainPage::HyperlinkButton_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::RoutedEventArgs const& e)
-{
+{   
     // Create the slide transition and set the transition effect to FromLeft.
     SlideNavigationTransitionInfo slideEffect = SlideNavigationTransitionInfo();
     slideEffect.Effect(SlideNavigationTransitionEffect(SlideNavigationTransitionEffect::FromLeft));

@@ -133,7 +133,7 @@ If the ContentDialog is shown from a [Page](/windows/windows-app-sdk/api/winrt/m
 <Window
     ... >
     <Grid x:Name="rootPanel">
-
+    
     </Grid>
 </Window>
 ``````

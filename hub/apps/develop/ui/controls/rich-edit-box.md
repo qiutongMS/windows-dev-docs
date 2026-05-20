@@ -154,7 +154,7 @@ private async void SaveButton_Click(object sender, RoutedEventArgs e)
 
 private void BoldButton_Click(object sender, RoutedEventArgs e)
 {
-Microsoft.UI.Text.ITextSelection selectedText = editor.Document.Selection;
+    Microsoft.UI.Text.ITextSelection selectedText = editor.Document.Selection;
     if (selectedText != null)
     {
         Windows.UI.Text.ITextCharacterFormat charFormatting = selectedText.CharacterFormat;
@@ -165,7 +165,7 @@ Microsoft.UI.Text.ITextSelection selectedText = editor.Document.Selection;
 
 private void ItalicButton_Click(object sender, RoutedEventArgs e)
 {
-Microsoft.UI.Text.ITextSelection selectedText = editor.Document.Selection;
+    Microsoft.UI.Text.ITextSelection selectedText = editor.Document.Selection;
     if (selectedText != null)
     {
         Windows.UI.Text.ITextCharacterFormat charFormatting = selectedText.CharacterFormat;
@@ -176,7 +176,7 @@ Microsoft.UI.Text.ITextSelection selectedText = editor.Document.Selection;
 
 private void UnderlineButton_Click(object sender, RoutedEventArgs e)
 {
-Microsoft.UI.Text.ITextSelection selectedText = editor.Document.Selection;
+    Microsoft.UI.Text.ITextSelection selectedText = editor.Document.Selection;
     if (selectedText != null)
     {
         Windows.UI.Text.ITextCharacterFormat charFormatting = selectedText.CharacterFormat;

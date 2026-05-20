@@ -126,7 +126,7 @@ public sealed partial class MainWindow : Window
         void ShowShareUIForWindow(IntPtr appWindow);
     }
 
-    static readonly Guid _dtm_iid =
+    static readonly Guid _dtm_iid = 
         new Guid(0xa5caee9b, 0x8708, 0x49d1, 0x8d, 0x36, 0x67, 0xd2, 0x5a, 0x8d, 0xa0, 0x0c);
 
     private void myButton_Click(object sender, RoutedEventArgs e)
@@ -146,7 +146,7 @@ public sealed partial class MainWindow : Window
         {
             args.Request.Data.Properties.Title = "In a desktop app...";
             args.Request.Data.SetText("...display WinRT UI objects that depend on CoreWindow.");
-            args.Request.Data.RequestedOperation =
+            args.Request.Data.RequestedOperation = 
                 Windows.ApplicationModel.DataTransfer.DataPackageOperation.Copy;
         };
 
@@ -176,7 +176,7 @@ void MainWindow::myButton_Click(IInspectable const&, RoutedEventArgs const&)
     HWND hWnd{ 0 };
     windowNative->get_WindowHandle(&hWnd);
 
-    winrt::com_ptr<IDataTransferManagerInterop> interop =
+    winrt::com_ptr<IDataTransferManagerInterop> interop = 
         winrt::get_activation_factory<Windows::ApplicationModel::DataTransfer::DataTransferManager,
         IDataTransferManagerInterop>();
 

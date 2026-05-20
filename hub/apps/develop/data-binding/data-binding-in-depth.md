@@ -40,9 +40,9 @@ Independent of mode, there are two kinds of binding, and you typically declare b
 
 ### Sample apps that demonstrate {x:Bind}
 
-- [{x:Bind} reference (WinUI Gallery BindingPage)](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/Fundamentals/BindingPage.xaml).
+- [{x:Bind} sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlBind).
 - [QuizGame](https://github.com/microsoft/Windows-appsample-networkhelper).
-- [{Binding} reference (WinUI Gallery BindingPage)](https://github.com/microsoft/WinUI-Gallery/blob/main/WinUIGallery/Samples/ControlPages/Fundamentals/BindingPage.xaml).
+- [XAML UI Basics sample](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlUIBasics).
 
 ### Sample apps that demonstrate {Binding}
 
@@ -182,7 +182,7 @@ namespace DataBindingInDepth
             this.InitializeComponent();
             ViewModel = new HostViewModel();
         }
-
+    
         public HostViewModel ViewModel { get; set; }
     }
 }
@@ -312,9 +312,9 @@ Here's a value converter, suitable for a one-time or a one-way binding, that con
 ``` csharp
 public class DateToStringConverter : IValueConverter
 {
-    // Define the Convert method to convert a DateTime value to
+    // Define the Convert method to convert a DateTime value to 
     // a month string.
-    public object Convert(object value, Type targetType,
+    public object Convert(object value, Type targetType, 
         object parameter, string language)
     {
         // value is the data from the source object.
@@ -338,7 +338,7 @@ public class DateToStringConverter : IValueConverter
     }
 
     // ConvertBack is not implemented for a OneWay binding.
-    public object ConvertBack(object value, Type targetType,
+    public object ConvertBack(object value, Type targetType, 
         object parameter, string language)
     {
         throw new NotImplementedException();
@@ -353,9 +353,9 @@ And here's how you consume that value converter in your binding object markup.
   <local:DateToStringConverter x:Key="Converter1"/>
 </UserControl.Resources>
 ...
-<TextBlock Grid.Column="0"
+<TextBlock Grid.Column="0" 
   Text="{x:Bind ViewModel.Month, Converter={StaticResource Converter1}}"/>
-<TextBlock Grid.Column="0"
+<TextBlock Grid.Column="0" 
   Text="{Binding Month, Converter={StaticResource Converter1}}"/>
 ```
 
@@ -398,7 +398,7 @@ The [{x:Bind} markup extension](/windows/apps/develop/platform/xaml/x-bind-marku
     x:Class="ExampleNamespace.TemplatesResourceDictionary"
     .....
     xmlns:examplenamespace="using:ExampleNamespace">
-
+    
     <DataTemplate x:Key="EmployeeTemplate" x:DataType="examplenamespace:IEmployee">
         <Grid>
             <TextBlock Text="{x:Bind Name}"/>
@@ -410,7 +410,7 @@ The [{x:Bind} markup extension](/windows/apps/develop/platform/xaml/x-bind-marku
 ``` csharp
 // TemplatesResourceDictionary.xaml.cs
 using Microsoft.UI.Xaml.Data;
-
+ 
 namespace ExampleNamespace
 {
     public partial class TemplatesResourceDictionary
@@ -431,7 +431,7 @@ namespace ExampleNamespace
 
     <Window.Resources>
         <ResourceDictionary>
-            ....
+            .... 
             <ResourceDictionary.MergedDictionaries>
                 <examplenamespace:TemplatesResourceDictionary/>
             </ResourceDictionary.MergedDictionaries>
@@ -454,14 +454,14 @@ TemplatesResourceDictionary.xaml
     x:Class="ExampleNamespace.TemplatesResourceDictionary"
     .....
     xmlns:examplenamespace="using:ExampleNamespace">
-
+    
     <!-- DataTemplate using x:Bind -->
     <DataTemplate x:Key="EmployeeTemplate" x:DataType="examplenamespace:IEmployee">
         <Grid>
             <TextBlock Text="{x:Bind Name}"/>
         </Grid>
     </DataTemplate>
-
+    
     <!-- Style that mixes x:Bind and Binding -->
     <Style x:Key="CustomButtonStyle" TargetType="Button">
         <Setter Property="Background" Value="{Binding ButtonBackgroundBrush}"/>
@@ -476,12 +476,12 @@ TemplatesResourceDictionary.xaml
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="4">
-                        <StackPanel Orientation="Horizontal"
+                        <StackPanel Orientation="Horizontal" 
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center">
                             <!-- x:Bind to a static property or page-level property -->
-                            <Ellipse Width="8" Height="8"
-                                     Fill="{x:Bind DefaultIndicatorBrush}"
+                            <Ellipse Width="8" Height="8" 
+                                     Fill="{x:Bind DefaultIndicatorBrush}" 
                                      Margin="0,0,8,0"/>
                             <!-- Binding to DataContext -->
                             <ContentPresenter x:Name="ContentPresenter"
@@ -495,14 +495,14 @@ TemplatesResourceDictionary.xaml
                                 <VisualState x:Name="PointerOver">
                                     <VisualState.Setters>
                                         <!-- Binding to DataContext for hover color -->
-                                        <Setter Target="RootBorder.Background"
+                                        <Setter Target="RootBorder.Background" 
                                                 Value="{Binding ButtonHoverBrush}"/>
                                     </VisualState.Setters>
                                 </VisualState>
                                 <VisualState x:Name="Pressed">
                                     <VisualState.Setters>
                                         <!-- x:Bind to a compile-time known resource -->
-                                        <Setter Target="RootBorder.Background"
+                                        <Setter Target="RootBorder.Background" 
                                                 Value="{x:Bind DefaultPressedBrush}"/>
                                     </VisualState.Setters>
                                 </VisualState>
@@ -524,7 +524,7 @@ using Microsoft.UI;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Media;
-
+ 
 namespace ExampleNamespace
 {
     public partial class TemplatesResourceDictionary
@@ -533,12 +533,12 @@ namespace ExampleNamespace
         {
             InitializeComponent();
         }
-
+        
         // Properties for x:Bind - these are compile-time bound
-        public SolidColorBrush DefaultIndicatorBrush { get; } =
+        public SolidColorBrush DefaultIndicatorBrush { get; } = 
             new SolidColorBrush(Colors.Green);
-
-        public SolidColorBrush DefaultPressedBrush { get; } =
+            
+        public SolidColorBrush DefaultPressedBrush { get; } = 
             new SolidColorBrush(Colors.DarkGray);
     }
 }
@@ -564,7 +564,7 @@ Usage in MainWindow.xaml with a ViewModel that provides runtime values:
         <Grid.DataContext>
             <examplenamespace:ButtonThemeViewModel/>
         </Grid.DataContext>
-
+        
         <StackPanel Margin="20">
             <!-- These buttons use the mixed binding style -->
             <Button Content="Save" Style="{StaticResource CustomButtonStyle}"/>
@@ -806,7 +806,7 @@ The following example shows how to implement a binding in code.
 ```
 
 ``` csharp
-// Create an instance of the MyColors class
+// Create an instance of the MyColors class 
 // that implements INotifyPropertyChanged.
 var textcolor = new MyColors();
 

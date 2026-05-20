@@ -184,7 +184,7 @@ Here, a **StackPanel** that contains an image and text is set as the content of 
 <Button x:Name="Button2" Click="Button_Click" Width="80" Height="90">
     <StackPanel>
         <Image Source="/Assets/Slices.png" Height="52"/>
-        <TextBlock Text="Slices" Foreground="Black" HorizontalAlignment="Center"/>
+        <TextBlock Text="Slices" Foreground="Black" HorizontalAlignment="Center"/> 
     </StackPanel>
 </Button>
 ```
@@ -277,7 +277,7 @@ private void AlignmentMenuFlyoutItem_Click(object sender, RoutedEventArgs e)
 {
     var option = ((MenuFlyoutItem)sender).Tag.ToString();
 
-Microsoft.UI.Text.ITextSelection selectedText = editor.Document.Selection;
+    Microsoft.UI.Text.ITextSelection selectedText = editor.Document.Selection;
     if (selectedText != null)
     {
         // Apply the alignment to the selected paragraphs.
@@ -403,10 +403,10 @@ public sealed partial class MainPage : Page
     private void ChangeColor()
     {
         // Apply the color to the selected text in a RichEditBox.
-Microsoft.UI.Text.ITextSelection selectedText = editor.Document.Selection;
+        Microsoft.UI.Text.ITextSelection selectedText = editor.Document.Selection;
         if (selectedText != null)
         {
-Microsoft.UI.Text.ITextCharacterFormat charFormatting = selectedText.CharacterFormat;
+            Microsoft.UI.Text.ITextCharacterFormat charFormatting = selectedText.CharacterFormat;
             charFormatting.ForegroundColor = CurrentColorBrush.Color;
             selectedText.CharacterFormat = charFormatting;
         }
@@ -522,13 +522,13 @@ private void ListStylesListView_SelectionChanged(object sender, SelectionChanged
 
 private void ApplyListStyle(string listStyle)
 {
-Microsoft.UI.Text.ITextSelection selectedText = editor.Document.Selection;
+    Microsoft.UI.Text.ITextSelection selectedText = editor.Document.Selection;
     if (selectedText != null)
     {
         // Apply the list style to the selected text.
         var paragraphFormatting = selectedText.ParagraphFormat;
         if (listStyle == "none")
-        {
+        {  
             paragraphFormatting.ListType = Windows.UI.Text.MarkerType.None;
         }
         else if (listStyle == "bullet")
