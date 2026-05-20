@@ -55,7 +55,7 @@ We recommend that you specify keyboard accelerators wherever appropriate in your
 
 ## Specify a keyboard accelerator
 
-Use the [KeyboardAccelerator](/uwp/api/windows.ui.xaml.input.keyboardaccelerator.-ctor) APIs to create keyboard accelerators in Windows apps. With these APIs, you don't have to handle multiple KeyDown events to detect the key combination pressed, and you can localize accelerators in the app resources.
+Use the [KeyboardAccelerator](/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.input.keyboardaccelerator.-ctor) APIs to create keyboard accelerators in Windows apps. With these APIs, you don't have to handle multiple KeyDown events to detect the key combination pressed, and you can localize accelerators in the app resources.
 
 We recommend that you set keyboard accelerators for the most common actions in your app and document them using the menu item label or tooltip. In this example, we declare keyboard accelerators only for the Rename and Copy commands.
 

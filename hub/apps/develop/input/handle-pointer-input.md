@@ -608,7 +608,7 @@ String QueryPointer(PointerPoint ptrPt)
 ## Primary pointer
 Some input devices, such as a touch digitizer or touchpad, support more than the typical single pointer of a mouse or a pen (in most cases as the Surface Hub supports two pen inputs). 
 
-Use the read-only **[IsPrimary](/uwp/api/windows.ui.input.pointerpointproperties.IsPrimary)** property of the **[PointerPointerProperties](/uwp/api/windows.ui.input.pointerpointproperties)** class to identify and differentiate a single primary pointer (the primary pointer is always the first pointer detected during an input sequence). 
+Use the read-only **[IsPrimary](/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpointproperties.IsPrimary)** property of the **[PointerPointerProperties](/windows/windows-app-sdk/api/winrt/microsoft.ui.input.pointerpointproperties)** class to identify and differentiate a single primary pointer (the primary pointer is always the first pointer detected during an input sequence).
 
 By identifying the primary pointer, you can use it to emulate mouse or pen input, customize interactions, or provide some other specific functionality or UI.
 
